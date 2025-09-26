@@ -3,32 +3,126 @@
     "id": 1,
     "name": "Classic Cotton T-Shirt",
     "price": 29.99,
-    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center",
-    "description": "A premium quality cotton t-shirt with a comfortable fit. Made from 100% organic cotton, this versatile piece is perfect for everyday wear. Available in multiple colors and sizes.",
-    "category": "T-Shirts"
+    "images": [
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&h=600&fit=crop&crop=center",
+      "https://images.unsplash.com/photo-1583743814966-8936f37f4ec2?w=600&h=600&fit=crop&crop=center",
+      "https://images.unsplash.com/photo-1562157873-818bc0726f68?w=600&h=600&fit=crop&crop=center",
+      "https://images.unsplash.com/photo-1571945153237-4929e783af4a?w=600&h=600&fit=crop&crop=center"
+    ],
+    "description": "A premium quality cotton t-shirt with a comfortable fit. Made from 100% organic cotton, this versatile piece is perfect for everyday wear. Unisex design suitable for all.",
+    "category": "Tshirts",
+    "colors": [
+      {"name": "Black", "hex": "#000000", "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&h=600&fit=crop&crop=center"},
+      {"name": "White", "hex": "#FFFFFF", "image": "https://images.unsplash.com/photo-1583743814966-8936f37f4ec2?w=600&h=600&fit=crop&crop=center"},
+      {"name": "Navy", "hex": "#1F2937", "image": "https://images.unsplash.com/photo-1562157873-818bc0726f68?w=600&h=600&fit=crop&crop=center"}
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "inStock": true,
+    "featured": true
   },
   {
     "id": 2,
-    "name": "Denim Jacket",
-    "price": 89.99,
-    "image": "https://images.unsplash.com/photo-1544966503-7cc5ac882d5a?w=400&h=400&fit=crop&crop=center",
-    "description": "A timeless denim jacket that never goes out of style. Crafted from high-quality denim with vintage-inspired details. Perfect for layering and adding a casual edge to any outfit.",
-    "category": "Jackets"
+    "name": "Premium Polo Shirt",
+    "price": 45.99,
+    "images": [
+      "https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=600&h=600&fit=crop&crop=center",
+      "https://images.unsplash.com/photo-1564859228273-274232fdb516?w=600&h=600&fit=crop&crop=center",
+      "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&h=600&fit=crop&crop=center",
+      "https://images.unsplash.com/photo-1581803118522-7b72a50f7e9f?w=600&h=600&fit=crop&crop=center"
+    ],
+    "description": "Sophisticated polo shirt with classic collar design. Perfect for corporate wear and casual outings. Premium cotton blend fabric.",
+    "category": "Shirts",
+    "colors": [
+      {"name": "Navy", "hex": "#1F2937", "image": "https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=600&h=600&fit=crop&crop=center"},
+      {"name": "White", "hex": "#FFFFFF", "image": "https://images.unsplash.com/photo-1564859228273-274232fdb516?w=600&h=600&fit=crop&crop=center"},
+      {"name": "Grey", "hex": "#6B7280", "image": "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&h=600&fit=crop&crop=center"}
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "inStock": true,
+    "featured": true
   },
   {
     "id": 3,
-    "name": "Slim Fit Jeans",
-    "price": 59.99,
-    "image": "https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=400&fit=crop&crop=center",
-    "description": "Modern slim-fit jeans with stretch comfort technology. These jeans offer the perfect balance of style and comfort, featuring a contemporary cut that flatters all body types.",
-    "category": "Jeans"
+    "name": "Elegant Blouse",
+    "price": 55.99,
+    "images": [
+      "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=600&h=600&fit=crop&crop=center",
+      "https://images.unsplash.com/photo-1566479179817-0b3c2cfdf3d6?w=600&h=600&fit=crop&crop=center",
+      "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=600&h=600&fit=crop&crop=center",
+      "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=600&h=600&fit=crop&crop=center"
+    ],
+    "description": "Beautiful women's blouse with flowing fabric and elegant design. Perfect for office wear and special occasions.",
+    "category": "Blouses",
+    "colors": [
+      {"name": "Cream", "hex": "#F9F7FF", "image": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=600&h=600&fit=crop&crop=center"},
+      {"name": "Dusty Rose", "hex": "#D4A5A5", "image": "https://images.unsplash.com/photo-1566479179817-0b3c2cfdf3d6?w=600&h=600&fit=crop&crop=center"},
+      {"name": "Sage", "hex": "#87A96B", "image": "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=600&h=600&fit=crop&crop=center"}
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "inStock": true,
+    "featured": false
   },
   {
     "id": 4,
-    "name": "Knit Sweater",
-    "price": 79.99,
-    "image": "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=400&h=400&fit=crop&crop=center",
-    "description": "Cozy knit sweater perfect for cooler weather. Made from a soft wool blend with ribbed details at the cuffs and hem. A wardrobe essential that combines warmth with sophisticated style.",
-    "category": "Sweaters"
+    "name": "Cozy Sweatshirt",
+    "price": 65.99,
+    "images": [
+      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600&h=600&fit=crop&crop=center",
+      "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=600&fit=crop&crop=center",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=600&h=600&fit=crop&crop=center",
+      "https://images.unsplash.com/photo-1577633002569-c90d5c92a8b5?w=600&h=600&fit=crop&crop=center"
+    ],
+    "description": "Comfortable unisex sweatshirt perfect for casual wear and layering. Soft fleece interior and durable construction.",
+    "category": "Sweatshirts",
+    "colors": [
+      {"name": "Charcoal", "hex": "#374151", "image": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600&h=600&fit=crop&crop=center"},
+      {"name": "Maroon", "hex": "#7F1D1D", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=600&fit=crop&crop=center"},
+      {"name": "Forest Green", "hex": "#065F46", "image": "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=600&h=600&fit=crop&crop=center"}
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "inStock": true,
+    "featured": true
+  },
+  {
+    "id": 5,
+    "name": "Classic Hoodie",
+    "price": 75.99,
+    "images": [
+      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600&h=600&fit=crop&crop=center",
+      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&h=600&fit=crop&crop=center",
+      "https://images.unsplash.com/photo-1608256246200-53e8b47b2264?w=600&h=600&fit=crop&crop=center",
+      "https://images.unsplash.com/photo-1542406775-ade58c52d2e4?w=600&h=600&fit=crop&crop=center"
+    ],
+    "description": "Premium hoodie with adjustable drawstring and kangaroo pocket. Perfect for corporate group orders and casual wear.",
+    "category": "Sweatshirts",
+    "colors": [
+      {"name": "Black", "hex": "#000000", "image": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600&h=600&fit=crop&crop=center"},
+      {"name": "Heather Grey", "hex": "#9CA3AF", "image": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&h=600&fit=crop&crop=center"},
+      {"name": "Navy", "hex": "#1F2937", "image": "https://images.unsplash.com/photo-1608256246200-53e8b47b2264?w=600&h=600&fit=crop&crop=center"}
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "inStock": true,
+    "featured": false
+  },
+  {
+    "id": 6,
+    "name": "Floral Summer Dress",
+    "price": 89.99,
+    "images": [
+      "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&h=600&fit=crop&crop=center",
+      "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=600&h=600&fit=crop&crop=center",
+      "https://images.unsplash.com/photo-1566479179817-0b3c2cfdf3d6?w=600&h=600&fit=crop&crop=center",
+      "https://images.unsplash.com/photo-1544537151-6e4b99de3c8b?w=600&h=600&fit=crop&crop=center"
+    ],
+    "description": "Beautiful women's dress with elegant floral patterns. Perfect for summer occasions and special events.",
+    "category": "Blouses",
+    "colors": [
+      {"name": "Floral Blue", "hex": "#3B82F6", "image": "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&h=600&fit=crop&crop=center"},
+      {"name": "Floral Pink", "hex": "#EC4899", "image": "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=600&h=600&fit=crop&crop=center"},
+      {"name": "Floral White", "hex": "#FFFFFF", "image": "https://images.unsplash.com/photo-1566479179817-0b3c2cfdf3d6?w=600&h=600&fit=crop&crop=center"}
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "inStock": true,
+    "featured": true
   }
 ]
