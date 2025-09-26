@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "name": "Classic Cotton T-Shirt",
+    "price": 29.99,
+    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center",
+    "description": "A premium quality cotton t-shirt with a comfortable fit. Made from 100% organic cotton, this versatile piece is perfect for everyday wear. Available in multiple colors and sizes.",
+    "category": "T-Shirts"
+  },
+  {
+    "id": 2,
+    "name": "Denim Jacket",
+    "price": 89.99,
+    "image": "https://images.unsplash.com/photo-1544966503-7cc5ac882d5a?w=400&h=400&fit=crop&crop=center",
+    "description": "A timeless denim jacket that never goes out of style. Crafted from high-quality denim with vintage-inspired details. Perfect for layering and adding a casual edge to any outfit.",
+    "category": "Jackets"
+  },
+  {
+    "id": 3,
+    "name": "Slim Fit Jeans",
+    "price": 59.99,
+    "image": "https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=400&fit=crop&crop=center",
+    "description": "Modern slim-fit jeans with stretch comfort technology. These jeans offer the perfect balance of style and comfort, featuring a contemporary cut that flatters all body types.",
+    "category": "Jeans"
+  },
+  {
+    "id": 4,
+    "name": "Knit Sweater",
+    "price": 79.99,
+    "image": "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=400&h=400&fit=crop&crop=center",
+    "description": "Cozy knit sweater perfect for cooler weather. Made from a soft wool blend with ribbed details at the cuffs and hem. A wardrobe essential that combines warmth with sophisticated style.",
+    "category": "Sweaters"
+  }
+]
