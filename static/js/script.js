@@ -83,9 +83,6 @@ function renderProducts(filteredProducts = null) {
                         <button class="btn btn-primary btn-order w-100" onclick="viewProduct(${product.id})">
                             View Details
                         </button>
-                        <button class="btn btn-success mt-2 w-100" onclick="orderNow(${product.id})">
-                            Order Now
-                        </button>
                     </div>
                 </div>
             </div>
@@ -149,7 +146,7 @@ async function loadProductDetails() {
         document.getElementById('product-description').textContent = product.description;
         
         // Update page title
-        document.title = `${product.name} - StyleCraft`;
+        document.title = `${product.name} - PSJ Priya'z Style Jone`;
         
     } catch (error) {
         console.error('Error loading product details:', error);

@@ -1,12 +1,15 @@
-/* Custom Styles for StyleCraft Clothing Brand */
+/* Custom Styles for PSJ Priya'z Style Jone Clothing Brand */
 
 :root {
-    --primary-color: #2c3e50;
-    --secondary-color: #3498db;
-    --accent-color: #e74c3c;
-    --text-color: #2c3e50;
-    --light-bg: #f8f9fa;
+    /* 2025 Pantone Color Palette */
+    --primary-color: #8B6F47; /* Mocha Mousse - Color of the Year 2025 */
+    --secondary-color: #2E5266; /* Lyons Blue - Deep Teal */
+    --accent-color: #9B4444; /* Winterberry - Sultry Red */
+    --text-color: #3C2E2A; /* Rich Brown for text */
+    --light-bg: #F5F3F0; /* Cocoon - Enveloping Beige */
     --border-radius: 0.5rem;
+    --hero-gradient-start: #8B6F47; /* Mocha Mousse */
+    --hero-gradient-end: #2E5266; /* Lyons Blue */
 }
 
 body {
@@ -17,8 +20,8 @@ body {
 
 /* Hero Section */
 .hero-section {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    min-height: 60vh;
+    background: linear-gradient(135deg, var(--hero-gradient-start), var(--hero-gradient-end));
+    min-height: 35vh;
     display: flex;
     align-items: center;
 }
@@ -104,7 +107,7 @@ body {
 }
 
 .btn-order:hover {
-    background: #c0392b;
+    background: #7A3A3A;
     transform: translateY(-2px);
 }
 
@@ -127,7 +130,7 @@ body {
 /* Responsive Design */
 @media (max-width: 768px) {
     .hero-section {
-        min-height: 50vh;
+        min-height: 30vh;
         text-align: center;
     }
     
