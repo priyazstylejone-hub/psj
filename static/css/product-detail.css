@@ -1,0 +1,241 @@
+/* Product Detail Page Styles */
+
+.main-image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+}
+
+.main-image-container img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.main-image-container:hover img {
+    transform: scale(1.05);
+}
+
+/* Thumbnail Gallery */
+.thumbnail-gallery {
+    max-height: 120px;
+    overflow-x: auto;
+}
+
+.thumbnail-item {
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.thumbnail-item:hover {
+    border-color: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+.thumbnail-item.active {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.thumbnail-item img {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+}
+
+/* Color Selector */
+.color-selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.color-option {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.color-option:hover {
+    border-color: var(--secondary-color);
+    transform: scale(1.1);
+}
+
+.color-option.selected {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.color-option img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Size Selector */
+.size-selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.size-option {
+    min-width: 50px;
+    height: 50px;
+    border: 2px solid var(--light-bg);
+    background: white;
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.size-option:hover {
+    border-color: var(--secondary-color);
+    background: var(--light-bg);
+    transform: translateY(-2px);
+}
+
+.size-option.selected {
+    border-color: var(--primary-color);
+    background: var(--primary-color);
+    color: white;
+}
+
+.size-option.out-of-stock {
+    background: #f8f9fa;
+    color: #6c757d;
+    cursor: not-allowed;
+    text-decoration: line-through;
+}
+
+.size-option.out-of-stock:hover {
+    transform: none;
+    border-color: var(--light-bg);
+}
+
+/* Product Info Detail */
+.product-info-detail {
+    padding: 1rem;
+}
+
+.product-meta {
+    background: var(--light-bg);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    margin-top: 2rem;
+}
+
+.product-meta ul li {
+    padding: 0.25rem 0;
+}
+
+/* WhatsApp Button */
+.btn-success {
+    background: #25D366;
+    border-color: #25D366;
+}
+
+.btn-success:hover {
+    background: #128C7E;
+    border-color: #128C7E;
+}
+
+.btn-success:disabled {
+    background: #6c757d;
+    border-color: #6c757d;
+}
+
+/* Share Button */
+.btn-outline-primary {
+    border-color: var(--secondary-color);
+    color: var(--secondary-color);
+}
+
+.btn-outline-primary:hover {
+    background: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-image-container img {
+        height: 350px;
+    }
+    
+    .color-option {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .size-option {
+        min-width: 45px;
+        height: 45px;
+        font-size: 0.9rem;
+    }
+    
+    .product-info-detail {
+        padding: 0.5rem;
+    }
+    
+    .thumbnail-item img {
+        height: 60px;
+    }
+}
+
+@media (max-width: 576px) {
+    .main-image-container img {
+        height: 300px;
+    }
+    
+    .color-selector,
+    .size-selector {
+        justify-content: center;
+    }
+    
+    .product-meta {
+        padding: 1rem;
+    }
+}
+
+/* Animation for loading states */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Scroll behavior for thumbnail gallery */
+.thumbnail-gallery::-webkit-scrollbar {
+    height: 6px;
+}
+
+.thumbnail-gallery::-webkit-scrollbar-track {
+    background: var(--light-bg);
+    border-radius: 3px;
+}
+
+.thumbnail-gallery::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+    border-radius: 3px;
+}
+
+.thumbnail-gallery::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}

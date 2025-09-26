@@ -117,6 +117,29 @@ body {
     letter-spacing: 1px;
 }
 
+.navbar-brand .logo {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.navbar-brand span {
+    font-size: 1.4rem;
+}
+
+@media (max-width: 768px) {
+    .navbar-brand span {
+        font-size: 1.1rem;
+    }
+    
+    .navbar-brand .logo {
+        width: 35px;
+        height: 35px;
+    }
+}
+
 /* Product Details Page */
 .product-info h1 {
     color: var(--primary-color);
@@ -193,4 +216,74 @@ html {
 .card:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Color and Size Indicators */
+.color-indicators {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.color-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.color-dot:hover {
+    transform: scale(1.2);
+}
+
+.size-indicators {
+    font-size: 0.85rem;
+}
+
+/* Admin Upload Features */
+.admin-upload-section {
+    background: var(--light-bg);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    margin: 2rem 0;
+    border: 2px dashed var(--secondary-color);
+}
+
+.upload-dropzone {
+    border: 2px dashed #ccc;
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.upload-dropzone:hover {
+    border-color: var(--secondary-color);
+    background: var(--light-bg);
+}
+
+.upload-dropzone.dragover {
+    border-color: var(--primary-color);
+    background: rgba(139, 111, 71, 0.1);
+}
+
+/* WhatsApp Number Configuration */
+.whatsapp-config {
+    background: #25D366;
+    color: white;
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+.whatsapp-config input {
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 0.5rem;
+    width: 100%;
 }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PSJ Priya'z Style Jone - Premium Clothing Brand</title>
+    <title>Category - PSJ Priya'z Style Jone</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="static/css/style.css">
 </head>
@@ -21,7 +21,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.html">Home</a>
+                        <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
@@ -34,39 +34,61 @@
                             <li><a class="dropdown-item" href="category.html?cat=Sweatshirts">Sweatshirts</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="admin.html">Admin</a>
-                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero-section text-white py-5">
-        <div class="container text-center">
-            <h1 class="display-4 fw-bold mb-3">Premium Clothing Collection</h1>
-            <p class="lead mb-4">Specialized in Unisex Tshirts, Sweatshirts, Polos and Hoodies, Blouses, Women's Dresses & Corporate/Group Bulk Orders</p>
+    <!-- Category Header -->
+    <section class="py-4 bg-light">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page" id="category-breadcrumb">Category</li>
+                </ol>
+            </nav>
+            <h1 id="category-title" class="display-5 fw-bold text-center"></h1>
+            <p id="category-description" class="text-center text-muted"></p>
         </div>
     </section>
 
+    <!-- Loading Spinner -->
+    <div id="loading" class="text-center py-5">
+        <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
     <!-- Products Section -->
-    <section id="products" class="py-5 bg-light">
+    <section id="category-products" class="py-5" style="display: none;">
         <div class="container">
-            <h2 class="text-center mb-5">Most Popular Products</h2>
-            <div id="product-grid" class="row">
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <p id="product-count" class="text-muted"></p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <select id="sort-select" class="form-select d-inline-block w-auto">
+                        <option value="name">Sort by Name</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="newest">Newest First</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div id="products-grid" class="row">
                 <!-- Products will be loaded dynamically -->
             </div>
         </div>
     </section>
 
-    <!-- Categories Section -->
-    <section class="py-5">
+    <!-- No Products Found -->
+    <section id="no-products" class="py-5 text-center" style="display: none;">
         <div class="container">
-            <h2 class="text-center mb-5">Shop by Category</h2>
-            <div id="categories" class="row">
-                <!-- Categories will be loaded dynamically -->
-            </div>
+            <h3 class="mb-3">No Products Found</h3>
+            <p class="lead mb-4">We couldn't find any products in this category.</p>
+            <a href="index.html" class="btn btn-primary">Browse All Products</a>
         </div>
     </section>
 
@@ -79,5 +101,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="static/js/script.js"></script>
+    <script src="static/js/category.js"></script>
 </body>
 </html>

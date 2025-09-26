@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - PSJ Priya'z Style Jone</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand fw-bold d-flex align-items-center" href="index.html">
+                <img src="attached_assets/stock_images/clothing_brand_logo__1ea78c53.jpg" alt="PSJ Logo" class="logo me-2">
+                <span>PSJ Priya'z Style Jone</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="admin.html">Admin</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Admin Panel -->
+    <section class="py-5">
+        <div class="container">
+            <h1 class="text-center mb-5">Admin Panel</h1>
+            
+            <!-- WhatsApp Configuration -->
+            <div class="row mb-5">
+                <div class="col-md-8 mx-auto">
+                    <div class="whatsapp-config">
+                        <h4><i class="fab fa-whatsapp me-2"></i>WhatsApp Configuration</h4>
+                        <div class="mt-3">
+                            <label for="whatsapp-number" class="form-label">WhatsApp Number (with country code):</label>
+                            <input type="text" id="whatsapp-number" class="form-control" placeholder="+1234567890" value="+1234567890">
+                            <small class="text-white-50">This number will be used for customer orders via WhatsApp</small>
+                        </div>
+                        <button class="btn btn-light mt-3" onclick="updateWhatsAppNumber()">Update Number</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Logo Upload Section -->
+            <div class="row mb-5">
+                <div class="col-md-8 mx-auto">
+                    <div class="admin-upload-section">
+                        <h4>Brand Logo Management</h4>
+                        <p class="text-muted">Current logo is displayed in the navigation. Upload a new logo to replace it.</p>
+                        
+                        <div class="upload-dropzone" onclick="document.getElementById('logo-upload').click()">
+                            <i class="fas fa-cloud-upload-alt fa-3x mb-3 text-muted"></i>
+                            <p>Click to upload new logo or drag and drop</p>
+                            <small class="text-muted">Recommended: 200x200px, PNG or JPG format</small>
+                        </div>
+                        <input type="file" id="logo-upload" accept=".png,.jpg,.jpeg" style="display: none;" onchange="handleLogoUpload(event)">
+                        
+                        <div class="mt-3">
+                            <strong>Current Logo:</strong><br>
+                            <img id="current-logo" src="attached_assets/stock_images/clothing_brand_logo__1ea78c53.jpg" alt="Current Logo" class="img-thumbnail" style="max-width: 100px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Management Section -->
+            <div class="row mb-5">
+                <div class="col-12">
+                    <div class="admin-upload-section">
+                        <h4>Product Management</h4>
+                        <p class="text-muted">Add new products or modify existing ones. Products are stored in products.json file.</p>
+                        
+                        <!-- Add New Product Form -->
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <h5>Add New Product</h5>
+                            </div>
+                            <div class="card-body">
+                                <form id="new-product-form">
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="product-name" class="form-label">Product Name</label>
+                                            <input type="text" class="form-control" id="product-name" required>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="product-price" class="form-label">Price ($)</label>
+                                            <input type="number" class="form-control" id="product-price" step="0.01" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="product-category" class="form-label">Category</label>
+                                            <select class="form-select" id="product-category" required>
+                                                <option value="">Select Category</option>
+                                                <option value="Tshirts">T-Shirts</option>
+                                                <option value="Shirts">Shirts</option>
+                                                <option value="Blouses">Blouses</option>
+                                                <option value="Sweatshirts">Sweatshirts</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="product-featured" class="form-label">Featured Product</label>
+                                            <select class="form-select" id="product-featured">
+                                                <option value="false">No</option>
+                                                <option value="true">Yes</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="product-description" class="form-label">Description</label>
+                                        <textarea class="form-control" id="product-description" rows="3" required></textarea>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="product-images" class="form-label">Product Images (4-6 recommended)</label>
+                                        <input type="file" class="form-control" id="product-images" multiple accept=".png,.jpg,.jpeg">
+                                        <small class="text-muted">Upload multiple images for product gallery</small>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label class="form-label">Available Sizes</label>
+                                            <div class="form-check-group">
+                                                <input type="checkbox" class="form-check-input" id="size-s" value="S" checked>
+                                                <label class="form-check-label me-3" for="size-s">S</label>
+                                                
+                                                <input type="checkbox" class="form-check-input" id="size-m" value="M" checked>
+                                                <label class="form-check-label me-3" for="size-m">M</label>
+                                                
+                                                <input type="checkbox" class="form-check-input" id="size-l" value="L" checked>
+                                                <label class="form-check-label me-3" for="size-l">L</label>
+                                                
+                                                <input type="checkbox" class="form-check-input" id="size-xl" value="XL" checked>
+                                                <label class="form-check-label me-3" for="size-xl">XL</label>
+                                                
+                                                <input type="checkbox" class="form-check-input" id="size-xxl" value="XXL" checked>
+                                                <label class="form-check-label" for="size-xxl">XXL</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="color-management" class="form-label">Color Management</label>
+                                            <div id="color-management">
+                                                <button type="button" class="btn btn-outline-secondary btn-sm" onclick="addColorOption()">Add Color</button>
+                                                <div id="color-options-container" class="mt-2">
+                                                    <!-- Color options will be added dynamically -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <button type="submit" class="btn btn-primary">Add Product</button>
+                                </form>
+                            </div>
+                        </div>
+                        
+                        <!-- Current Products List -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Current Products</h5>
+                            </div>
+                            <div class="card-body">
+                                <div id="products-list">
+                                    <div class="text-center">
+                                        <div class="spinner-border" role="status">
+                                            <span class="visually-hidden">Loading...</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Instructions Section -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <h5>How to Use This Admin Panel</h5>
+                            <ol>
+                                <li><strong>WhatsApp Orders:</strong> Update your WhatsApp number to receive orders directly from customers</li>
+                                <li><strong>Logo Management:</strong> Upload your brand logo to replace the placeholder</li>
+                                <li><strong>Product Management:</strong> Add new products with multiple images, colors, and sizes</li>
+                                <li><strong>Categories:</strong> Organize products into T-Shirts, Shirts, Blouses, and Sweatshirts</li>
+                                <li><strong>Image Upload:</strong> Upload high-quality product images for better customer experience</li>
+                                <li><strong>Bulk Orders:</strong> Customers can specify bulk order requirements via WhatsApp</li>
+                            </ol>
+                            
+                            <div class="alert alert-info mt-3">
+                                <strong>Note:</strong> This is a client-side admin panel. In a production environment, you would want to implement proper authentication and server-side storage for security.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2025 PSJ Priya'z Style Jone. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+    <script src="static/js/script.js"></script>
+    <script src="static/js/admin.js"></script>
+</body>
+</html>

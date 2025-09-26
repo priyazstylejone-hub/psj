@@ -74,11 +74,11 @@ function renderProducts(filteredProducts = null) {
     const productsHTML = productsToRender.map(product => `
         <div class="col-lg-3 col-md-6 mb-4">
             <div class="card product-card h-100">
-                <img src="${product.image}" alt="${product.name}" class="product-image">
+                <img src="${product.images ? product.images[0] : product.image}" alt="${product.name}" class="product-image">
                 <div class="card-body product-info d-flex flex-column">
                     <span class="badge bg-secondary mb-2 align-self-start">${product.category}</span>
                     <h5 class="product-title">${product.name}</h5>
-                    <p class="product-price">$${product.price}</p>
+                    <p class="product-price">$${product.price.toFixed(2)}</p>
                     <div class="mt-auto">
                         <button class="btn btn-primary btn-order w-100" onclick="viewProduct(${product.id})">
                             View Details
@@ -103,7 +103,7 @@ function filterByCategory(category) {
 
 // View product details
 function viewProduct(productId) {
-    window.location.href = `product.html?id=${productId}`;
+    window.location.href = `product-detail.html?id=${productId}`;
 }
 
 // Load product details for product page
