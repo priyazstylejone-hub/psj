@@ -1,58 +1,72 @@
+
 // Category Page JavaScript
 let allProducts = [];
 let filteredProducts = [];
 let currentCategory = '';
 
-// Category descriptions
+// Category descriptions (update as needed)
 const categoryDescriptions = {
-    'Tshirts': 'Comfortable and stylish unisex t-shirts perfect for everyday wear',
-    'Shirts': 'Premium shirts and polos for professional and casual occasions',
-    'Blouses': 'Elegant blouses and dresses for women\'s fashion',
-    'Sweatshirts': 'Cozy sweatshirts and hoodies for casual comfort'
+    'Tshirts (Unisex)': 'Comfortable and stylish unisex t-shirts perfect for everyday wear.',
+    'SweatShirts (Unisex)': 'Cozy sweatshirts and hoodies for casual comfort.',
+    'Hoodies (Unisex)': 'Trendy and warm hoodies for all genders.',
+    'Polos': 'Premium polos for a smart and casual look.',
+    'Female Dresses': 'Elegant dresses for women’s fashion.',
+    'Ladies Blouses': 'Chic and stylish blouses for ladies.'
 };
 
 // Load category products on page load
 document.addEventListener('DOMContentLoaded', function() {
     loadCategoryProducts();
-    
-    // Setup sort functionality
     document.getElementById('sort-select').addEventListener('change', function() {
         sortProducts(this.value);
     });
 });
 
+// Helper: get mapped category for a product (same as homepage)
+function getMappedCategory(product) {
+    const pname = product.name.toLowerCase();
+    if (pname.includes('classic') && pname.includes('t-shirt')) return 'Tshirts (Unisex)';
+    if (pname.includes('sweatshirt')) return 'SweatShirts (Unisex)';
+    if (pname.includes('blouse')) return 'Ladies Blouses';
+    if (pname.includes('polo')) return 'Polos';
+    if (pname.includes('hoodie')) return 'Hoodies (Unisex)';
+    if (pname.includes('dress')) return 'Female Dresses';
+    // Fallback: best match by keyword
+    const keys = [
+        {cat: 'Tshirts (Unisex)', key: 'tshirt'},
+        {cat: 'SweatShirts (Unisex)', key: 'sweatshirt'},
+        {cat: 'Hoodies (Unisex)', key: 'hoodie'},
+        {cat: 'Polos', key: 'polo'},
+        {cat: 'Female Dresses', key: 'dress'},
+        {cat: 'Ladies Blouses', key: 'blouse'}
+    ];
+    for (const k of keys) {
+        if (pname.includes(k.key)) return k.cat;
+    }
+    return null;
+}
+
 // Load and display category products
 async function loadCategoryProducts() {
     const urlParams = new URLSearchParams(window.location.search);
     currentCategory = urlParams.get('cat');
-    
     if (!currentCategory) {
         showNoProducts();
         return;
     }
-    
     try {
         // Load products
         const response = await fetch('products.json');
-        if (!response.ok) {
-            throw new Error('Failed to load products');
-        }
+        if (!response.ok) throw new Error('Failed to load products');
         allProducts = await response.json();
-        
-        // Filter products by category
-        filteredProducts = allProducts.filter(product => 
-            product.category.toLowerCase() === currentCategory.toLowerCase()
-        );
-        
+        // Filter products by mapped category
+        filteredProducts = allProducts.filter(product => getMappedCategory(product) === currentCategory);
         if (filteredProducts.length === 0) {
             showNoProducts();
             return;
         }
-        
-        // Update page content
         updatePageHeader();
         displayProducts();
-        
     } catch (error) {
         console.error('Error loading category products:', error);
         showError('Failed to load products. Please try again.');
@@ -157,12 +171,21 @@ function viewProduct(productId) {
     window.location.href = `product-detail.html?id=${productId}`;
 }
 
-// Show no products message
+// Show no products message (beautiful message)
 function showNoProducts() {
     document.getElementById('loading').style.display = 'none';
-    document.getElementById('no-products').style.display = 'block';
-    
-    // Still update the header if we have a category
+    const noProductsSection = document.getElementById('no-products');
+    noProductsSection.style.display = 'block';
+    noProductsSection.innerHTML = `
+        <div class="container py-5">
+            <div class="d-flex flex-column align-items-center justify-content-center">
+                <h2 class="mb-3 text-secondary">No Products Available</h2>
+                <p class="lead mb-4">We couldn't find any products in this category for now.<br>But stay tuned, beautiful things are coming soon!</p>
+                <a href="all-products.html" class="btn btn-primary mb-4">Browse All Products</a>
+                <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?w=400&h=300&fit=crop" alt="Coming Soon" style="max-width:220px;opacity:0.85;" class="rounded shadow mt-2">
+            </div>
+        </div>
+    `;
     if (currentCategory) {
         updatePageHeader();
     }

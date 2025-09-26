@@ -40,22 +40,95 @@ function renderCategories() {
     const categoriesContainer = document.getElementById('categories');
     if (!categoriesContainer) return;
     
-    // Get unique categories and count products (using category.primary)
-    const categoryCount = {};
-    products.forEach(product => {
-        const cat = product.category && product.category.primary ? product.category.primary : (typeof product.category === 'string' ? product.category : 'Other');
-        categoryCount[cat] = (categoryCount[cat] || 0) + 1;
-    });
+    // Define fixed categories and images
+    const fixedCategories = [
+        { name: 'Tshirts (Unisex)', key: 'Tshirts', img: 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=600&h=400&fit=crop', icon: 'bi-tshirt' },
+        { name: 'SweatShirts (Unisex)', key: 'SweatShirts', img: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=600&h=400&fit=crop', icon: 'bi-cloud-drizzle' },
+        { name: 'Hoodies (Unisex)', key: 'Hoodies', img: 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=600&h=400&fit=crop', icon: 'bi-emoji-sunglasses' },
+        { name: 'Polos', key: 'Polos', img: 'https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=600&h=400&fit=crop', icon: 'bi-clipboard2-pulse' },
+        { name: 'Female Dresses', key: 'Female Dresses', img: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600&h=400&fit=crop', icon: 'bi-person-lines-fill' },
+        { name: 'Ladies Blouses', key: 'Ladies Blouses', img: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=600&h=400&fit=crop', icon: 'bi-person-bounding-box' }
+    ];
 
-    const categoriesHTML = Object.entries(categoryCount).map(([category, count]) => `
-        <div class="col-md-3 col-sm-6 mb-4">
-            <div class="category-card" onclick="filterByCategory('${category}')">
-                <div class="category-count">${count}</div>
-                <h5 class="mt-2">${category}</h5>
-                <p class="text-muted mb-0">Browse ${category.toLowerCase()}</p>
-            </div>
+    // Helper: improved match for Polos and others
+    function matchScore(productName, categoryKey) {
+        if (!productName || !categoryKey) return 0;
+        const name = productName.toLowerCase();
+        const key = categoryKey.toLowerCase().replace(/\s|\(|\)/g, '');
+        // Special case for Polos
+        if (key === 'polos' && name.includes('polo')) return 1.0;
+        let matchCount = 0;
+        const keyWords = key.split(/\W+/).filter(w => w.length > 2);
+        for (let word of keyWords) {
+            if (name.includes(word)) matchCount++;
+        }
+        return keyWords.length ? (matchCount / keyWords.length) : 0;
+    }
+
+    // Assign each product to the best-matching category
+    const categoryCount = {};
+    const productCategoryMap = {};
+    fixedCategories.forEach(cat => categoryCount[cat.name] = 0);
+    products.forEach(product => {
+        // Explicit mapping for known products
+        const pname = product.name.toLowerCase();
+        if (pname.includes('classic') && pname.includes('t-shirt')) {
+            categoryCount['Tshirts (Unisex)']++;
+            productCategoryMap[product.id] = 'Tshirts (Unisex)';
+            return;
+        }
+        if (pname.includes('sweatshirt')) {
+            categoryCount['SweatShirts (Unisex)']++;
+            productCategoryMap[product.id] = 'SweatShirts (Unisex)';
+            return;
+        }
+        if (pname.includes('blouse')) {
+            categoryCount['Ladies Blouses']++;
+            productCategoryMap[product.id] = 'Ladies Blouses';
+            return;
+        }
+        // Fallback to best match
+        let bestCat = null;
+        let bestScore = 0.3; // minimum threshold
+        for (const cat of fixedCategories) {
+            const score = matchScore(product.name, cat.key);
+            if (score > bestScore) {
+                bestScore = score;
+                bestCat = cat.name;
+            }
+        }
+        if (bestCat) {
+            categoryCount[bestCat]++;
+            productCategoryMap[product.id] = bestCat;
+        }
+    });
+    window.productCategoryMap = productCategoryMap;
+
+    const categoriesHTML = fixedCategories.map(cat => {
+        const count = categoryCount[cat.name];
+        const imgSrc = cat.img;
+        const catParam = encodeURIComponent(cat.name);
+        // Icon for category
+        const icon = `<i class="bi ${cat.icon} me-1"></i>`;
+        // Badge color logic
+        let badgeClass = 'bg-secondary';
+        if (count > 1) badgeClass = 'bg-success';
+        else if (count === 0) badgeClass = 'bg-secondary text-bg-secondary opacity-50';
+        return `
+        <div class="col-md-4 col-sm-6 mb-4">
+            <a href="category.html?cat=${catParam}" class="text-decoration-none text-dark">
+                <div class="card h-100 shadow-sm category-card-hover">
+                    <img src="${imgSrc}" alt="${cat.name}" class="card-img-top" style="height:180px;object-fit:cover;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title mb-2">${icon}${cat.name}</h5>
+                        <span class="badge ${badgeClass} mb-2">${count} products</span>
+                        <p class="card-text text-muted small">Browse ${cat.name.toLowerCase()}</p>
+                    </div>
+                </div>
+            </a>
         </div>
-    `).join('');
+        `;
+    }).join('');
 
     categoriesContainer.innerHTML = categoriesHTML;
 }
@@ -76,6 +149,15 @@ function renderProducts(filteredProducts = null) {
         return;
     }
     
+    // Category icon map
+    const catIconMap = {
+        'Tshirts (Unisex)': 'bi-tshirt',
+        'SweatShirts (Unisex)': 'bi-cloud-drizzle',
+        'Hoodies (Unisex)': 'bi-emoji-sunglasses',
+        'Polos': 'bi-clipboard2-pulse',
+        'Female Dresses': 'bi-person-lines-fill',
+        'Ladies Blouses': 'bi-person-bounding-box'
+    };
     const productsHTML = productsToRender.map(product => {
         // Determine the best image source
         let imgSrc = '';
@@ -90,12 +172,23 @@ function renderProducts(filteredProducts = null) {
         } else if (product.image) {
             imgSrc = product.image;
         }
+        // Use mapped category label if available
+        let categoryLabel = '';
+        if (window.productCategoryMap && window.productCategoryMap[product.id]) {
+            categoryLabel = window.productCategoryMap[product.id];
+        } else if (product.category && product.category.primary && product.category.primary !== 'Clothing') {
+            categoryLabel = product.category.primary;
+        } else if (typeof product.category === 'string' && product.category !== 'Clothing') {
+            categoryLabel = product.category;
+        }
+        // Add icon to category tag
+        let catIcon = catIconMap[categoryLabel] ? `<i class='bi ${catIconMap[categoryLabel]} me-1'></i>` : '';
         return `
         <div class="col-lg-3 col-md-6 mb-4">
             <div class="card product-card h-100">
                 <img src="${imgSrc}" alt="${product.name}" class="product-image">
                 <div class="card-body product-info d-flex flex-column">
-                    <span class="badge bg-secondary mb-2 align-self-start">${product.category && product.category.primary ? product.category.primary : product.category}</span>
+                    ${categoryLabel ? `<span class=\"badge bg-secondary mb-2 align-self-start\">${catIcon}${categoryLabel}</span>` : ''}
                     <h5 class="product-title">${product.name}</h5>
                     <p class="product-price">$${product.price ? product.price.toFixed(2) : (product.pricing?.salePrice/100).toFixed(2)}</p>
                     <div class="mt-auto">
@@ -108,6 +201,16 @@ function renderProducts(filteredProducts = null) {
         </div>
         `;
     }).join('');
+// Update product detail page tag if present
+document.addEventListener('DOMContentLoaded', function() {
+    if (window.productCategoryMap && document.getElementById('product-category-badge')) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = parseInt(urlParams.get('id'));
+        if (productId && window.productCategoryMap[productId]) {
+            document.getElementById('product-category-badge').textContent = window.productCategoryMap[productId];
+        }
+    }
+});
     
     productGrid.innerHTML = productsHTML;
 }

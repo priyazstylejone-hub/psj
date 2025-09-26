@@ -166,36 +166,13 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand fw-bold d-flex align-items-center" href="index.html">
-                <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=100&h=100&fit=crop&crop=center" alt="PSJ Logo" class="logo me-2">
-                <span>PSJ Priya'z Style Jone</span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                            Categories
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="category.html?cat=Tshirts">T-Shirts</a></li>
-                            <li><a class="dropdown-item" href="category.html?cat=Shirts">Shirts</a></li>
-                            <li><a class="dropdown-item" href="category.html?cat=Blouses">Blouses</a></li>
-                            <li><a class="dropdown-item" href="category.html?cat=Sweatshirts">Sweatshirts</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <!-- PSJ Shared Header and Social Bar -->
+    <div id="psj-header-include"></div>
+    <script>
+    fetch('static/html/psj-header.html').then(r=>r.text()).then(html=>{
+      document.getElementById('psj-header-include').innerHTML = html;
+    });
+    </script>
 
     <!-- Loading Spinner -->
     <div id="loading" class="text-center py-5">
