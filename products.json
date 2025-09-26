@@ -1,128 +1,549 @@
 [
   {
     "id": 1,
+    "sku": "CT001",
+    "slug": "classic-cotton-t-shirt",
     "name": "Classic Cotton T-Shirt",
-    "price": 29.99,
-    "images": [
-      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&h=600&fit=crop&crop=center",
-      "https://images.unsplash.com/photo-1583743814966-8936f37f4ec2?w=600&h=600&fit=crop&crop=center",
-      "https://images.unsplash.com/photo-1562157873-818bc0726f68?w=600&h=600&fit=crop&crop=center",
-      "https://images.unsplash.com/photo-1571945153237-4929e783af4a?w=600&h=600&fit=crop&crop=center"
-    ],
+    "brand": "StyleCraft",
     "description": "A premium quality cotton t-shirt with a comfortable fit. Made from 100% organic cotton, this versatile piece is perfect for everyday wear. Unisex design suitable for all.",
-    "category": "Tshirts",
-    "colors": [
-      {"name": "Black", "hex": "#000000", "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&h=600&fit=crop&crop=center"},
-      {"name": "White", "hex": "#FFFFFF", "image": "https://images.unsplash.com/photo-1583743814966-8936f37f4ec2?w=600&h=600&fit=crop&crop=center"},
-      {"name": "Navy", "hex": "#1F2937", "image": "https://images.unsplash.com/photo-1562157873-818bc0726f68?w=600&h=600&fit=crop&crop=center"}
-    ],
-    "sizes": ["S", "M", "L", "XL", "XXL"],
-    "inStock": true,
-    "featured": true
+    "shortDescription": "Premium organic cotton t-shirt with comfortable unisex fit",
+    "category": {
+      "primary": "Clothing",
+      "secondary": "Tops",
+      "tertiary": "T-Shirts",
+      "slug": "t-shirts",
+      "tags": ["casual", "unisex", "organic", "basic", "everyday-wear"]
+    },
+    "pricing": {
+      "originalPrice": 2499,
+      "salePrice": 1999,
+      "currency": "INR",
+      "discount": 20,
+      "bulkPricing": [
+        {"minQuantity": 5, "priceEach": 1899, "savingsPerItem": 100},
+        {"minQuantity": 10, "priceEach": 1799, "savingsPerItem": 200},
+        {"minQuantity": 25, "priceEach": 1699, "savingsPerItem": 300}
+      ]
+    },
+    "images": {
+      "primary": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&h=800&fit=crop&crop=center",
+      "gallery": [
+        "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&h=800&fit=crop&crop=center",
+        "https://images.unsplash.com/photo-1583743814966-8936f37f4ec2?w=800&h=800&fit=crop&crop=center",
+        "https://images.unsplash.com/photo-1562157873-818bc0726f68?w=800&h=800&fit=crop&crop=center",
+        "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=800&h=800&fit=crop&crop=center"
+      ],
+      "thumbnails": [
+        "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=150&h=150&fit=crop&crop=center",
+        "https://images.unsplash.com/photo-1583743814966-8936f37f4ec2?w=150&h=150&fit=crop&crop=center",
+        "https://images.unsplash.com/photo-1562157873-818bc0726f68?w=150&h=150&fit=crop&crop=center"
+      ],
+      "altText": [
+        "Black classic cotton t-shirt front view",
+        "White classic cotton t-shirt side view", 
+        "Navy classic cotton t-shirt back view",
+        "T-shirt fabric texture detail"
+      ]
+    },
+    "variants": {
+      "colors": [
+        {
+          "name": "Jet Black",
+          "code": "JET_BLACK", 
+          "hex": "#000000",
+          "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&h=600&fit=crop&crop=center",
+          "available": true
+        },
+        {
+          "name": "Pure White",
+          "code": "PURE_WHITE",
+          "hex": "#FFFFFF", 
+          "image": "https://images.unsplash.com/photo-1583743814966-8936f37f4ec2?w=600&h=600&fit=crop&crop=center",
+          "available": true
+        },
+        {
+          "name": "Navy Blue",
+          "code": "NAVY_BLUE",
+          "hex": "#1F2937",
+          "image": "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=600&h=600&fit=crop&crop=center",
+          "available": true
+        }
+      ],
+      "sizes": [
+        {"code": "S", "name": "Small", "available": true, "stock": 25},
+        {"code": "M", "name": "Medium", "available": true, "stock": 40},
+        {"code": "L", "name": "Large", "available": true, "stock": 35},
+        {"code": "XL", "name": "Extra Large", "available": true, "stock": 30},
+        {"code": "XXL", "name": "Double XL", "available": true, "stock": 15}
+      ]
+    },
+    "specifications": {
+      "material": "100% Organic Cotton",
+      "weight": "180 GSM",
+      "fit": "Regular Fit",
+      "neckline": "Round Neck",
+      "sleeves": "Short Sleeves",
+      "care": "Machine wash cold, Do not bleach, Tumble dry low, Iron on low heat",
+      "madeIn": "India",
+      "sustainability": "GOTS Certified Organic Cotton"
+    },
+    "sizing": {
+      "chart": {
+        "S": {"chest": "86-91", "length": "68", "shoulder": "42"},
+        "M": {"chest": "96-101", "length": "70", "shoulder": "45"},
+        "L": {"chest": "106-111", "length": "72", "shoulder": "48"},
+        "XL": {"chest": "116-121", "length": "74", "shoulder": "51"},
+        "XXL": {"chest": "126-131", "length": "76", "shoulder": "54"}
+      },
+      "unit": "cm",
+      "fitGuide": "Model is 5'10\" wearing size M. For loose fit, go one size up."
+    },
+    "inventory": {
+      "totalStock": 145,
+      "reserved": 5,
+      "available": 140,
+      "lowStockThreshold": 10,
+      "stockStatus": "in_stock",
+      "expectedRestock": null
+    },
+    "shipping": {
+      "weight": 0.25,
+      "dimensions": {"length": 30, "width": 25, "height": 2},
+      "shippingExtra": true,
+      "estimatedDelivery": "2-4 business days"
+    },
+    "seo": {
+      "metaTitle": "Classic Cotton T-Shirt - Premium Organic Cotton | StyleCraft",
+      "metaDescription": "Shop premium organic cotton t-shirts. Comfortable, durable & sustainable. Available in multiple colors & sizes. Free shipping across India.",
+      "keywords": ["cotton t-shirt", "organic cotton", "unisex t-shirt", "premium t-shirt", "sustainable clothing"],
+      "canonical": "/products/classic-cotton-t-shirt"
+    },
+    "marketing": {
+      "featured": true,
+      "bestseller": true,
+      "newArrival": false,
+      "onSale": true,
+      "rating": 4.7,
+      "reviewCount": 234,
+      "badges": ["Organic", "Best Seller", "Free Shipping"]
+    },
+    "status": {
+      "active": true,
+      "publishStatus": "published",
+      "createdAt": "2025-01-15T10:00:00+05:30",
+      "updatedAt": "2025-09-26T14:30:00+05:30",
+      "publishedAt": "2025-01-20T00:00:00+05:30"
+    }
   },
   {
     "id": 2,
+    "sku": "PPS002", 
+    "slug": "premium-polo-shirt",
     "name": "Premium Polo Shirt",
-    "price": 45.99,
-    "images": [
-      "https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=600&h=600&fit=crop&crop=center",
-      "https://images.unsplash.com/photo-1564859228273-274232fdb516?w=600&h=600&fit=crop&crop=center",
-      "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&h=600&fit=crop&crop=center",
-      "https://images.unsplash.com/photo-1581803118522-7b72a50f7e9f?w=600&h=600&fit=crop&crop=center"
-    ],
-    "description": "Sophisticated polo shirt with classic collar design. Perfect for corporate wear and casual outings. Premium cotton blend fabric.",
-    "category": "Shirts",
-    "colors": [
-      {"name": "Navy", "hex": "#1F2937", "image": "https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=600&h=600&fit=crop&crop=center"},
-      {"name": "White", "hex": "#FFFFFF", "image": "https://images.unsplash.com/photo-1564859228273-274232fdb516?w=600&h=600&fit=crop&crop=center"},
-      {"name": "Grey", "hex": "#6B7280", "image": "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&h=600&fit=crop&crop=center"}
-    ],
-    "sizes": ["S", "M", "L", "XL", "XXL"],
-    "inStock": true,
-    "featured": true
+    "brand": "StyleCraft",
+    "description": "Sophisticated polo shirt with classic collar design. Perfect for corporate wear and casual outings. Premium cotton blend fabric with moisture-wicking properties.",
+    "shortDescription": "Sophisticated polo with classic collar, perfect for corporate and casual wear",
+    "category": {
+      "primary": "Clothing",
+      "secondary": "Tops", 
+      "tertiary": "Polo Shirts",
+      "slug": "polo-shirts",
+      "tags": ["formal", "casual", "corporate", "collar", "professional"]
+    },
+    "pricing": {
+      "originalPrice": 3799,
+      "salePrice": 3299,
+      "currency": "INR",
+      "discount": 13,
+      "taxRate": 12,
+      "bulkPricing": [
+        {"minQuantity": 5, "priceEach": 3099, "savingsPerItem": 200},
+        {"minQuantity": 10, "priceEach": 2899, "savingsPerItem": 400}
+      ]
+    },
+    "images": {
+      "primary": "https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=800&h=800&fit=crop&crop=center",
+      "gallery": [
+        "https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=800&h=800&fit=crop&crop=center",
+        "https://images.unsplash.com/photo-1564859228273-274232fdb516?w=800&h=800&fit=crop&crop=center",
+        "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=800&h=800&fit=crop&crop=center"
+      ],
+      "thumbnails": [
+        "https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=150&h=150&fit=crop&crop=center",
+        "https://images.unsplash.com/photo-1564859228273-274232fdb516?w=150&h=150&fit=crop&crop=center"
+      ],
+      "altText": [
+        "Navy premium polo shirt with collar",
+        "White premium polo shirt side view",
+        "Grey premium polo shirt fabric detail"
+      ]
+    },
+    "variants": {
+      "colors": [
+        {
+          "name": "Navy Blue",
+          "code": "NAVY_BLUE",
+          "hex": "#1F2937",
+          "image": "https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=600&h=600&fit=crop&crop=center",
+          "available": true
+        },
+        {
+          "name": "Classic White", 
+          "code": "CLASSIC_WHITE",
+          "hex": "#FFFFFF",
+          "image": "https://images.unsplash.com/photo-1564859228273-274232fdb516?w=600&h=600&fit=crop&crop=center",
+          "available": true
+        },
+        {
+          "name": "Steel Grey",
+          "code": "STEEL_GREY", 
+          "hex": "#6B7280",
+          "image": "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&h=600&fit=crop&crop=center",
+          "available": true
+        }
+      ],
+      "sizes": [
+        {"code": "S", "name": "Small", "available": true, "stock": 20},
+        {"code": "M", "name": "Medium", "available": true, "stock": 35},
+        {"code": "L", "name": "Large", "available": true, "stock": 28},
+        {"code": "XL", "name": "Extra Large", "available": true, "stock": 22},
+        {"code": "XXL", "name": "Double XL", "available": true, "stock": 12}
+      ]
+    },
+    "specifications": {
+      "material": "65% Cotton, 35% Polyester Blend",
+      "weight": "220 GSM",
+      "fit": "Slim Fit", 
+      "neckline": "Polo Collar",
+      "sleeves": "Short Sleeves",
+      "care": "Machine wash cold, Do not bleach, Tumble dry low, Iron on medium heat",
+      "madeIn": "India",
+      "features": "Moisture-wicking, Breathable, Color-fast"
+    },
+    "sizing": {
+      "chart": {
+        "S": {"chest": "88-92", "length": "67", "shoulder": "43"},
+        "M": {"chest": "94-98", "length": "69", "shoulder": "45"},
+        "L": {"chest": "102-106", "length": "71", "shoulder": "47"},
+        "XL": {"chest": "110-114", "length": "73", "shoulder": "49"},
+        "XXL": {"chest": "118-122", "length": "75", "shoulder": "51"}
+      },
+      "unit": "cm",
+      "fitGuide": "Slim fit design. Model is 6'0\" wearing size M."
+    },
+    "inventory": {
+      "totalStock": 117,
+      "reserved": 3,
+      "available": 114,
+      "lowStockThreshold": 15,
+      "stockStatus": "in_stock",
+      "expectedRestock": null
+    },
+    "shipping": {
+      "weight": 0.28,
+      "dimensions": {"length": 32, "width": 26, "height": 2},
+      "freeShippingEligible": true,
+      "estimatedDelivery": "2-4 business days",
+      "shippingCharges": {
+        "standard": 0,
+        "express": 99
+      }
+    },
+    "seo": {
+      "metaTitle": "Premium Polo Shirt - Corporate & Casual Wear | StyleCraft",
+      "metaDescription": "Premium polo shirts perfect for office and casual wear. Moisture-wicking fabric, classic collar design. Free shipping across India.",
+      "keywords": ["polo shirt", "corporate wear", "formal shirt", "premium polo", "office wear"],
+      "canonical": "/products/premium-polo-shirt"
+    },
+    "marketing": {
+      "featured": true,
+      "bestseller": false,
+      "newArrival": false,
+      "onSale": true,
+      "rating": 4.5,
+      "reviewCount": 156,
+      "badges": ["Premium Quality", "Moisture-Wicking", "Free Shipping"]
+    },
+    "status": {
+      "active": true,
+      "publishStatus": "published",
+      "createdAt": "2025-02-01T10:00:00+05:30",
+      "updatedAt": "2025-09-26T14:30:00+05:30",
+      "publishedAt": "2025-02-05T00:00:00+05:30"
+    }
   },
   {
     "id": 3,
-    "name": "Elegant Blouse",
-    "price": 55.99,
-    "images": [
-      "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=600&h=600&fit=crop&crop=center",
-      "https://images.unsplash.com/photo-1566479179817-0b3c2cfdf3d6?w=600&h=600&fit=crop&crop=center",
-      "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=600&h=600&fit=crop&crop=center",
-      "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=600&h=600&fit=crop&crop=center"
-    ],
-    "description": "Beautiful women's blouse with flowing fabric and elegant design. Perfect for office wear and special occasions.",
-    "category": "Blouses",
-    "colors": [
-      {"name": "Cream", "hex": "#F9F7FF", "image": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=600&h=600&fit=crop&crop=center"},
-      {"name": "Dusty Rose", "hex": "#D4A5A5", "image": "https://images.unsplash.com/photo-1566479179817-0b3c2cfdf3d6?w=600&h=600&fit=crop&crop=center"},
-      {"name": "Sage", "hex": "#87A96B", "image": "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=600&h=600&fit=crop&crop=center"}
-    ],
-    "sizes": ["S", "M", "L", "XL", "XXL"],
-    "inStock": true,
-    "featured": false
+    "sku": "EB003",
+    "slug": "elegant-blouse",
+    "name": "Elegant Silk Blouse",
+    "brand": "StyleCraft",
+    "description": "Beautiful women's blouse with flowing fabric and elegant design. Perfect for office wear and special occasions. Made from premium silk blend for comfort and sophistication.",
+    "shortDescription": "Elegant silk blouse perfect for office wear and special occasions",
+    "category": {
+      "primary": "Clothing",
+      "secondary": "Tops",
+      "tertiary": "Blouses",
+      "slug": "blouses",
+      "tags": ["women", "formal", "elegant", "office-wear", "silk", "special-occasion"]
+    },
+    "pricing": {
+      "originalPrice": 4599,
+      "salePrice": 3899,
+      "currency": "INR",
+      "discount": 15,
+      "taxRate": 12,
+      "bulkPricing": [
+        {"minQuantity": 3, "priceEach": 3699, "savingsPerItem": 200},
+        {"minQuantity": 5, "priceEach": 3499, "savingsPerItem": 400}
+      ]
+    },
+    "images": {
+      "primary": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=800&h=800&fit=crop&crop=center",
+      "gallery": [
+        "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=800&h=800&fit=crop&crop=center",
+        "https://images.unsplash.com/photo-1566479179817-0b3c2cfdf3d6?w=800&h=800&fit=crop&crop=center",
+        "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=800&h=800&fit=crop&crop=center"
+      ],
+      "thumbnails": [
+        "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=150&h=150&fit=crop&crop=center",
+        "https://images.unsplash.com/photo-1566479179817-0b3c2cfdf3d6?w=150&h=150&fit=crop&crop=center"
+      ],
+      "altText": [
+        "Cream elegant silk blouse front view",
+        "Dusty rose elegant blouse with flowing fabric",
+        "Sage green blouse detail view"
+      ]
+    },
+    "variants": {
+      "colors": [
+        {
+          "name": "Ivory Cream",
+          "code": "IVORY_CREAM",
+          "hex": "#F9F7FF",
+          "image": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=600&h=600&fit=crop&crop=center",
+          "available": true
+        },
+        {
+          "name": "Dusty Rose",
+          "code": "DUSTY_ROSE",
+          "hex": "#D4A5A5",
+          "image": "https://images.unsplash.com/photo-1566479179817-0b3c2cfdf3d6?w=600&h=600&fit=crop&crop=center",
+          "available": true
+        },
+        {
+          "name": "Sage Green",
+          "code": "SAGE_GREEN",
+          "hex": "#87A96B",
+          "image": "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=600&h=600&fit=crop&crop=center",
+          "available": true
+        }
+      ],
+      "sizes": [
+        {"code": "S", "name": "Small", "available": true, "stock": 18},
+        {"code": "M", "name": "Medium", "available": true, "stock": 25},
+        {"code": "L", "name": "Large", "available": true, "stock": 20},
+        {"code": "XL", "name": "Extra Large", "available": true, "stock": 15},
+        {"code": "XXL", "name": "Double XL", "available": true, "stock": 8}
+      ]
+    },
+    "specifications": {
+      "material": "70% Silk, 30% Viscose Blend",
+      "weight": "140 GSM",
+      "fit": "Regular Fit",
+      "neckline": "Round Neck",
+      "sleeves": "3/4 Sleeves",
+      "care": "Dry clean recommended, Hand wash cold if needed, Do not bleach, Iron on low heat",
+      "madeIn": "India",
+      "features": "Flowing fabric, Breathable, Wrinkle-resistant"
+    },
+    "sizing": {
+      "chart": {
+        "S": {"bust": "82-86", "length": "62", "shoulder": "38"},
+        "M": {"bust": "88-92", "length": "64", "shoulder": "40"},
+        "L": {"bust": "94-98", "length": "66", "shoulder": "42"},
+        "XL": {"bust": "100-104", "length": "68", "shoulder": "44"},
+        "XXL": {"bust": "106-110", "length": "70", "shoulder": "46"}
+      },
+      "unit": "cm",
+      "fitGuide": "Regular fit with flowing silhouette. Model is 5'6\" wearing size M."
+    },
+    "inventory": {
+      "totalStock": 86,
+      "reserved": 2,
+      "available": 84,
+      "lowStockThreshold": 12,
+      "stockStatus": "in_stock",
+      "expectedRestock": null
+    },
+    "shipping": {
+      "weight": 0.2,
+      "dimensions": {"length": 28, "width": 22, "height": 1.5},
+      "freeShippingEligible": true,
+      "estimatedDelivery": "2-4 business days",
+      "shippingCharges": {
+        "standard": 0,
+        "express": 99
+      }
+    },
+    "seo": {
+      "metaTitle": "Elegant Silk Blouse - Premium Women's Formal Wear | StyleCraft",
+      "metaDescription": "Premium silk blouses for women. Perfect for office wear and special occasions. Elegant design with flowing fabric. Free shipping across India.",
+      "keywords": ["silk blouse", "women's formal wear", "office blouse", "elegant blouse", "special occasion wear"],
+      "canonical": "/products/elegant-silk-blouse"
+    },
+    "marketing": {
+      "featured": false,
+      "bestseller": false,
+      "newArrival": true,
+      "onSale": true,
+      "rating": 4.6,
+      "reviewCount": 89,
+      "badges": ["Silk Blend", "New Arrival", "Free Shipping"]
+    },
+    "status": {
+      "active": true,
+      "publishStatus": "published",
+      "createdAt": "2025-03-10T10:00:00+05:30",
+      "updatedAt": "2025-09-26T14:30:00+05:30",
+      "publishedAt": "2025-03-15T00:00:00+05:30"
+    }
   },
   {
     "id": 4,
-    "name": "Cozy Sweatshirt",
-    "price": 65.99,
-    "images": [
-      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600&h=600&fit=crop&crop=center",
-      "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=600&fit=crop&crop=center",
-      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=600&h=600&fit=crop&crop=center",
-      "https://images.unsplash.com/photo-1577633002569-c90d5c92a8b5?w=600&h=600&fit=crop&crop=center"
-    ],
-    "description": "Comfortable unisex sweatshirt perfect for casual wear and layering. Soft fleece interior and durable construction.",
-    "category": "Sweatshirts",
-    "colors": [
-      {"name": "Charcoal", "hex": "#374151", "image": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600&h=600&fit=crop&crop=center"},
-      {"name": "Maroon", "hex": "#7F1D1D", "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=600&fit=crop&crop=center"},
-      {"name": "Forest Green", "hex": "#065F46", "image": "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=600&h=600&fit=crop&crop=center"}
-    ],
-    "sizes": ["S", "M", "L", "XL", "XXL"],
-    "inStock": true,
-    "featured": true
-  },
-  {
-    "id": 5,
-    "name": "Classic Hoodie",
-    "price": 75.99,
-    "images": [
-      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600&h=600&fit=crop&crop=center",
-      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&h=600&fit=crop&crop=center",
-      "https://images.unsplash.com/photo-1608256246200-53e8b47b2264?w=600&h=600&fit=crop&crop=center",
-      "https://images.unsplash.com/photo-1542406775-ade58c52d2e4?w=600&h=600&fit=crop&crop=center"
-    ],
-    "description": "Premium hoodie with adjustable drawstring and kangaroo pocket. Perfect for corporate group orders and casual wear.",
-    "category": "Sweatshirts",
-    "colors": [
-      {"name": "Black", "hex": "#000000", "image": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600&h=600&fit=crop&crop=center"},
-      {"name": "Heather Grey", "hex": "#9CA3AF", "image": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&h=600&fit=crop&crop=center"},
-      {"name": "Navy", "hex": "#1F2937", "image": "https://images.unsplash.com/photo-1608256246200-53e8b47b2264?w=600&h=600&fit=crop&crop=center"}
-    ],
-    "sizes": ["S", "M", "L", "XL", "XXL"],
-    "inStock": true,
-    "featured": false
-  },
-  {
-    "id": 6,
-    "name": "Floral Summer Dress",
-    "price": 89.99,
-    "images": [
-      "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&h=600&fit=crop&crop=center",
-      "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=600&h=600&fit=crop&crop=center",
-      "https://images.unsplash.com/photo-1566479179817-0b3c2cfdf3d6?w=600&h=600&fit=crop&crop=center",
-      "https://images.unsplash.com/photo-1544537151-6e4b99de3c8b?w=600&h=600&fit=crop&crop=center"
-    ],
-    "description": "Beautiful women's dress with elegant floral patterns. Perfect for summer occasions and special events.",
-    "category": "Blouses",
-    "colors": [
-      {"name": "Floral Blue", "hex": "#3B82F6", "image": "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&h=600&fit=crop&crop=center"},
-      {"name": "Floral Pink", "hex": "#EC4899", "image": "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=600&h=600&fit=crop&crop=center"},
-      {"name": "Floral White", "hex": "#FFFFFF", "image": "https://images.unsplash.com/photo-1566479179817-0b3c2cfdf3d6?w=600&h=600&fit=crop&crop=center"}
-    ],
-    "sizes": ["S", "M", "L", "XL", "XXL"],
-    "inStock": true,
-    "featured": true
+    "sku": "CS004",
+    "slug": "cozy-sweatshirt",
+    "name": "Cozy Winter Sweatshirt",
+    "brand": "StyleCraft",
+    "description": "Comfortable unisex sweatshirt perfect for casual wear and layering. Soft fleece interior and durable construction. Ideal for Indian winters and air-conditioned spaces.",
+    "shortDescription": "Cozy unisex sweatshirt with soft fleece interior, perfect for layering",
+    "category": {
+      "primary": "Clothing",
+      "secondary": "Tops",
+      "tertiary": "Sweatshirts",
+      "slug": "sweatshirts",
+      "tags": ["unisex", "casual", "winter", "fleece", "layering", "comfortable"]
+    },
+    "pricing": {
+      "originalPrice": 5499,
+      "salePrice": 4399,
+      "currency": "INR",
+      "discount": 20,
+      "taxRate": 12,
+      "bulkPricing": [
+        {"minQuantity": 3, "priceEach": 4199, "savingsPerItem": 200},
+        {"minQuantity": 5, "priceEach": 3999, "savingsPerItem": 400}
+      ]
+    },
+    "images": {
+      "primary": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800&h=800&fit=crop&crop=center",
+      "gallery": [
+        "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800&h=800&fit=crop&crop=center",
+        "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=800&fit=crop&crop=center",
+        "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=800&h=800&fit=crop&crop=center"
+      ],
+      "thumbnails": [
+        "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=150&h=150&fit=crop&crop=center",
+        "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=150&h=150&fit=crop&crop=center"
+      ],
+      "altText": [
+        "Charcoal cozy sweatshirt front view",
+        "Maroon winter sweatshirt with fleece interior",
+        "Forest green sweatshirt fabric detail"
+      ]
+    },
+    "variants": {
+      "colors": [
+        {
+          "name": "Charcoal Grey",
+          "code": "CHARCOAL_GREY",
+          "hex": "#374151",
+          "image": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600&h=600&fit=crop&crop=center",
+          "available": true
+        },
+        {
+          "name": "Maroon Red",
+          "code": "MAROON_RED",
+          "hex": "#7F1D1D",
+          "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=600&fit=crop&crop=center",
+          "available": true
+        },
+        {
+          "name": "Forest Green",
+          "code": "FOREST_GREEN",
+          "hex": "#065F46",
+          "image": "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=600&h=600&fit=crop&crop=center",
+          "available": true
+        }
+      ],
+      "sizes": [
+        {"code": "S", "name": "Small", "available": true, "stock": 22},
+        {"code": "M", "name": "Medium", "available": true, "stock": 38},
+        {"code": "L", "name": "Large", "available": true, "stock": 32},
+        {"code": "XL", "name": "Extra Large", "available": true, "stock": 28},
+        {"code": "XXL", "name": "Double XL", "available": true, "stock": 18}
+      ]
+    },
+    "specifications": {
+      "material": "80% Cotton, 20% Polyester Fleece",
+      "weight": "320 GSM",
+      "fit": "Regular Fit",
+      "neckline": "Round Neck",
+      "sleeves": "Long Sleeves",
+      "care": "Machine wash cold, Do not bleach, Tumble dry low, Iron on low heat",
+      "madeIn": "India",
+      "features": "Fleece interior, Ribbed cuffs, Soft texture, Pre-shrunk"
+    },
+    "sizing": {
+      "chart": {
+        "S": {"chest": "92-96", "length": "66", "shoulder": "46"},
+        "M": {"chest": "100-104", "length": "68", "shoulder": "48"},
+        "L": {"chest": "108-112", "length": "70", "shoulder": "50"},
+        "XL": {"chest": "116-120", "length": "72", "shoulder": "52"},
+        "XXL": {"chest": "124-128", "length": "74", "shoulder": "54"}
+      },
+      "unit": "cm",
+      "fitGuide": "Regular fit with comfortable room for layering. Model is 5'10\" wearing size M."
+    },
+    "inventory": {
+      "totalStock": 138,
+      "reserved": 4,
+      "available": 134,
+      "lowStockThreshold": 15,
+      "stockStatus": "in_stock",
+      "expectedRestock": null
+    },
+    "shipping": {
+      "weight": 0.45,
+      "dimensions": {"length": 35, "width": 28, "height": 3},
+      "freeShippingEligible": true,
+      "estimatedDelivery": "2-4 business days",
+      "shippingCharges": {
+        "standard": 0,
+        "express": 99
+      }
+    },
+    "seo": {
+      "metaTitle": "Cozy Winter Sweatshirt - Fleece Interior Unisex Wear | StyleCraft",
+      "metaDescription": "Comfortable winter sweatshirts with soft fleece interior. Perfect for casual wear and layering. Unisex design. Free shipping across India.",
+      "keywords": ["winter sweatshirt", "fleece sweatshirt", "unisex sweatshirt", "casual wear", "layering clothes"],
+      "canonical": "/products/cozy-winter-sweatshirt"
+    },
+    "marketing": {
+      "featured": true,
+      "bestseller": true,
+      "newArrival": false,
+      "onSale": true,
+      "rating": 4.8,
+      "reviewCount": 187,
+      "badges": ["Best Seller", "Fleece Interior", "Winter Special"]
+    },
+    "status": {
+      "active": true,
+      "publishStatus": "published",
+      "createdAt": "2024-10-15T10:00:00+05:30",
+      "updatedAt": "2025-09-26T14:30:00+05:30",
+      "publishedAt": "2024-10-20T00:00:00+05:30"
+    }
   }
 ]

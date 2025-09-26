@@ -3,17 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Details - PSJ Priya'z Style Jone</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>Premium Fashion Collection - PSJ Priya'z Style Jone | Buy Online</title>
+    <meta name="description" content="Discover premium quality clothing at PSJ Priya'z Style Jone. Shop T-shirts, shirts, blouses & sweatshirts. Fast delivery, bulk orders available. Order via WhatsApp.">
+    <meta name="keywords" content="fashion clothing, t-shirts, shirts, blouses, sweatshirts, online shopping, premium cotton, bulk orders">
+    <meta name="author" content="PSJ Priya'z Style Jone">
+    
+    <!-- Open Graph Tags for Social Media -->
+    <meta property="og:title" content="Premium Fashion Collection - PSJ Priya'z Style Jone">
+    <meta property="og:description" content="Discover premium quality clothing with fast delivery and bulk order options.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&h=630&fit=crop">
+    <meta property="og:url" content="">
+    <meta property="og:type" content="product">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Premium Fashion Collection - PSJ Priya'z Style Jone">
+    <meta name="twitter:description" content="Discover premium quality clothing with fast delivery and bulk order options.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&h=630&fit=crop">
+    
+    <!-- Schema.org JSON-LD for Product -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": "Fashion Collection",
+      "brand": {
+        "@type": "Brand",
+        "name": "PSJ Priya'z Style Jone"
+      },
+      "description": "Premium quality clothing including t-shirts, shirts, blouses and sweatshirts",
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "INR"
+      }
+    }
+    </script>
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="static/css/style.css">
     <link rel="stylesheet" href="static/css/product-detail.css">
+    
+    <style>
+        /* Color selector styles */
+        .color-option {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 3px solid #e0e0e0;
+            cursor: pointer;
+            margin: 5px;
+            transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .color-option:hover {
+            border-color: #007bff;
+            transform: scale(1.1);
+        }
+        
+        .color-option.selected {
+            border-color: #007bff;
+            border-width: 4px;
+        }
+        
+        .color-option::after {
+            content: attr(data-color-name);
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        
+        .color-option:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Size selector styles */
+        .size-option {
+            padding: 10px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 5px;
+            transition: all 0.3s ease;
+            background: white;
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .size-option:hover {
+            border-color: #007bff;
+            background: #f8f9fa;
+        }
+        
+        .size-option.selected {
+            border-color: #007bff;
+            background: #007bff;
+            color: white;
+        }
+        
+        .size-tooltip {
+            position: absolute;
+            bottom: -120px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 10;
+            min-width: 200px;
+        }
+        
+        .size-option:hover .size-tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .logo {
+            height: 40px;
+            width: auto;
+        }
+        
+        .main-image-container {
+            max-height: 500px;
+            overflow: hidden;
+        }
+        
+        .thumbnail-gallery img {
+            height: 80px;
+            width: 80px;
+            object-fit: cover;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .thumbnail-gallery img:hover {
+            transform: scale(1.05);
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand fw-bold d-flex align-items-center" href="index.html">
-                <img src="attached_assets/stock_images/clothing_brand_logo__1ea78c53.jpg" alt="PSJ Logo" class="logo me-2">
+                <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=100&h=100&fit=crop&crop=center" alt="PSJ Logo" class="logo me-2">
                 <span>PSJ Priya'z Style Jone</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -63,13 +220,24 @@
                 <div class="col-lg-6 mb-4">
                     <!-- Main Image -->
                     <div class="main-image-container mb-3">
-                        <img id="main-product-image" src="" alt="" class="img-fluid rounded shadow">
+                        <img id="main-product-image" src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&h=800&fit=crop" alt="Premium Fashion Product" class="img-fluid rounded shadow">
                     </div>
                     
                     <!-- Thumbnail Gallery -->
                     <div class="thumbnail-gallery">
                         <div class="row g-2" id="thumbnail-container">
-                            <!-- Thumbnails will be populated dynamically -->
+                            <div class="col-3">
+                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=200&h=200&fit=crop" alt="Product view 1" class="img-fluid" onclick="changeMainImage(this.src.replace('w=200&h=200', 'w=800&h=800'))">
+                            </div>
+                            <div class="col-3">
+                                <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=200&h=200&fit=crop" alt="Product view 2" class="img-fluid" onclick="changeMainImage(this.src.replace('w=200&h=200', 'w=800&h=800'))">
+                            </div>
+                            <div class="col-3">
+                                <img src="https://images.unsplash.com/photo-1562157873-818bc0726f68?w=200&h=200&fit=crop" alt="Product view 3" class="img-fluid" onclick="changeMainImage(this.src.replace('w=200&h=200', 'w=800&h=800'))">
+                            </div>
+                            <div class="col-3">
+                                <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=200&h=200&fit=crop" alt="Product view 4" class="img-fluid" onclick="changeMainImage(this.src.replace('w=200&h=200', 'w=800&h=800'))">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -77,16 +245,25 @@
                 <!-- Product Info Column -->
                 <div class="col-lg-6">
                     <div class="product-info-detail">
-                        <span id="product-category-badge" class="badge bg-secondary mb-2"></span>
-                        <h1 id="product-name-detail" class="display-5 fw-bold mb-3"></h1>
-                        <p id="product-price-detail" class="h3 text-primary mb-4"></p>
-                        <p id="product-description-detail" class="lead mb-4"></p>
+                        <span id="product-category-badge" class="badge bg-secondary mb-2">Premium Collection</span>
+                        <h1 id="product-name-detail" class="display-5 fw-bold mb-3">Premium Cotton T-Shirt</h1>
+                        <p id="product-price-detail" class="h3 text-primary mb-4">₹899</p>
+                        <p id="product-description-detail" class="lead mb-4">Experience premium comfort with our high-quality cotton blend fabric. Perfect for casual wear and everyday comfort.</p>
                         
                         <!-- Color Selection -->
                         <div class="mb-4">
                             <h5 class="mb-3">Choose Color:</h5>
                             <div id="color-options" class="color-selector">
-                                <!-- Color options will be populated dynamically -->
+                                <div class="color-option" data-color="black" data-color-name="Midnight Black" style="background-color: #000000;" onclick="selectColor('black')"></div>
+                                <div class="color-option" data-color="white" data-color-name="Pure White" style="background-color: #ffffff; border-color: #ccc;" onclick="selectColor('white')"></div>
+                                <div class="color-option" data-color="red" data-color-name="Cherry Red" style="background-color: #dc2626;" onclick="selectColor('red')"></div>
+                                <div class="color-option" data-color="blue" data-color-name="Ocean Blue" style="background-color: #2563eb;" onclick="selectColor('blue')"></div>
+                                <div class="color-option" data-color="green" data-color-name="Forest Green" style="background-color: #16a34a;" onclick="selectColor('green')"></div>
+                                <div class="color-option" data-color="navy" data-color-name="Navy Blue" style="background-color: #1e3a8a;" onclick="selectColor('navy')"></div>
+                                <div class="color-option" data-color="gray" data-color-name="Charcoal Gray" style="background-color: #6b7280;" onclick="selectColor('gray')"></div>
+                                <div class="color-option" data-color="purple" data-color-name="Royal Purple" style="background-color: #9333ea;" onclick="selectColor('purple')"></div>
+                                <div class="color-option" data-color="orange" data-color-name="Sunset Orange" style="background-color: #ea580c;" onclick="selectColor('orange')"></div>
+                                <div class="color-option" data-color="pink" data-color-name="Rose Pink" style="background-color: #ec4899;" onclick="selectColor('pink')"></div>
                             </div>
                             <small class="text-muted d-block mt-2">Selected: <span id="selected-color">None</span></small>
                         </div>
@@ -95,14 +272,76 @@
                         <div class="mb-4">
                             <h5 class="mb-3">Choose Size:</h5>
                             <div id="size-options" class="size-selector">
-                                <!-- Size options will be populated dynamically -->
+                                <div class="size-option" data-size="XS" onclick="selectSize('XS')">
+                                    XS
+                                    <div class="size-tooltip">
+                                        <strong>Extra Small</strong><br>
+                                        Chest: 32-34 inches<br>
+                                        Length: 26 inches<br>
+                                        Shoulder: 15 inches
+                                    </div>
+                                </div>
+                                <div class="size-option" data-size="S" onclick="selectSize('S')">
+                                    S
+                                    <div class="size-tooltip">
+                                        <strong>Small</strong><br>
+                                        Chest: 36-38 inches<br>
+                                        Length: 27 inches<br>
+                                        Shoulder: 16 inches
+                                    </div>
+                                </div>
+                                <div class="size-option" data-size="M" onclick="selectSize('M')">
+                                    M
+                                    <div class="size-tooltip">
+                                        <strong>Medium</strong><br>
+                                        Chest: 40-42 inches<br>
+                                        Length: 28 inches<br>
+                                        Shoulder: 17 inches
+                                    </div>
+                                </div>
+                                <div class="size-option" data-size="L" onclick="selectSize('L')">
+                                    L
+                                    <div class="size-tooltip">
+                                        <strong>Large</strong><br>
+                                        Chest: 44-46 inches<br>
+                                        Length: 29 inches<br>
+                                        Shoulder: 18 inches
+                                    </div>
+                                </div>
+                                <div class="size-option" data-size="XL" onclick="selectSize('XL')">
+                                    XL
+                                    <div class="size-tooltip">
+                                        <strong>Extra Large</strong><br>
+                                        Chest: 48-50 inches<br>
+                                        Length: 30 inches<br>
+                                        Shoulder: 19 inches
+                                    </div>
+                                </div>
+                                <div class="size-option" data-size="XXL" onclick="selectSize('XXL')">
+                                    XXL
+                                    <div class="size-tooltip">
+                                        <strong>Double Extra Large</strong><br>
+                                        Chest: 52-54 inches<br>
+                                        Length: 31 inches<br>
+                                        Shoulder: 20 inches
+                                    </div>
+                                </div>
+                                <div class="size-option" data-size="XXXL" onclick="selectSize('XXXL')">
+                                    3XL
+                                    <div class="size-tooltip">
+                                        <strong>Triple Extra Large</strong><br>
+                                        Chest: 56-58 inches<br>
+                                        Length: 32 inches<br>
+                                        Shoulder: 21 inches
+                                    </div>
+                                </div>
                             </div>
                             <small class="text-muted d-block mt-2">Selected: <span id="selected-size">None</span></small>
                         </div>
                         
                         <!-- Action Buttons -->
                         <div class="d-grid gap-2 mb-4">
-                            <button class="btn btn-success btn-lg" id="whatsapp-order-btn" disabled>
+                            <button class="btn btn-success btn-lg" id="whatsapp-order-btn" disabled onclick="orderViaWhatsApp()">
                                 <i class="fab fa-whatsapp me-2"></i>Order via WhatsApp
                             </button>
                             <button class="btn btn-outline-primary" onclick="shareProduct()">
@@ -115,7 +354,7 @@
                             <hr>
                             <h6>Product Information:</h6>
                             <ul class="list-unstyled">
-                                <li><strong>Available Sizes:</strong> S, M, L, XL, XXL</li>
+                                <li><strong>Available Sizes:</strong> XS, S, M, L, XL, XXL, 3XL</li>
                                 <li><strong>Material:</strong> Premium Cotton Blend</li>
                                 <li><strong>Care:</strong> Machine Washable</li>
                                 <li><strong>Delivery:</strong> 3-7 Business Days</li>
@@ -146,6 +385,105 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+    
+    <script>
+        let selectedColor = null;
+        let selectedSize = null;
+        
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hide loading spinner and show content
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('product-details').style.display = 'block';
+        });
+        
+        // Change main product image
+        function changeMainImage(imageSrc) {
+            document.getElementById('main-product-image').src = imageSrc;
+        }
+        
+        // Select color
+        function selectColor(color) {
+            // Remove previous selection
+            document.querySelectorAll('.color-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            // Add selection to clicked color
+            document.querySelector(`[data-color="${color}"]`).classList.add('selected');
+            selectedColor = color;
+            
+            // Update display
+            const colorName = document.querySelector(`[data-color="${color}"]`).getAttribute('data-color-name');
+            document.getElementById('selected-color').textContent = colorName;
+            
+            // Enable/disable WhatsApp button
+            updateWhatsAppButton();
+        }
+        
+        // Select size
+        function selectSize(size) {
+            // Remove previous selection
+            document.querySelectorAll('.size-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            // Add selection to clicked size
+            document.querySelector(`[data-size="${size}"]`).classList.add('selected');
+            selectedSize = size;
+            
+            // Update display
+            document.getElementById('selected-size').textContent = size;
+            
+            // Enable/disable WhatsApp button
+            updateWhatsAppButton();
+        }
+        
+        // Update WhatsApp button state
+        function updateWhatsAppButton() {
+            const whatsappBtn = document.getElementById('whatsapp-order-btn');
+            if (selectedColor && selectedSize) {
+                whatsappBtn.disabled = false;
+            } else {
+                whatsappBtn.disabled = true;
+            }
+        }
+        
+        // Order via WhatsApp
+        function orderViaWhatsApp() {
+            if (!selectedColor || !selectedSize) {
+                alert('Please select both color and size');
+                return;
+            }
+            
+            const productName = document.getElementById('product-name-detail').textContent;
+            const productPrice = document.getElementById('product-price-detail').textContent;
+            const colorName = document.querySelector(`[data-color="${selectedColor}"]`).getAttribute('data-color-name');
+            
+            const message = `Hi! I would like to order:\n\nProduct: ${productName}\nPrice: ${productPrice}\nColor: ${colorName}\nSize: ${selectedSize}\n\nPlease confirm availability and provide further details.`;
+            
+            const whatsappUrl = `https://wa.me/919876543210?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+        
+        // Share product
+        function shareProduct() {
+            if (navigator.share) {
+                navigator.share({
+                    title: document.getElementById('product-name-detail').textContent,
+                    text: document.getElementById('product-description-detail').textContent,
+                    url: window.location.href,
+                });
+            } else {
+                // Fallback to copying URL
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    alert('Product URL copied to clipboard!');
+                });
+            }
+        }
+    </script>
+    
+    <!-- Original scripts -->
     <script src="static/js/script.js"></script>
     <script src="static/js/product-detail.js"></script>
 </body>

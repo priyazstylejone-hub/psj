@@ -40,12 +40,13 @@ function renderCategories() {
     const categoriesContainer = document.getElementById('categories');
     if (!categoriesContainer) return;
     
-    // Get unique categories and count products
+    // Get unique categories and count products (using category.primary)
     const categoryCount = {};
     products.forEach(product => {
-        categoryCount[product.category] = (categoryCount[product.category] || 0) + 1;
+        const cat = product.category && product.category.primary ? product.category.primary : (typeof product.category === 'string' ? product.category : 'Other');
+        categoryCount[cat] = (categoryCount[cat] || 0) + 1;
     });
-    
+
     const categoriesHTML = Object.entries(categoryCount).map(([category, count]) => `
         <div class="col-md-3 col-sm-6 mb-4">
             <div class="category-card" onclick="filterByCategory('${category}')">
@@ -55,7 +56,7 @@ function renderCategories() {
             </div>
         </div>
     `).join('');
-    
+
     categoriesContainer.innerHTML = categoriesHTML;
 }
 
@@ -75,14 +76,28 @@ function renderProducts(filteredProducts = null) {
         return;
     }
     
-    const productsHTML = productsToRender.map(product => `
+    const productsHTML = productsToRender.map(product => {
+        // Determine the best image source
+        let imgSrc = '';
+        if (product.images) {
+            if (product.images.primary) {
+                imgSrc = product.images.primary;
+            } else if (Array.isArray(product.images.gallery) && product.images.gallery.length > 0) {
+                imgSrc = product.images.gallery[0];
+            } else if (Array.isArray(product.images) && product.images.length > 0) {
+                imgSrc = product.images[0];
+            }
+        } else if (product.image) {
+            imgSrc = product.image;
+        }
+        return `
         <div class="col-lg-3 col-md-6 mb-4">
             <div class="card product-card h-100">
-                <img src="${product.images ? product.images[0] : product.image}" alt="${product.name}" class="product-image">
+                <img src="${imgSrc}" alt="${product.name}" class="product-image">
                 <div class="card-body product-info d-flex flex-column">
-                    <span class="badge bg-secondary mb-2 align-self-start">${product.category}</span>
+                    <span class="badge bg-secondary mb-2 align-self-start">${product.category && product.category.primary ? product.category.primary : product.category}</span>
                     <h5 class="product-title">${product.name}</h5>
-                    <p class="product-price">$${product.price.toFixed(2)}</p>
+                    <p class="product-price">$${product.price ? product.price.toFixed(2) : (product.pricing?.salePrice/100).toFixed(2)}</p>
                     <div class="mt-auto">
                         <button class="btn btn-primary btn-order w-100" onclick="viewProduct(${product.id})">
                             View Details
@@ -91,7 +106,8 @@ function renderProducts(filteredProducts = null) {
                 </div>
             </div>
         </div>
-    `).join('');
+        `;
+    }).join('');
     
     productGrid.innerHTML = productsHTML;
 }
