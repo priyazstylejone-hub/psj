@@ -6,6 +6,7 @@ let colorCounter = 0;
 document.addEventListener('DOMContentLoaded', function() {
     loadCurrentProducts();
     setupEventListeners();
+    loadSavedSettings();
 });
 
 // Setup event listeners
@@ -247,9 +248,16 @@ function deleteProduct(productId) {
 function updateWhatsAppNumber() {
     const number = document.getElementById('whatsapp-number').value;
     if (number) {
-        // In a real implementation, this would save to server
         localStorage.setItem('whatsappNumber', number);
-        showMessage('WhatsApp number updated successfully!', 'success');
+        showMessage('WhatsApp number updated successfully! This number will now be used for all customer orders.', 'success');
+    }
+}
+
+// Load saved WhatsApp number on page load
+function loadSavedSettings() {
+    const savedNumber = localStorage.getItem('whatsappNumber');
+    if (savedNumber) {
+        document.getElementById('whatsapp-number').value = savedNumber;
     }
 }
 

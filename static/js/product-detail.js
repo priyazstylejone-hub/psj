@@ -2,7 +2,11 @@
 let currentProduct = null;
 let selectedColor = null;
 let selectedSize = null;
-const whatsappNumber = "+1234567890"; // Replace with your actual WhatsApp number
+
+// Get WhatsApp number from admin configuration or use default
+function getWhatsAppNumber() {
+    return localStorage.getItem('whatsappNumber') || "+1234567890";
+}
 
 // Load product details on page load
 document.addEventListener('DOMContentLoaded', function() {
@@ -221,6 +225,7 @@ Thank you for choosing PSJ Priya'z Style Jone! 🌟
     `.trim();
     
     const encodedMessage = encodeURIComponent(orderDetails);
+    const whatsappNumber = getWhatsAppNumber();
     const whatsappUrl = `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, '')}?text=${encodedMessage}`;
     
     // Open WhatsApp in new tab

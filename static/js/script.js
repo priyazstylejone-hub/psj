@@ -5,9 +5,13 @@ let products = [];
 document.addEventListener('DOMContentLoaded', function() {
     loadProducts();
     
-    // Check if we're on the product detail page
+    // Check if we're on the old product detail page (redirect to new one)
     if (window.location.pathname.includes('product.html')) {
-        loadProductDetails();
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('id');
+        if (productId) {
+            window.location.href = `product-detail.html?id=${productId}`;
+        }
     }
 });
 
