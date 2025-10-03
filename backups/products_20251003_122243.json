@@ -1,0 +1,70 @@
+[
+  {
+    "id": 1,
+    "name": "Classic Cotton T-Shirt",
+    "actualPrice": 100.0,
+    "salePrice": 100.0,
+    "onSale": false,
+    "description": "A premium quality cotton t-shirt with a comfortable fit. Made from 100% organic cotton, this versatile piece is perfect for everyday wear. Unisex design suitable for all.",
+    "inStock": false,
+    "images": [
+      "TSHIRT001"
+    ],
+    "sku": "TRUE",
+    "brand": "cotton,unisex,casual",
+    "tags": [
+      "PSJ"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Premium Polo Shirt",
+    "actualPrice": 200.0,
+    "salePrice": 200.0,
+    "onSale": false,
+    "description": "Sophisticated polo shirt with classic collar design. Perfect for corporate wear and casual outings. Premium cotton blend fabric with moisture-wicking properties.",
+    "inStock": false,
+    "images": [
+      "POLO001"
+    ],
+    "sku": "TRUE",
+    "brand": "polo,casual,formal",
+    "tags": [
+      "PSJ"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Elegant Silk Blouse",
+    "actualPrice": 300.0,
+    "salePrice": 300.0,
+    "onSale": false,
+    "description": "Beautiful women's blouse with flowing fabric and elegant design. Perfect for office wear and special occasions. Made from premium silk blend for comfort and sophistication.",
+    "inStock": false,
+    "images": [
+      "BLOUSE001"
+    ],
+    "sku": "TRUE",
+    "brand": "silk,women,formal",
+    "tags": [
+      "PSJ"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Cozy Winter Sweatshirt",
+    "actualPrice": 250.0,
+    "salePrice": 250.0,
+    "onSale": false,
+    "description": "Comfortable unisex sweatshirt perfect for casual wear and layering. Soft fleece interior and durable construction. Ideal for Indian winters and air-conditioned spaces.",
+    "inStock": false,
+    "images": [
+      "SWEAT001"
+    ],
+    "sku": "TRUE",
+    "brand": "sweatshirt,unisex,winter",
+    "tags": [
+      "PSJ"
+    ]
+  }
+]

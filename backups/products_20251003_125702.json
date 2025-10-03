@@ -1,0 +1,131 @@
+[
+  {
+    "id": 1,
+    "name": "Classic Cotton T-Shirt",
+    "actualPrice": 1499.0,
+    "salePrice": 1299.0,
+    "onSale": true,
+    "description": "A premium quality cotton t-shirt with a comfortable fit. Made from 100% organic cotton, this versatile piece is perfect for everyday wear.",
+    "inStock": true,
+    "images": [
+      "https://example.com/tshirt1.jpg"
+    ],
+    "sku": "TSH001",
+    "brand": "StyleJone",
+    "colors": [
+      {
+        "name": "White",
+        "hex": "FFFFFF"
+      },
+      {
+        "name": "Black",
+        "hex": "000000"
+      },
+      {
+        "name": "Navy",
+        "hex": "000080"
+      }
+    ],
+    "tags": [
+      "casual",
+      "StyleJone",
+      "cotton"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Premium Polo Shirt",
+    "actualPrice": 2499.0,
+    "salePrice": 2499.0,
+    "onSale": false,
+    "description": "Sophisticated polo shirt with classic collar design. Perfect for corporate wear and casual outings.",
+    "inStock": true,
+    "images": [
+      "https://example.com/polo1.jpg"
+    ],
+    "sku": "POL001",
+    "brand": "StyleJone",
+    "colors": [
+      {
+        "name": "Navy",
+        "hex": "000080"
+      },
+      {
+        "name": "White",
+        "hex": "FFFFFF"
+      },
+      {
+        "name": "Grey",
+        "hex": "808080"
+      }
+    ],
+    "tags": [
+      "polo",
+      "StyleJone",
+      "formal"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Elegant Silk Blouse",
+    "actualPrice": 3999.0,
+    "salePrice": 3499.0,
+    "onSale": true,
+    "description": "Beautiful women's blouse with flowing fabric and elegant design. Perfect for office wear.",
+    "inStock": true,
+    "images": [
+      "https://example.com/blouse1.jpg"
+    ],
+    "sku": "BLS001",
+    "brand": "StyleJone",
+    "colors": [
+      {
+        "name": "Cream",
+        "hex": "FFFFF0"
+      },
+      {
+        "name": "Black",
+        "hex": "000000"
+      }
+    ],
+    "tags": [
+      "silk",
+      "formal",
+      "StyleJone",
+      "women"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Winter Sweatshirt",
+    "actualPrice": 2999.0,
+    "salePrice": 2499.0,
+    "onSale": true,
+    "description": "Comfortable unisex sweatshirt perfect for casual wear and layering.",
+    "inStock": true,
+    "images": [
+      "https://example.com/sweat1.jpg"
+    ],
+    "sku": "SWT001",
+    "brand": "StyleJone",
+    "colors": [
+      {
+        "name": "Grey",
+        "hex": "808080"
+      },
+      {
+        "name": "Black",
+        "hex": "000000"
+      },
+      {
+        "name": "Navy",
+        "hex": "000080"
+      }
+    ],
+    "tags": [
+      "casual",
+      "StyleJone",
+      "winter"
+    ]
+  }
+]

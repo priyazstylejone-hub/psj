@@ -1,0 +1,52 @@
+ID,Name,Actual Price,Sale Price,Description,In Stock,Images,SKU,Tags,Brand,Colors,Sizes
+
+1,Classic Cotton T-Shirt,1499,1299,"A premium quality cotton t-shirt with a comfortable fit. Made from 100% organic cotton, this versatile piece is perfect for everyday wear.",TRUE,https://example.com/tshirt1.jpg,TSH001,"cotton,casual",StyleJone,"White:#FFFFFF,Black:#000000,Navy:#000080","S,M,L,XL"
+
+2,Premium Polo Shirt,2499,2499,"Sophisticated polo shirt with classic collar design. Perfect for corporate wear and casual outings.",TRUE,https://example.com/polo1.jpg,POL001,"polo,formal",StyleJone,"Navy:#000080,White:#FFFFFF,Grey:#808080","M,L,XL"
+
+3,Elegant Silk Blouse,3999,3499,"Beautiful women's blouse with flowing fabric and elegant design. Perfect for office wear.",TRUE,https://example.com/blouse1.jpg,BLS001,"silk,formal,women",StyleJone,"Cream:#FFFFF0,Black:#000000","S,M,L"
+
+4,Winter Sweatshirt,2999,2499,"Comfortable unisex sweatshirt perfect for casual wear and layering.",TRUE,https://example.com/sweat1.jpg,SWT001,"winter,casual",StyleJone,"Grey:#808080,Black:#000000,Navy:#000080","M,L,XL,XXL"
+
+=== INSTRUCTIONS ===
+
+COLUMN DESCRIPTIONS:
+1.  ID          : Unique numeric identifier for each product
+2.  Name        : Product name
+3.  Actual Price: Original price in ₹ (numbers only)
+4.  Sale Price  : Sale price in ₹ (numbers only)
+5.  Description : Detailed product description
+6.  In Stock    : TRUE or FALSE
+7.  Images      : Comma-separated image URLs
+8.  SKU         : Stock keeping unit code
+9.  Tags        : Comma-separated keywords/tags
+10. Brand       : Brand name
+11. Colors      : Color data in either format:
+                  - Simple: Name:#HexCode,Name:#HexCode
+                  - JSON: [{"name":"Red","hex":"FF0000"}]
+12. Sizes       : Size data in either format:
+                  - Simple: S,M,L,XL
+                  - JSON: [{"size":"S","measurements":{"chest":"36-38"}}]
+
+STANDARD SIZE MEASUREMENTS (inches):
+Size | Chest  | Waist  | Hips   | Length
+S    | 36-38   | 28-30  | 35-37  | 26-27
+M    | 38-40   | 30-32  | 37-39  | 27-28
+L    | 40-42   | 32-34  | 39-41  | 28-29
+XL   | 42-44   | 34-36  | 41-43  | 29-30
+XXL  | 44-46   | 36-38  | 43-45  | 30-31
+
+IMPORTANT NOTES:
+1. Do not include ₹ symbol in prices
+2. Prices should be whole numbers
+3. Sale Price should not exceed Actual Price
+4. In Stock must be TRUE or FALSE
+5. Image URLs must start with http:// or https://
+6. Color hex codes can include or omit the # symbol
+7. No blank rows between products
+8. Description can contain commas (will be handled properly)
+
+PRICING LOGIC:
+- If Actual Price = Sale Price: Regular pricing
+- If Actual Price > Sale Price: Shows as sale item
+- Sale Price cannot be higher than Actual Price

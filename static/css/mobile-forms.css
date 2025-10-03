@@ -1,0 +1,150 @@
+/* Mobile-specific form improvements */
+@media (max-width: 768px) {
+    /* Form Controls */
+    .form-control {
+        height: 42px;
+        font-size: 16px !important;  /* Prevents iOS zoom */
+        padding: 0.5rem;
+    }
+    
+    .form-group {
+        margin-bottom: 1rem;
+    }
+    
+    /* Select dropdowns */
+    select.form-control {
+        padding-right: 2rem !important;
+        background-position: right 0.5rem center;
+    }
+    
+    /* Custom checkboxes and radios */
+    .custom-control {
+        padding-left: 2rem;
+    }
+    
+    .custom-control-label::before,
+    .custom-control-label::after {
+        width: 1.25rem;
+        height: 1.25rem;
+    }
+    
+    /* Input groups */
+    .input-group {
+        flex-wrap: nowrap;
+    }
+    
+    .input-group > .form-control {
+        min-width: 0;
+    }
+    
+    /* Search inputs */
+    .search-form {
+        position: relative;
+        margin: 1rem 0;
+    }
+    
+    .search-form .form-control {
+        padding-right: 40px;
+        border-radius: 20px;
+    }
+    
+    .search-form .btn {
+        position: absolute;
+        right: 4px;
+        top: 4px;
+        bottom: 4px;
+        width: 34px;
+        padding: 0;
+        border-radius: 17px;
+    }
+}
+
+/* Modal improvements for mobile */
+@media (max-width: 768px) {
+    .modal {
+        padding: 0 !important;
+    }
+    
+    .modal-dialog {
+        margin: 0.5rem;
+        max-width: calc(100% - 1rem);
+    }
+    
+    .modal-content {
+        border-radius: 1rem;
+    }
+    
+    .modal-header {
+        padding: 1rem;
+    }
+    
+    .modal-body {
+        padding: 1rem;
+        max-height: 70vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .modal-footer {
+        padding: 1rem;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    .modal-footer .btn {
+        flex: 1;
+        min-width: 120px;
+    }
+}
+
+/* Toast notifications for mobile */
+@media (max-width: 768px) {
+    .toast-container {
+        position: fixed;
+        bottom: 1rem;
+        left: 1rem;
+        right: 1rem;
+        z-index: 1050;
+    }
+    
+    .toast {
+        margin-bottom: 0.5rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    
+    .toast-header {
+        padding: 0.75rem 1rem;
+    }
+    
+    .toast-body {
+        padding: 1rem;
+    }
+}
+
+/* Loading states and spinners */
+@media (max-width: 768px) {
+    .loading-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(255,255,255,0.9);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1040;
+    }
+    
+    .spinner-border {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    
+    .loading-text {
+        margin-top: 1rem;
+        font-size: 0.9rem;
+        color: var(--text-color);
+    }
+}

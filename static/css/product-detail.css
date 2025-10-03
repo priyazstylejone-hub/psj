@@ -81,6 +81,18 @@
     object-fit: cover;
 }
 
+/* Ensure color-option displays a visible circle even when using background-color */
+.color-option {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Tooltip fallback: title attribute will show on hover; ensure cursor is pointer */
+.color-option[title] {
+    cursor: pointer;
+}
+
 /* Size Selector */
 .size-selector {
     display: flex;

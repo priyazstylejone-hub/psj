@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Classic Cotton T-Shirt",
+    "description": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&h=800&fit=crop&crop=center",
+    "category": "A premium quality cotton t-shirt with a comfortable fit. Made from 100% organic cotton, this versatile piece is perfect for everyday wear. Unisex design suitable for all.",
+    "actualPrice": 100.0,
+    "salePrice": 100.0,
+    "onSale": false,
+    "images": [
+      "TSHIRT001"
+    ],
+    "inStock": false,
+    "sku": "TRUE",
+    "brand": "cotton,unisex,casual"
+  },
+  {
+    "id": 2,
+    "name": "Premium Polo Shirt",
+    "description": "https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=800&h=800&fit=crop&crop=center",
+    "category": "Sophisticated polo shirt with classic collar design. Perfect for corporate wear and casual outings. Premium cotton blend fabric with moisture-wicking properties.",
+    "actualPrice": 200.0,
+    "salePrice": 200.0,
+    "onSale": false,
+    "images": [
+      "POLO001"
+    ],
+    "inStock": false,
+    "sku": "TRUE",
+    "brand": "polo,casual,formal"
+  },
+  {
+    "id": 3,
+    "name": "Elegant Silk Blouse",
+    "description": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=800&h=800&fit=crop&crop=center",
+    "category": "Beautiful women's blouse with flowing fabric and elegant design. Perfect for office wear and special occasions. Made from premium silk blend for comfort and sophistication.",
+    "actualPrice": 300.0,
+    "salePrice": 300.0,
+    "onSale": false,
+    "images": [
+      "BLOUSE001"
+    ],
+    "inStock": false,
+    "sku": "TRUE",
+    "brand": "silk,women,formal"
+  },
+  {
+    "id": 4,
+    "name": "Cozy Winter Sweatshirt",
+    "description": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800&h=800&fit=crop&crop=center",
+    "category": "Comfortable unisex sweatshirt perfect for casual wear and layering. Soft fleece interior and durable construction. Ideal for Indian winters and air-conditioned spaces.",
+    "actualPrice": 250.0,
+    "salePrice": 250.0,
+    "onSale": false,
+    "images": [
+      "SWEAT001"
+    ],
+    "inStock": false,
+    "sku": "TRUE",
+    "brand": "sweatshirt,unisex,winter"
+  }
+]

@@ -12,6 +12,7 @@
     --header-gradient-end: #8B6F47;  /* Mocha Mousse (from hero) */
     --hero-gradient-start: #2E5266;
     --hero-gradient-end: #8B6F47;
+}
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -39,6 +40,18 @@ body {
     letter-spacing: 2px;
     text-shadow: 0 2px 8px #0008;
     line-height: 1;
+    text-align: center;
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
+/* Mobile styles for brand name */
+@media (max-width: 768px) {
+    .psj-brand-name {
+        font-size: 1.6rem !important;
+        letter-spacing: 1px;
+        padding: 0 10px;
+    }
 }
 
 /* Social Banner */
@@ -46,33 +59,60 @@ body {
     background: #111;
     color: #fff;
     border-radius: 0;
-    margin: 0 0 0 0;
-    max-width: 100vw;
+    margin: 0;
+    max-width: 100%;
     box-shadow: none;
-    padding: 0.7rem 0 0.7rem 0;
+    padding: 0.7rem 1rem;
     text-align: center;
     position: static;
     left: unset;
     bottom: unset;
     transform: none;
     z-index: 10;
-    width: 100vw;
+    width: 100%;
     margin-bottom: 0;
+    overflow: hidden;
 }
 .psj-social-banner .psj-social-row {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1.5rem;
-    flex-wrap: nowrap;
+    gap: 1rem;
+    flex-wrap: wrap;
     flex-direction: row;
 }
 .psj-social-banner .psj-social-row span {
     font-weight: 500;
     color: #fff;
-    margin-right: 1.2rem;
-    white-space: nowrap;
-    font-size: 1.1rem;
+    margin-right: 0.5rem;
+    white-space: normal;
+    font-size: 1rem;
+    text-align: center;
+    display: inline-block;
+}
+
+/* Mobile styles for social banner */
+@media (max-width: 768px) {
+    .psj-social-banner {
+        padding: 0.5rem;
+    }
+    .psj-social-banner .psj-social-row {
+        gap: 0.5rem;
+        justify-content: space-around;
+    }
+    .psj-social-banner .psj-social-row span {
+        margin-right: 0;
+        font-size: 0.9rem;
+        width: 100%;
+        margin-bottom: 0.3rem;
+    }
+    .psj-social-banner .psj-social-icons {
+        width: 100%;
+        justify-content: center;
+    }
+    .psj-social-banner .psj-social-icons a {
+        font-size: 1.5rem;
+    }
 }
 .psj-social-banner .psj-social-icons {
     display: flex;
@@ -238,37 +278,211 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    /* Header & Navigation */
+    .psj-top-banner {
+        min-height: 45px !important;
+        padding: 0.5rem !important;
+    }
+    
+    .navbar-toggler {
+        padding: 0.25rem 0.5rem;
+        font-size: 1rem;
+    }
+    
+    .navbar-nav {
+        background: rgba(255,255,255,0.95);
+        border-radius: var(--border-radius);
+        padding: 1rem;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        margin-top: 0.5rem;
+    }
+    
+    .navbar-nav .nav-link {
+        color: var(--text-color) !important;
+        padding: 0.5rem 1rem;
+        border-radius: var(--border-radius);
+    }
+    
+    .navbar-nav .nav-link:hover {
+        background: var(--light-bg);
+    }
+
+    /* Hero Section */
     .hero-section {
-        min-height: 30vh;
+        min-height: 25vh;
         text-align: center;
+        padding: 2rem 1rem;
     }
     
     .hero-section h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    
+    /* Product Grid */
+    .product-grid {
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .product-card {
+        margin-bottom: 1.5rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
     
     .product-image {
-        height: 200px;
-    }
-    
-    .category-card {
-        padding: 1.5rem;
-        margin-bottom: 1rem;
-    }
-}
-
-@media (max-width: 576px) {
-    .hero-section h1 {
-        font-size: 2rem;
+        height: 180px;
     }
     
     .product-info {
         padding: 1rem;
     }
     
+    .product-title {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .product-price {
+        font-size: 1.25rem;
+    }
+    
+    /* Category Cards */
+    .category-card {
+        padding: 1.2rem;
+        margin-bottom: 1rem;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .category-count {
+        font-size: 1.5rem;
+    }
+
+    /* Buttons and CTAs */
+    .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+    
     .btn-order {
         width: 100%;
         margin-top: 0.5rem;
+        padding: 0.75rem;
+    }
+    
+    /* Forms and Inputs */
+    input, select, textarea {
+        font-size: 16px !important; /* Prevents iOS zoom on focus */
+    }
+    
+    /* Product Details Page */
+    .product-gallery {
+        margin-bottom: 1.5rem;
+    }
+    
+    .product-details h1 {
+        font-size: 1.5rem;
+    }
+    
+    .size-selector, .color-selector {
+        display: flex;
+        gap: 0.5rem;
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+@media (max-width: 576px) {
+    /* Extremely Small Devices */
+    .hero-section h1 {
+        font-size: 1.75rem;
+    }
+    
+    .product-info {
+        padding: 0.75rem;
+    }
+    
+    .product-image {
+        height: 160px;
+    }
+    
+    .category-card {
+        padding: 1rem;
+    }
+    
+    /* Cart and Checkout */
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .cart-item-image {
+        width: 100%;
+        height: 120px;
+        object-fit: cover;
+    }
+    
+    .quantity-selector {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    /* Footer */
+    footer {
+        text-align: center;
+        padding: 1.5rem 1rem;
+    }
+    
+    footer .row > div {
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) {
+    .product-card:hover {
+        transform: none;
+    }
+    
+    .product-card:active {
+        transform: scale(0.98);
+    }
+    
+    .btn:hover {
+        transform: none !important;
+    }
+    
+    .btn:active {
+        transform: scale(0.95) !important;
+    }
+    
+    /* Add touch feedback */
+    .nav-link:active,
+    .category-card:active,
+    .product-card:active {
+        background-color: rgba(0,0,0,0.05);
+    }
+}
+
+/* Landscape Mode Fixes */
+@media (max-height: 480px) and (orientation: landscape) {
+    .hero-section {
+        min-height: 200px;
+    }
+    
+    .navbar-collapse {
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+    
+    .product-image {
+        height: 140px;
     }
 }
 

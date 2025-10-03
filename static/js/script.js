@@ -151,17 +151,23 @@ function renderProducts(filteredProducts = null) {
 
     const productsHTML = productsToRender.map(product => {
         // Determine the best image source
-        let imgSrc = '';
-        if (product.images) {
-            if (product.images.primary) {
-                imgSrc = product.images.primary;
-            } else if (Array.isArray(product.images.gallery) && product.images.gallery.length > 0) {
-                imgSrc = product.images.gallery[0];
+        let imgSrc = 'static/images/placeholder.jpg';
+        
+        // Try to get the main image first
+        if (product.mainImage && product.mainImage.trim()) {
+            imgSrc = product.mainImage;
+        } 
+        // Fallback to additional images if main image is not available
+        else if (product.images) {
+            if (typeof product.images === 'string' && product.images.trim()) {
+                // If images is a comma-separated string
+                const firstImage = product.images.split(',')[0].trim();
+                if (firstImage) imgSrc = firstImage;
             } else if (Array.isArray(product.images) && product.images.length > 0) {
-                imgSrc = product.images[0];
+                // If images is an array
+                const firstImage = product.images[0].trim();
+                if (firstImage) imgSrc = firstImage;
             }
-        } else if (product.image) {
-            imgSrc = product.image;
         }
         // Use mapped category label if available
         let categoryLabel = '';
@@ -176,11 +182,14 @@ function renderProducts(filteredProducts = null) {
         return `
         <div class="col-lg-3 col-md-6 mb-4">
             <div class="card product-card h-100">
-                <img src="${imgSrc}" alt="${product.name}" class="product-image">
+                <img src="${imgSrc}" 
+                     alt="${product.name}" 
+                     class="product-image"
+                     onerror="this.onerror=null; this.src='static/images/placeholder.jpg';">
                 <div class="card-body product-info d-flex flex-column">
                     ${categoryLabel ? `<span class=\"badge bg-secondary mb-2 align-self-start\">${categoryLabel}</span>` : ''}
                     <h5 class="product-title">${product.name}</h5>
-                    <p class="product-price">₹${product.price ? product.price.toFixed(2) : (product.pricing?.salePrice/100).toFixed(2)}</p>
+                    <p class="product-price">${renderProductPrice(product)}</p>
                     <div class="mt-auto">
                         <button class="btn btn-primary btn-order w-100" onclick="viewProduct(${product.id})">
                             View Details
@@ -203,6 +212,17 @@ document.addEventListener('DOMContentLoaded', function() {
 });
     
     productGrid.innerHTML = productsHTML;
+}
+
+// Helper to render price HTML for a product using actualPrice/salePrice
+function renderProductPrice(product) {
+    const actual = typeof product.actualPrice === 'number' ? product.actualPrice : (product.price || 0);
+    const sale = typeof product.salePrice === 'number' ? product.salePrice : actual;
+    const onSale = !!product.onSale || (sale < actual);
+    if (onSale && sale < actual) {
+        return `<span class="text-muted text-decoration-line-through">₹${actual.toFixed(0)}</span> <span class="text-danger fw-bold">₹${sale.toFixed(0)}</span>`;
+    }
+    return `₹${actual.toFixed(0)}`;
 }
 
 // Filter products by category

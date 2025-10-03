@@ -1,328 +1,206 @@
 // Admin Panel JavaScript
 let currentProducts = [];
 let colorCounter = 0;
+// Admin Panel JavaScript
+let currentProducts = [];
+let colorCounter = 0;
 
 // Load admin panel on page load
 document.addEventListener('DOMContentLoaded', function() {
     loadCurrentProducts();
     setupEventListeners();
-    loadSavedSettings();
-});
+    // Clean admin.js (replaced corrupted content)
+    let currentProducts = [];
+    let colorCounter = 0;
 
-// Setup event listeners
-function setupEventListeners() {
-    // New product form submission
-    document.getElementById('new-product-form').addEventListener('submit', handleNewProduct);
-    
-    // Logo upload drag and drop
-    const dropzone = document.querySelector('.upload-dropzone');
-    dropzone.addEventListener('dragover', handleDragOver);
-    dropzone.addEventListener('dragleave', handleDragLeave);
-    dropzone.addEventListener('drop', handleLogoDrop);
-}
-
-// Load and display current products
-async function loadCurrentProducts() {
-    try {
-        const response = await fetch('products.json');
-        if (!response.ok) {
-            throw new Error('Failed to load products');
-        }
-        currentProducts = await response.json();
-        displayCurrentProducts();
-    } catch (error) {
-        console.error('Error loading products:', error);
-        document.getElementById('products-list').innerHTML = `
-            <div class="alert alert-danger">Failed to load products. Please refresh the page.</div>
-        `;
-    }
-}
-
-// Display current products in admin list
-function displayCurrentProducts() {
-    const productsList = document.getElementById('products-list');
-    
-    if (currentProducts.length === 0) {
-        productsList.innerHTML = `
-            <div class="alert alert-info">No products found. Add your first product using the form above.</div>
-        `;
-        return;
-    }
-    
-    const productsHTML = `
-        <div class="table-responsive">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Image</th>
-                        <th>Name</th>
-                        <th>Category</th>
-                        <th>Price</th>
-                        <th>Colors</th>
-                        <th>Sizes</th>
-                        <th>Featured</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    ${currentProducts.map(product => `
-                        <tr>
-                            <td>${product.id}</td>
-                            <td>
-                                <img src="${product.images ? product.images[0] : product.image}" 
-                                     alt="${product.name}" 
-                                     class="img-thumbnail" 
-                                     style="width: 50px; height: 50px; object-fit: cover;">
-                            </td>
-                            <td>${product.name}</td>
-                            <td><span class="badge bg-secondary">${product.category}</span></td>
-                            <td>₹${product.price.toFixed(2)}</td>
-                            <td>
-                                ${product.colors ? product.colors.map(color => `
-                                    <span class="color-dot me-1" 
-                                          style="background-color: ${color.hex}; width: 16px; height: 16px; display: inline-block; border-radius: 50%; border: 1px solid #ddd;" 
-                                          title="${color.name}"></span>
-                                `).join('') : 'N/A'}
-                            </td>
-                            <td>${product.sizes ? product.sizes.join(', ') : 'N/A'}</td>
-                            <td>
-                                <span class="badge ${product.featured ? 'bg-success' : 'bg-secondary'}">
-                                    ${product.featured ? 'Yes' : 'No'}
-                                </span>
-                            </td>
-                            <td>
-                                <button class="btn btn-sm btn-outline-primary" onclick="editProduct(${product.id})">Edit</button>
-                                <button class="btn btn-sm btn-outline-danger" onclick="deleteProduct(${product.id})">Delete</button>
-                            </td>
-                        </tr>
-                    `).join('')}
-                </tbody>
-            </table>
-        </div>
-    `;
-    
-    productsList.innerHTML = productsHTML;
-}
-
-// Handle new product form submission
-function handleNewProduct(event) {
-    event.preventDefault();
-    
-    // Get form data
-    const formData = new FormData(event.target);
-    const selectedSizes = [];
-    const sizeCheckboxes = document.querySelectorAll('input[type="checkbox"][value]');
-    sizeCheckboxes.forEach(checkbox => {
-        if (checkbox.checked) {
-            selectedSizes.push(checkbox.value);
-        }
+    document.addEventListener('DOMContentLoaded', function() {
+      loadCurrentProducts();
+      setupEventListeners();
+      loadSavedSettings();
     });
-    
-    // Get color options
-    const colors = getColorOptions();
-    
-    // Create new product object
-    const newProduct = {
-        id: currentProducts.length > 0 ? Math.max(...currentProducts.map(p => p.id)) + 1 : 1,
-        name: document.getElementById('product-name').value,
-        price: parseFloat(document.getElementById('product-price').value),
-        description: document.getElementById('product-description').value,
-        category: document.getElementById('product-category').value,
-        images: [], // Will be populated with uploaded images
-        colors: colors,
+
+    function setupEventListeners() {
+      const form = document.getElementById('new-product-form');
+      if (form) form.addEventListener('submit', handleNewProduct);
+
+      const dropzone = document.querySelector('.upload-dropzone');
+      if (dropzone) {
+        dropzone.addEventListener('dragover', handleDragOver);
+        dropzone.addEventListener('dragleave', handleDragLeave);
+        dropzone.addEventListener('drop', handleLogoDrop);
+      }
+    }
+
+    async function loadCurrentProducts() {
+      try {
+        const res = await fetch('products.json');
+        if (!res.ok) throw new Error('Failed to fetch products.json');
+        currentProducts = await res.json();
+        displayCurrentProducts();
+      } catch (err) {
+        console.error(err);
+        const productsList = document.getElementById('products-list');
+        if (productsList) productsList.innerHTML = '<div class="alert alert-danger">Failed to load products. Check console.</div>';
+        showMessage('Failed to load products. See console.', 'danger');
+        currentProducts = [];
+      }
+    }
+
+    function displayCurrentProducts() {
+      const productsList = document.getElementById('products-list');
+      if (!productsList) return;
+
+      if (!currentProducts || currentProducts.length === 0) {
+        productsList.innerHTML = '<div class="alert alert-info">No products found. Add your first product using the form above.</div>';
+        return;
+      }
+
+      const rows = currentProducts.map(p => {
+        const imageUrl = p.images && p.images.length ? p.images[0] : (p.image || '');
+        const colorsHtml = (p.colors || []).map(c => {
+          const hex = c.hex && String(c.hex).trim().startsWith('#') ? c.hex.trim() : ('#' + String(c.hex || '').trim());
+          return `<span class="color-dot me-1" title="${escapeHtml(c.name || '')}" style="background-color:${hex};width:16px;height:16px;display:inline-block;border-radius:50%;border:1px solid #ddd"></span>`;
+        }).join('') || 'N/A';
+        const sizesText = p.sizes ? p.sizes.map(s => (typeof s === 'string' ? s : s.size)).join(', ') : 'N/A';
+        const priceHtml = (typeof renderProductPrice === 'function') ? renderProductPrice(p) : (p.price || '');
+
+        return `
+          <tr>
+            <td>${p.id}</td>
+            <td><img src="${imageUrl}" alt="${escapeHtml(p.name||'')}" class="img-thumbnail" style="width:50px;height:50px;object-fit:cover"></td>
+            <td>${escapeHtml(p.name||'')}</td>
+            <td><span class="badge bg-secondary">${escapeHtml(p.category||'')}</span></td>
+            <td>${priceHtml}</td>
+            <td>${colorsHtml}</td>
+            <td>${sizesText}</td>
+            <td><span class="badge ${p.featured ? 'bg-success' : 'bg-secondary'}">${p.featured ? 'Yes' : 'No'}</span></td>
+            <td>
+              <button class="btn btn-sm btn-outline-primary" onclick="editProduct(${p.id})">Edit</button>
+              <button class="btn btn-sm btn-outline-danger" onclick="deleteProduct(${p.id})">Delete</button>
+            </td>
+          </tr>`;
+      }).join('');
+
+      productsList.innerHTML = `
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Colors</th>
+                <th>Sizes</th>
+                <th>Featured</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${rows}
+            </tbody>
+          </table>
+        </div>`;
+    }
+
+    function handleNewProduct(e) {
+      e.preventDefault();
+      const selectedSizes = [];
+      document.querySelectorAll('input[type="checkbox"][value]').forEach(cb => { if (cb.checked) selectedSizes.push(cb.value); });
+      const colors = getColorOptions();
+
+      const newProduct = {
+        id: currentProducts.length ? Math.max(...currentProducts.map(x => x.id)) + 1 : 1,
+        name: (document.getElementById('product-name') || {}).value || '',
+        actualPrice: parseFloat((document.getElementById('product-price') || {}).value || '0'),
+        salePrice: parseFloat((document.getElementById('product-sale-price') || {}).value || '0'),
+        description: (document.getElementById('product-description') || {}).value || '',
+        category: (document.getElementById('product-category') || {}).value || '',
+        mainImage: '',  // Will be set from uploaded images
+        images: [],     // Additional images
+        colors,
         sizes: selectedSizes,
         inStock: true,
-        featured: document.getElementById('product-featured').value === 'true'
-    };
-    
-    // Handle image uploads (placeholder - in real implementation, you'd upload to server)
-    const imageFiles = document.getElementById('product-images').files;
-    if (imageFiles.length > 0) {
-        // For demo purposes, use placeholder images
-        newProduct.images = [\n            'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&h=600&fit=crop&crop=center',\n            'https://images.unsplash.com/photo-1583743814966-8936f37f4ec2?w=600&h=600&fit=crop&crop=center',\n            'https://images.unsplash.com/photo-1562157873-818bc0726f68?w=600&h=600&fit=crop&crop=center',\n            'https://images.unsplash.com/photo-1571945153237-4929e783af4a?w=600&h=600&fit=crop&crop=center'\n        ];
-        \n        // Show success message about image upload\n        showMessage('Product added successfully! Note: In a production environment, images would be properly uploaded to your server.', 'success');
-    } else {
-        // Use default placeholder image
-        newProduct.images = ['https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&h=600&fit=crop&crop=center'];
-    }
-    
-    // Add to products array (in real implementation, this would save to server)
-    currentProducts.push(newProduct);
-    
-    // Update the display
-    displayCurrentProducts();
-    
-    // Show success message
-    showMessage('Product added successfully! Note: This is a demo - in production, changes would be saved to your server.', 'success');
-    
-    // Reset form
-    event.target.reset();
-    clearColorOptions();
-    
-    // Update the live products.json display (for demo purposes)
-    updateProductsJsonDisplay();
-}
+        featured: (document.getElementById('product-featured') || {}).value === 'true',
+        material: (document.getElementById('product-material') || {}).value || '',
+        careInstructions: (document.getElementById('product-care') || {}).value || ''
+      };
 
-// Add color option
-function addColorOption() {
-    colorCounter++;
-    const container = document.getElementById('color-options-container');
-    
-    const colorDiv = document.createElement('div');
-    colorDiv.className = 'color-option-item mb-2 p-2 border rounded';
-    colorDiv.innerHTML = `
+      const imageFiles = (document.getElementById('product-images') || {}).files || [];
+      if (imageFiles.length > 0) {
+        // In a real implementation, we would upload these files to a server
+        // For demo purposes, we'll use placeholder URLs
+        newProduct.mainImage = 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&h=600&fit=crop&crop=center';
+        newProduct.images = [
+          'https://images.unsplash.com/photo-1583743814966-8936f37f4ec2?w=600&h=600&fit=crop&crop=center'
+        ];
+        showMessage('Product added with demo images. Note: In production, images would be uploaded to server.', 'success');
+      } else {
+        newProduct.mainImage = 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&h=600&fit=crop&crop=center';
+        newProduct.images = [];
+      }
+
+      currentProducts.push(newProduct);
+      displayCurrentProducts();
+      showMessage('Product added (demo).', 'success');
+      if (e.target && typeof e.target.reset === 'function') e.target.reset();
+      clearColorOptions();
+      updateProductsJsonDisplay();
+    }
+
+    function addColorOption() {
+      colorCounter++;
+      const container = document.getElementById('color-options-container');
+      if (!container) return;
+      const div = document.createElement('div');
+      div.className = 'color-option-item mb-2 p-2 border rounded';
+      div.innerHTML = `
         <div class="row g-2">
-            <div class="col-md-4">
-                <input type="text" class="form-control form-control-sm" placeholder="Color name" id="color-name-${colorCounter}">
-            </div>
-            <div class="col-md-3">
-                <input type="color" class="form-control form-control-color form-control-sm" id="color-hex-${colorCounter}" value="#000000">
-            </div>
-            <div class="col-md-3">
-                <input type="file" class="form-control form-control-sm" accept=".png,.jpg,.jpeg" id="color-image-${colorCounter}">
-            </div>
-            <div class="col-md-2">
-                <button type="button" class="btn btn-sm btn-outline-danger" onclick="removeColorOption(this)">Remove</button>
-            </div>
-        </div>
-    `;
-    
-    container.appendChild(colorDiv);
-}
-
-// Remove color option
-function removeColorOption(button) {
-    button.closest('.color-option-item').remove();
-}
-
-// Get color options from form
-function getColorOptions() {
-    const colors = [];
-    const colorItems = document.querySelectorAll('.color-option-item');
-    
-    colorItems.forEach((item, index) => {
-        const nameInput = item.querySelector('input[type="text"]');
-        const hexInput = item.querySelector('input[type="color"]');
-        const imageInput = item.querySelector('input[type="file"]');
-        
-        if (nameInput.value && hexInput.value) {
-            colors.push({
-                name: nameInput.value,
-                hex: hexInput.value,
-                image: imageInput.files.length > 0 ? 
-                    'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&h=600&fit=crop&crop=center' : // Placeholder
-                    null
-            });
-        }
-    });
-    
-    return colors;
-}
-
-// Clear color options
-function clearColorOptions() {
-    document.getElementById('color-options-container').innerHTML = '';
-    colorCounter = 0;
-}
-
-// Edit product (placeholder)
-function editProduct(productId) {
-    const product = currentProducts.find(p => p.id === productId);
-    if (product) {
-        alert(`Edit functionality for "${product.name}" would be implemented here in a full system.`);
+          <div class="col-md-4"><input type="text" class="form-control form-control-sm" placeholder="Color name" id="color-name-${colorCounter}"></div>
+          <div class="col-md-3"><input type="color" class="form-control form-control-color form-control-sm" id="color-hex-${colorCounter}" value="#000000"></div>
+          <div class="col-md-3"><input type="file" class="form-control form-control-sm" accept=".png,.jpg,.jpeg" id="color-image-${colorCounter}"></div>
+          <div class="col-md-2"><button type="button" class="btn btn-sm btn-outline-danger" onclick="removeColorOption(this)">Remove</button></div>
+        </div>`;
+      container.appendChild(div);
     }
-}
 
-// Delete product (placeholder)
-function deleteProduct(productId) {
-    if (confirm('Are you sure you want to delete this product?')) {
-        currentProducts = currentProducts.filter(p => p.id !== productId);
-        displayCurrentProducts();
-        showMessage('Product deleted successfully!', 'success');
-        updateProductsJsonDisplay();
+    function removeColorOption(btn) { const el = btn.closest('.color-option-item'); if (el) el.remove(); }
+
+    function getColorOptions() {
+      const out = [];
+      document.querySelectorAll('.color-option-item').forEach(item => {
+        const name = (item.querySelector('input[type="text"]') || {}).value || '';
+        const hex = (item.querySelector('input[type="color"]') || {}).value || '';
+        const imgInput = item.querySelector('input[type="file"]');
+        if (name && hex) out.push({ name: name.trim(), hex: hex.trim(), image: (imgInput && imgInput.files && imgInput.files.length > 0) ? 'placeholder' : null });
+      });
+      return out;
     }
-}
 
-// Update WhatsApp number
-function updateWhatsAppNumber() {
-    const number = document.getElementById('whatsapp-number').value;
-    if (number) {
-        localStorage.setItem('whatsappNumber', number);
-        showMessage('WhatsApp number updated successfully! This number will now be used for all customer orders.', 'success');
+    function clearColorOptions() { const c = document.getElementById('color-options-container'); if (c) c.innerHTML = ''; colorCounter = 0; }
+
+    function editProduct(id) { alert('Edit not implemented in demo.'); }
+    function deleteProduct(id) { if (confirm('Delete product?')) { currentProducts = currentProducts.filter(p => p.id !== id); displayCurrentProducts(); showMessage('Product deleted', 'success'); updateProductsJsonDisplay(); } }
+
+    function updateWhatsAppNumber() { const el = document.getElementById('whatsapp-number'); if (el && el.value) { localStorage.setItem('whatsappNumber', el.value); showMessage('WhatsApp number saved', 'success'); } }
+    function loadSavedSettings() { const n = localStorage.getItem('whatsappNumber'); if (n) { const el = document.getElementById('whatsapp-number'); if (el) el.value = n; } }
+
+    function handleLogoUpload(e) { const file = e.target.files && e.target.files[0]; if (!file) return; const r = new FileReader(); r.onload = ev => { const img = document.getElementById('current-logo'); if (img) img.src = ev.target.result; showMessage('Logo loaded (demo)', 'success'); }; r.readAsDataURL(file); }
+    function handleDragOver(e) { e.preventDefault(); if (e.currentTarget) e.currentTarget.classList.add('dragover'); }
+    function handleDragLeave(e) { if (e.currentTarget) e.currentTarget.classList.remove('dragover'); }
+    function handleLogoDrop(e) { e.preventDefault(); if (e.currentTarget) e.currentTarget.classList.remove('dragover'); const files = e.dataTransfer.files; if (files && files[0] && files[0].type.startsWith('image/')) { const r = new FileReader(); r.onload = ev => { const img = document.getElementById('current-logo'); if (img) img.src = ev.target.result; showMessage('Logo loaded (demo)', 'success'); }; r.readAsDataURL(files[0]); } }
+
+    function showMessage(message, type = 'info') { const alertDiv = document.createElement('div'); alertDiv.className = `alert alert-${type} alert-dismissible fade show`; alertDiv.innerHTML = `${escapeHtml(message)}<button type="button" class="btn-close" data-bs-dismiss="alert"></button>`; const container = document.querySelector('.container'); if (container) container.insertBefore(alertDiv, container.firstElementChild); setTimeout(() => { if (alertDiv.parentNode) alertDiv.remove(); }, 5000); }
+
+    function updateProductsJsonDisplay() { console.log('Updated products (demo):', JSON.stringify(currentProducts, null, 2)); }
+
+    function escapeHtml(str) { 
+      if (!str) return ''; 
+      return String(str)
+        .replace(/&/g,'&amp;')
+        .replace(/</g,'&lt;')
+        .replace(/>/g,'&gt;')
+        .replace(/"/g,'&quot;')
+        .replace(/'/g,'&#039;'); 
     }
-}
-
-// Load saved WhatsApp number on page load
-function loadSavedSettings() {
-    const savedNumber = localStorage.getItem('whatsappNumber');
-    if (savedNumber) {
-        document.getElementById('whatsapp-number').value = savedNumber;
-    }
-}
-
-// Handle logo upload
-function handleLogoUpload(event) {
-    const file = event.target.files[0];
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            // Update current logo display
-            document.getElementById('current-logo').src = e.target.result;
-            showMessage('Logo uploaded successfully! Note: In production, this would be saved to your server.', 'success');
-        };
-        reader.readAsDataURL(file);
-    }
-}
-
-// Drag and drop handlers for logo
-function handleDragOver(event) {
-    event.preventDefault();
-    event.currentTarget.classList.add('dragover');
-}
-
-function handleDragLeave(event) {
-    event.currentTarget.classList.remove('dragover');
-}
-
-function handleLogoDrop(event) {
-    event.preventDefault();
-    event.currentTarget.classList.remove('dragover');
-    
-    const files = event.dataTransfer.files;
-    if (files.length > 0 && files[0].type.startsWith('image/')) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            document.getElementById('current-logo').src = e.target.result;
-            showMessage('Logo uploaded successfully!', 'success');
-        };
-        reader.readAsDataURL(files[0]);
-    }
-}
-
-// Show message to user
-function showMessage(message, type = 'info') {
-    const alertDiv = document.createElement('div');
-    alertDiv.className = `alert alert-${type} alert-dismissible fade show`;
-    alertDiv.innerHTML = `
-        ${message}
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-    `;
-    
-    // Insert at top of main content
-    const container = document.querySelector('.container');
-    container.insertBefore(alertDiv, container.firstElementChild);
-    
-    // Auto dismiss after 5 seconds
-    setTimeout(() => {
-        if (alertDiv.parentNode) {
-            alertDiv.remove();
-        }
-    }, 5000);
-}
-
-// Update products.json display (for demo purposes)
-function updateProductsJsonDisplay() {
-    // This would typically save to server in a real implementation
-    console.log('Updated products.json:', JSON.stringify(currentProducts, null, 2));
-}

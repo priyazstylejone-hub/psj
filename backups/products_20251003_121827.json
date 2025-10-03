@@ -1,0 +1,46 @@
+[
+  {
+    "id": 1,
+    "name": "Classic Cotton T-Shirt",
+    "description": "A premium quality cotton t-shirt with a comfortable fit. Made from 100% organic cotton, this versatile piece is perfect for everyday wear. Unisex design suitable for all.",
+    "category": "Clothing",
+    "price": 100.0,
+    "images": [
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&h=800&fit=crop&crop=center"
+    ],
+    "inStock": true
+  },
+  {
+    "id": 2,
+    "name": "Premium Polo Shirt",
+    "description": "Sophisticated polo shirt with classic collar design. Perfect for corporate wear and casual outings. Premium cotton blend fabric with moisture-wicking properties.",
+    "category": "Clothing",
+    "price": 200.0,
+    "images": [
+      "https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=800&h=800&fit=crop&crop=center"
+    ],
+    "inStock": true
+  },
+  {
+    "id": 3,
+    "name": "Elegant Silk Blouse",
+    "description": "Beautiful women's blouse with flowing fabric and elegant design. Perfect for office wear and special occasions. Made from premium silk blend for comfort and sophistication.",
+    "category": "Clothing",
+    "price": 300.0,
+    "images": [
+      "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=800&h=800&fit=crop&crop=center"
+    ],
+    "inStock": true
+  },
+  {
+    "id": 4,
+    "name": "Cozy Winter Sweatshirt",
+    "description": "Comfortable unisex sweatshirt perfect for casual wear and layering. Soft fleece interior and durable construction. Ideal for Indian winters and air-conditioned spaces.",
+    "category": "Clothing",
+    "price": 250.0,
+    "images": [
+      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800&h=800&fit=crop&crop=center"
+    ],
+    "inStock": true
+  }
+]

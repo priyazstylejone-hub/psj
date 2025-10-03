@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                     <img src="${imgSrc}" alt="${product.name}" class="product-image">
                     <div class="card-body product-info d-flex flex-column">
                         <h5 class="product-title">${product.name}</h5>
-                        <p class="product-price">₹${product.price ? product.price.toFixed(2) : (product.pricing?.salePrice/100).toFixed(2)}</p>
+                        <p class="product-price">${renderProductPrice(product)}</p>
                         <div class="mt-auto">
                             <button class="btn btn-primary btn-order w-100" onclick="window.location.href='product-detail.html?id=${product.id}'">
                                 View Details
@@ -44,3 +44,13 @@ document.addEventListener('DOMContentLoaded', async function() {
         grid.innerHTML = '<div class="col-12 text-center"><p class="text-danger">Failed to load products.</p></div>';
     }
 });
+
+function renderProductPrice(product) {
+    const actual = typeof product.actualPrice === 'number' ? product.actualPrice : (product.price || 0);
+    const sale = typeof product.salePrice === 'number' ? product.salePrice : actual;
+    const onSale = !!product.onSale || (sale < actual);
+    if (onSale && sale < actual) {
+        return `<span class="text-muted text-decoration-line-through">₹${actual.toFixed(0)}</span> <span class="text-danger fw-bold">₹${sale.toFixed(0)}</span>`;
+    }
+    return `₹${actual.toFixed(0)}`;
+}

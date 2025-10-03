@@ -3,6 +3,17 @@ let currentProduct = null;
 let selectedColor = null;
 let selectedSize = null;
 
+// Small helper to escape HTML in generated strings
+function escapeHtml(str) {
+    if (!str && str !== 0) return '';
+    return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
+
 // Get WhatsApp number from admin configuration or use default
 function getWhatsAppNumber() {
     return localStorage.getItem('whatsappNumber') || "+1234567890";
@@ -58,23 +69,65 @@ function displayProductDetails(product) {
     // Update page title and breadcrumb
     document.title = `${product.name} - PSJ Priya'z Style Jone`;
     document.getElementById('product-breadcrumb').textContent = product.name;
-    document.getElementById('category-link').textContent = product.category;
-    document.getElementById('category-link').href = `category.html?cat=${product.category}`;
-    
+
+    // Some products may not have a category; fall back gracefully
+    const category = product.category || 'Uncategorized';
+    const categoryLinkEl = document.getElementById('category-link');
+    if (categoryLinkEl) {
+        categoryLinkEl.textContent = category;
+        categoryLinkEl.href = `category.html?cat=${encodeURIComponent(category)}`;
+    }
+
     // Populate product information
-    document.getElementById('product-category-badge').textContent = product.category;
+    const badgeEl = document.getElementById('product-category-badge');
+    if (badgeEl) badgeEl.textContent = category;
     document.getElementById('product-name-detail').textContent = product.name;
-    document.getElementById('product-price-detail').textContent = `₹${product.price.toFixed(2)}`;
-    document.getElementById('product-description-detail').textContent = product.description;
+
+    // Price rendering: show sale price and strike-through actual if on sale
+    const priceEl = document.getElementById('product-price-detail');
+    if (priceEl) {
+        const actual = typeof product.actualPrice === 'number' ? product.actualPrice : (product.price || 0);
+        const sale = typeof product.salePrice === 'number' ? product.salePrice : actual;
+        const onSale = !!product.onSale || (sale < actual);
+
+        if (onSale && sale < actual) {
+            priceEl.innerHTML = `<span class="text-muted text-decoration-line-through">₹${actual.toFixed(0)}</span> <span class="fs-5 text-danger fw-bold">₹${sale.toFixed(0)}</span>`;
+        } else {
+            priceEl.textContent = `₹${actual.toFixed(0)}`;
+        }
+    }
+
+    document.getElementById('product-description-detail').textContent = product.description || '';
     
-    // Setup image gallery
-    setupImageGallery(product.images);
+    // Setup image gallery with main image and additional images
+    const allImages = [];
+    if (product.mainImage) {
+        allImages.push(product.mainImage);
+    }
+    if (product.images) {
+        // Handle both string and array formats for backward compatibility
+        const additionalImages = typeof product.images === 'string' 
+            ? product.images.split(',').map(img => img.trim())
+            : (Array.isArray(product.images) ? product.images : []);
+        allImages.push(...additionalImages.filter(img => img && img.trim()));
+    }
+    setupImageGallery(allImages);
     
     // Setup color selection
     setupColorSelection(product.colors);
     
     // Setup size selection
     setupSizeSelection(product.sizes);
+    
+    // Update material and care instructions if available
+    if (product.material) {
+        const materialEl = document.getElementById('product-material');
+        if (materialEl) materialEl.textContent = product.material;
+    }
+    if (product.careInstructions) {
+        const careEl = document.getElementById('product-care');
+        if (careEl) careEl.textContent = product.careInstructions;
+    }
     
     // Add fade-in animation
     document.getElementById('product-details').classList.add('fade-in');
@@ -85,24 +138,51 @@ function setupImageGallery(images) {
     const mainImage = document.getElementById('main-product-image');
     const thumbnailContainer = document.getElementById('thumbnail-container');
     
-    // Set first image as main
-    if (images && images.length > 0) {
-        mainImage.src = images[0];
-        mainImage.alt = currentProduct.name;
+    // Ensure images is always an array of valid URLs
+    const imageArray = (Array.isArray(images) ? images : [])
+        .map(img => typeof img === 'string' ? img.trim() : '')
+        .filter(img => img);
+    
+    // Set first image as main if available
+    if (imageArray.length > 0) {
+        const firstImage = imageArray[0];
+        mainImage.src = firstImage;
+        mainImage.alt = currentProduct.name || 'Product Image';
+        // Add error handling for main image
+        mainImage.onerror = function() {
+            this.onerror = null;
+            this.src = 'static/images/placeholder.jpg';
+        };
+            mainImage.onerror = function() {
+                this.src = 'static/images/placeholder.jpg';
+                console.error(`Failed to load image: ${firstImage}`);
+            };
+        }
     }
     
     // Create thumbnails
-    if (images && images.length > 1) {
-        thumbnailContainer.innerHTML = images.map((image, index) => `
-            <div class="col-3">
-                <div class="thumbnail-item ${index === 0 ? 'active' : ''}" onclick="selectMainImage('${image}', ${index})">
-                    <img src="${image}" alt="${currentProduct.name} - Image ${index + 1}" class="img-fluid">
+    if (imageArray.length > 1) {
+        const thumbnailsHtml = imageArray.map((image, index) => {
+            if (!image || !image.trim()) return '';
+            const safeImageUrl = encodeURI(image);
+            return `
+                <div class="col-3">
+                    <div class="thumbnail-item ${index === 0 ? 'active' : ''}" 
+                         onclick="selectMainImage('${escapeHtml(image)}', ${index})">
+                        <img src="${escapeHtml(image)}" 
+                             alt="${escapeHtml(currentProduct.name || 'Product')} - Image ${index + 1}" 
+                             class="img-fluid"
+                             onerror="this.onerror=null; this.src='static/images/placeholder.jpg';"
+                             loading="lazy">
+                    </div>
                 </div>
-            </div>
-        `).join('');
+            `;
+        }).join('');
+        thumbnailContainer.innerHTML = thumbnailsHtml;
     } else {
         thumbnailContainer.innerHTML = '';
     }
+}
 }
 
 // Select main image from thumbnail
@@ -120,15 +200,35 @@ function selectMainImage(imageSrc, index) {
 function setupColorSelection(colors) {
     const colorContainer = document.getElementById('color-options');
     
-    if (colors && colors.length > 0) {
-        colorContainer.innerHTML = colors.map((color, index) => `
+    // Parse colors if they're provided as a JSON string
+    let colorArray = colors;
+    if (typeof colors === 'string') {
+        try {
+            colorArray = JSON.parse(colors);
+        } catch (e) {
+            console.error('Failed to parse color options:', e);
+            colorArray = [];
+        }
+    }
+    
+    if (colorArray && colorArray.length > 0) {
+        colorContainer.innerHTML = colorArray.map((color, index) => {
+            // Ensure hex has leading # when used in CSS
+            const hex = color.hex ? (String(color.hex).trim().startsWith('#') ? color.hex.trim() : ('#' + color.hex.trim())) : 'transparent';
+            const name = color.name || '';
+            const image = color.image || '';
+            
+            return `
             <div class="color-option" 
-                 style="background-color: ${color.hex}" 
-                 onclick="selectColor('${color.name}', '${color.hex}', '${color.image}', ${index})"
-                 title="${color.name}">
-                ${color.image ? `<img src="${color.image}" alt="${color.name}">` : ''}
+                 style="background-color: ${hex};" 
+                 onclick="selectColor('${escapeHtml(name)}', '${escapeHtml(hex)}', '${escapeHtml(image)}', ${index})"
+                 title="${escapeHtml(name)}">
+                ${image ? `<img src="${escapeHtml(image)}" 
+                               alt="${escapeHtml(name)}"
+                               onerror="this.style.display='none'; this.parentElement.style.backgroundColor='${hex}';">` : ''}
+                <span class="color-name">${escapeHtml(name)}</span>
             </div>
-        `).join('');
+        `}).join('');
     } else {
         colorContainer.innerHTML = '<p class="text-muted">No color options available</p>';
     }
@@ -137,20 +237,28 @@ function setupColorSelection(colors) {
 // Select color
 function selectColor(colorName, colorHex, colorImage, index) {
     selectedColor = { name: colorName, hex: colorHex, image: colorImage };
-    
+
     // Update UI
-    document.getElementById('selected-color').textContent = colorName;
-    
+    const selColorEl = document.getElementById('selected-color');
+    if (selColorEl) selColorEl.textContent = colorName;
+
     // Update active color option
     document.querySelectorAll('.color-option').forEach((option, i) => {
         option.classList.toggle('selected', i === index);
     });
-    
+
     // Update main image if color has specific image
     if (colorImage) {
-        document.getElementById('main-product-image').src = colorImage;
+        const mainImg = document.getElementById('main-product-image');
+        if (mainImg) {
+            mainImg.src = colorImage;
+            mainImg.onerror = function() {
+                this.onerror = null;
+                this.src = 'static/images/placeholder.jpg';
+            };
+        }
     }
-    
+
     // Check if order button should be enabled
     updateOrderButton();
 }
@@ -158,30 +266,44 @@ function selectColor(colorName, colorHex, colorImage, index) {
 // Setup size selection
 function setupSizeSelection(sizes) {
     const sizeContainer = document.getElementById('size-options');
-    
+
     if (sizes && sizes.length > 0) {
-        sizeContainer.innerHTML = sizes.map((size, index) => `
-            <div class="size-option" onclick="selectSize('${size}', ${index})">
-                ${size}
+        sizeContainer.innerHTML = sizes.map((s, index) => {
+            // s may be a string ("S") or an object { size: 'S', measurements: {...} }
+            const label = (typeof s === 'string') ? s : (s.size || '');
+            let measurements = '';
+            if (typeof s === 'object' && s.measurements) {
+                measurements = Object.entries(s.measurements).map(([k, v]) => `${k}: ${v}`).join(' | ');
+            }
+            // title attribute shows measurements on hover
+            return `
+            <div class="size-option" onclick="selectSize('${escapeHtml(label)}', ${index})" title="${escapeHtml(measurements)}">
+                ${escapeHtml(label)}
             </div>
-        `).join('');
+        `}).join('');
     } else {
         sizeContainer.innerHTML = '<p class="text-muted">No size options available</p>';
     }
 }
 
 // Select size
-function selectSize(size, index) {
-    selectedSize = size;
-    
+function selectSize(sizeLabel, index) {
+    // Store the full size object if available on the current product
+    if (currentProduct && Array.isArray(currentProduct.sizes) && currentProduct.sizes[index]) {
+        selectedSize = currentProduct.sizes[index];
+    } else {
+        selectedSize = { size: sizeLabel };
+    }
+
     // Update UI
-    document.getElementById('selected-size').textContent = size;
-    
+    const selSizeEl = document.getElementById('selected-size');
+    if (selSizeEl) selSizeEl.textContent = (selectedSize.size || sizeLabel);
+
     // Update active size option
     document.querySelectorAll('.size-option').forEach((option, i) => {
         option.classList.toggle('selected', i === index);
     });
-    
+
     // Check if order button should be enabled
     updateOrderButton();
 }
@@ -205,11 +327,16 @@ function orderViaWhatsApp() {
         return;
     }
     
+    // Determine displayed price (use salePrice if available)
+    const actualPrice = typeof currentProduct.actualPrice === 'number' ? currentProduct.actualPrice : 0;
+    const salePrice = typeof currentProduct.salePrice === 'number' ? currentProduct.salePrice : actualPrice;
+    const displayPrice = (salePrice < actualPrice) ? salePrice : actualPrice;
+
     const orderDetails = `
 🛍️ *New Order from PSJ Priya'z Style Jone*
 
 📦 *Product:* ${currentProduct.name}
-💰 *Price:* $${currentProduct.price.toFixed(2)}
+💰 *Price:* ₹${displayPrice.toFixed(0)}
 🎨 *Color:* ${selectedColor.name}
 📏 *Size:* ${selectedSize}
 🏷️ *Category:* ${currentProduct.category}

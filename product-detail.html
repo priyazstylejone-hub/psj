@@ -149,6 +149,18 @@
         .main-image-container {
             max-height: 500px;
             overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .main-image-container img {
+            max-height: 500px;
+            width: 100%;
+            object-fit: contain;
+            border-radius: 8px;
         }
         
         .thumbnail-gallery img {
@@ -158,6 +170,7 @@
             cursor: pointer;
             border-radius: 8px;
             transition: all 0.3s ease;
+            background: #f8f9fa;
         }
         
         .thumbnail-gallery img:hover {
@@ -197,7 +210,11 @@
                 <div class="col-lg-6 mb-4">
                     <!-- Main Image -->
                     <div class="main-image-container mb-3">
-                        <img id="main-product-image" src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&h=800&fit=crop" alt="Premium Fashion Product" class="img-fluid rounded shadow">
+                        <img id="main-product-image" 
+                             src="static/images/placeholder.jpg" 
+                             alt="Product Image" 
+                             class="img-fluid rounded shadow"
+                             onerror="this.onerror=null; this.src='static/images/placeholder.jpg';">
                     </div>
                     
                     <!-- Thumbnail Gallery -->
@@ -245,7 +262,19 @@
                             <small class="text-muted d-block mt-2">Selected: <span id="selected-color">None</span></small>
                         </div>
                         
-                        <!-- Size Selection -->
+                        <!-- Material Information -->
+                        <div class="mb-4">
+                            <h5 class="mb-3">Material:</h5>
+                            <p id="product-material" class="mb-2">-</p>
+                        </div>
+                        
+                        <!-- Care Instructions -->
+                        <div class="mb-4">
+                            <h5 class="mb-3">Care Instructions:</h5>
+                            <p id="product-care" class="mb-2">-</p>
+                        </div>
+
+                    <!-- Size Selection -->
                         <div class="mb-4">
                             <h5 class="mb-3">Choose Size:</h5>
                             <div id="size-options" class="size-selector">
@@ -364,100 +393,8 @@
     <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
     
     <script>
-        let selectedColor = null;
-        let selectedSize = null;
-        
-        // Initialize page
-        document.addEventListener('DOMContentLoaded', function() {
-            // Hide loading spinner and show content
-            document.getElementById('loading').style.display = 'none';
-            document.getElementById('product-details').style.display = 'block';
-        });
-        
-        // Change main product image
-        function changeMainImage(imageSrc) {
-            document.getElementById('main-product-image').src = imageSrc;
-        }
-        
-        // Select color
-        function selectColor(color) {
-            // Remove previous selection
-            document.querySelectorAll('.color-option').forEach(option => {
-                option.classList.remove('selected');
-            });
-            
-            // Add selection to clicked color
-            document.querySelector(`[data-color="${color}"]`).classList.add('selected');
-            selectedColor = color;
-            
-            // Update display
-            const colorName = document.querySelector(`[data-color="${color}"]`).getAttribute('data-color-name');
-            document.getElementById('selected-color').textContent = colorName;
-            
-            // Enable/disable WhatsApp button
-            updateWhatsAppButton();
-        }
-        
-        // Select size
-        function selectSize(size) {
-            // Remove previous selection
-            document.querySelectorAll('.size-option').forEach(option => {
-                option.classList.remove('selected');
-            });
-            
-            // Add selection to clicked size
-            document.querySelector(`[data-size="${size}"]`).classList.add('selected');
-            selectedSize = size;
-            
-            // Update display
-            document.getElementById('selected-size').textContent = size;
-            
-            // Enable/disable WhatsApp button
-            updateWhatsAppButton();
-        }
-        
-        // Update WhatsApp button state
-        function updateWhatsAppButton() {
-            const whatsappBtn = document.getElementById('whatsapp-order-btn');
-            if (selectedColor && selectedSize) {
-                whatsappBtn.disabled = false;
-            } else {
-                whatsappBtn.disabled = true;
-            }
-        }
-        
-        // Order via WhatsApp
-        function orderViaWhatsApp() {
-            if (!selectedColor || !selectedSize) {
-                alert('Please select both color and size');
-                return;
-            }
-            
-            const productName = document.getElementById('product-name-detail').textContent;
-            const productPrice = document.getElementById('product-price-detail').textContent;
-            const colorName = document.querySelector(`[data-color="${selectedColor}"]`).getAttribute('data-color-name');
-            
-            const message = `Hi! I would like to order:\n\nProduct: ${productName}\nPrice: ${productPrice}\nColor: ${colorName}\nSize: ${selectedSize}\n\nPlease confirm availability and provide further details.`;
-            
-            const whatsappUrl = `https://wa.me/919876543210?text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, '_blank');
-        }
-        
-        // Share product
-        function shareProduct() {
-            if (navigator.share) {
-                navigator.share({
-                    title: document.getElementById('product-name-detail').textContent,
-                    text: document.getElementById('product-description-detail').textContent,
-                    url: window.location.href,
-                });
-            } else {
-                // Fallback to copying URL
-                navigator.clipboard.writeText(window.location.href).then(() => {
-                    alert('Product URL copied to clipboard!');
-                });
-            }
-        }
+        // Inline product-detail handlers removed — widget behavior provided by static/js/product-detail.js
+        // This placeholder keeps the original script tag location for compatibility.
     </script>
     
     <!-- Original scripts -->

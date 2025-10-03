@@ -2,37 +2,318 @@
   {
     "id": 1,
     "name": "Classic Cotton T-Shirt",
-    "description": "A premium quality cotton t-shirt with a comfortable fit. Made from 100% organic cotton, this versatile piece is perfect for everyday wear. Unisex design suitable for all.",
-    "category": "Clothing",
-    "price": 100.0,
-    "images": [],
-    "inStock": true
+    "actualPrice": 1499.0,
+    "salePrice": 1299.0,
+    "onSale": true,
+    "description": "A premium quality cotton t-shirt with a comfortable fit. Made from 100% organic cotton, this versatile piece is perfect for everyday wear.",
+    "inStock": true,
+    "images": [
+      "https://example.com/tshirt1.jpg"
+    ],
+    "sku": "TSH001",
+    "brand": "StyleJone",
+    "colors": [
+      {
+        "name": "White",
+        "hex": "FFFFFF"
+      },
+      {
+        "name": "Black",
+        "hex": "000000"
+      },
+      {
+        "name": "Navy",
+        "hex": "000080"
+      }
+    ],
+    "sizes": [
+      {
+        "size": "S",
+        "measurements": {
+          "chest": "36-38",
+          "waist": "28-30",
+          "hips": "35-37",
+          "length": "26-27"
+        }
+      },
+      {
+        "size": "M",
+        "measurements": {
+          "chest": "38-40",
+          "waist": "30-32",
+          "hips": "37-39",
+          "length": "27-28"
+        }
+      },
+      {
+        "size": "L",
+        "measurements": {
+          "chest": "40-42",
+          "waist": "32-34",
+          "hips": "39-41",
+          "length": "28-29"
+        }
+      },
+      {
+        "size": "XL",
+        "measurements": {
+          "chest": "42-44",
+          "waist": "34-36",
+          "hips": "41-43",
+          "length": "29-30"
+        }
+      },
+      {
+        "size": "XXL",
+        "measurements": {
+          "chest": "44-46",
+          "waist": "36-38",
+          "hips": "43-45",
+          "length": "30-31"
+        }
+      }
+    ],
+    "tags": [
+      "cotton",
+      "casual",
+      "StyleJone"
+    ]
   },
   {
     "id": 2,
     "name": "Premium Polo Shirt",
-    "description": "Sophisticated polo shirt with classic collar design. Perfect for corporate wear and casual outings. Premium cotton blend fabric with moisture-wicking properties.",
-    "category": "Clothing",
-    "price": 200.0,
-    "images": [],
-    "inStock": true
+    "actualPrice": 2499.0,
+    "salePrice": 2499.0,
+    "onSale": false,
+    "description": "Sophisticated polo shirt with classic collar design. Perfect for corporate wear and casual outings.",
+    "inStock": true,
+    "images": [
+      "https://example.com/polo1.jpg"
+    ],
+    "sku": "POL001",
+    "brand": "StyleJone",
+    "colors": [
+      {
+        "name": "Navy",
+        "hex": "000080"
+      },
+      {
+        "name": "White",
+        "hex": "FFFFFF"
+      },
+      {
+        "name": "Grey",
+        "hex": "808080"
+      }
+    ],
+    "sizes": [
+      {
+        "size": "S",
+        "measurements": {
+          "chest": "36-38",
+          "waist": "28-30",
+          "hips": "35-37",
+          "length": "26-27"
+        }
+      },
+      {
+        "size": "M",
+        "measurements": {
+          "chest": "38-40",
+          "waist": "30-32",
+          "hips": "37-39",
+          "length": "27-28"
+        }
+      },
+      {
+        "size": "L",
+        "measurements": {
+          "chest": "40-42",
+          "waist": "32-34",
+          "hips": "39-41",
+          "length": "28-29"
+        }
+      },
+      {
+        "size": "XL",
+        "measurements": {
+          "chest": "42-44",
+          "waist": "34-36",
+          "hips": "41-43",
+          "length": "29-30"
+        }
+      },
+      {
+        "size": "XXL",
+        "measurements": {
+          "chest": "44-46",
+          "waist": "36-38",
+          "hips": "43-45",
+          "length": "30-31"
+        }
+      }
+    ],
+    "tags": [
+      "StyleJone",
+      "polo",
+      "formal"
+    ]
   },
   {
     "id": 3,
     "name": "Elegant Silk Blouse",
-    "description": "Beautiful women's blouse with flowing fabric and elegant design. Perfect for office wear and special occasions. Made from premium silk blend for comfort and sophistication.",
-    "category": "Clothing",
-    "price": 300.0,
-    "images": [],
-    "inStock": true
+    "actualPrice": 3999.0,
+    "salePrice": 3499.0,
+    "onSale": true,
+    "description": "Beautiful women's blouse with flowing fabric and elegant design. Perfect for office wear.",
+    "inStock": true,
+    "images": [
+      "https://example.com/blouse1.jpg"
+    ],
+    "sku": "BLS001",
+    "brand": "StyleJone",
+    "colors": [
+      {
+        "name": "Cream",
+        "hex": "FFFFF0"
+      },
+      {
+        "name": "Black",
+        "hex": "000000"
+      }
+    ],
+    "sizes": [
+      {
+        "size": "S",
+        "measurements": {
+          "chest": "36-38",
+          "waist": "28-30",
+          "hips": "35-37",
+          "length": "26-27"
+        }
+      },
+      {
+        "size": "M",
+        "measurements": {
+          "chest": "38-40",
+          "waist": "30-32",
+          "hips": "37-39",
+          "length": "27-28"
+        }
+      },
+      {
+        "size": "L",
+        "measurements": {
+          "chest": "40-42",
+          "waist": "32-34",
+          "hips": "39-41",
+          "length": "28-29"
+        }
+      },
+      {
+        "size": "XL",
+        "measurements": {
+          "chest": "42-44",
+          "waist": "34-36",
+          "hips": "41-43",
+          "length": "29-30"
+        }
+      },
+      {
+        "size": "XXL",
+        "measurements": {
+          "chest": "44-46",
+          "waist": "36-38",
+          "hips": "43-45",
+          "length": "30-31"
+        }
+      }
+    ],
+    "tags": [
+      "formal",
+      "women",
+      "StyleJone",
+      "silk"
+    ]
   },
   {
     "id": 4,
-    "name": "Cozy Winter Sweatshirt",
-    "description": "Comfortable unisex sweatshirt perfect for casual wear and layering. Soft fleece interior and durable construction. Ideal for Indian winters and air-conditioned spaces.",
-    "category": "Clothing",
-    "price": 250.0,
-    "images": [],
-    "inStock": true
+    "name": "Winter Sweatshirt",
+    "actualPrice": 2999.0,
+    "salePrice": 2499.0,
+    "onSale": true,
+    "description": "Comfortable unisex sweatshirt perfect for casual wear and layering.",
+    "inStock": true,
+    "images": [
+      "https://example.com/sweat1.jpg"
+    ],
+    "sku": "SWT001",
+    "brand": "StyleJone",
+    "colors": [
+      {
+        "name": "Grey",
+        "hex": "808080"
+      },
+      {
+        "name": "Black",
+        "hex": "000000"
+      },
+      {
+        "name": "Navy",
+        "hex": "000080"
+      }
+    ],
+    "sizes": [
+      {
+        "size": "S",
+        "measurements": {
+          "chest": "36-38",
+          "waist": "28-30",
+          "hips": "35-37",
+          "length": "26-27"
+        }
+      },
+      {
+        "size": "M",
+        "measurements": {
+          "chest": "38-40",
+          "waist": "30-32",
+          "hips": "37-39",
+          "length": "27-28"
+        }
+      },
+      {
+        "size": "L",
+        "measurements": {
+          "chest": "40-42",
+          "waist": "32-34",
+          "hips": "39-41",
+          "length": "28-29"
+        }
+      },
+      {
+        "size": "XL",
+        "measurements": {
+          "chest": "42-44",
+          "waist": "34-36",
+          "hips": "41-43",
+          "length": "29-30"
+        }
+      },
+      {
+        "size": "XXL",
+        "measurements": {
+          "chest": "44-46",
+          "waist": "36-38",
+          "hips": "43-45",
+          "length": "30-31"
+        }
+      }
+    ],
+    "tags": [
+      "casual",
+      "StyleJone",
+      "winter"
+    ]
   }
 ]

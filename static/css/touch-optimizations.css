@@ -1,0 +1,134 @@
+/* Touch-specific optimizations */
+@media (hover: none) {
+    /* Better touch targets */
+    .nav-link,
+    .btn,
+    .dropdown-item,
+    .form-control,
+    select,
+    input[type="radio"],
+    input[type="checkbox"] {
+        min-height: 44px; /* Apple's recommended minimum touch target size */
+    }
+    
+    /* Remove hover states */
+    a:hover,
+    button:hover,
+    .nav-link:hover,
+    .dropdown-item:hover {
+        text-decoration: none;
+    }
+    
+    /* Add active states for touch feedback */
+    a:active,
+    button:active,
+    .nav-link:active,
+    .dropdown-item:active {
+        opacity: 0.7;
+        transition: opacity 0.1s ease;
+    }
+    
+    /* Improve scrolling */
+    .scroll-container {
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+        overscroll-behavior: contain;
+    }
+    
+    /* Prevent text selection during touch interactions */
+    .no-select {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+    
+    /* Optimized scrolling for carousels and sliders */
+    .scroll-x {
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none; /* Firefox */
+    }
+    
+    .scroll-x::-webkit-scrollbar {
+        display: none; /* Chrome, Safari */
+    }
+    
+    .scroll-item {
+        scroll-snap-align: start;
+        display: inline-block;
+        white-space: normal;
+        vertical-align: top;
+    }
+    
+    /* Touch-friendly dropdown menus */
+    .dropdown-menu {
+        padding: 0.5rem 0;
+    }
+    
+    .dropdown-item {
+        padding: 0.75rem 1.25rem;
+    }
+    
+    /* Better touch feedback for buttons */
+    .btn {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .btn:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 5px;
+        height: 5px;
+        background: rgba(255,255,255,0.5);
+        opacity: 0;
+        border-radius: 100%;
+        transform: scale(1, 1) translate(-50%);
+        transform-origin: 50% 50%;
+    }
+    
+    .btn:active:after {
+        animation: ripple 0.4s ease-out;
+    }
+    
+    @keyframes ripple {
+        0% {
+            transform: scale(0, 0);
+            opacity: 0.5;
+        }
+        20% {
+            transform: scale(25, 25);
+            opacity: 0.3;
+        }
+        100% {
+            transform: scale(40, 40);
+            opacity: 0;
+        }
+    }
+}
+
+/* Landscape mode optimizations */
+@media screen and (orientation: landscape) and (max-height: 480px) {
+    .modal-dialog {
+        margin: 0.5rem auto;
+    }
+    
+    .modal-body {
+        max-height: 60vh;
+    }
+    
+    .navbar-collapse {
+        max-height: 60vh;
+        overflow-y: auto;
+    }
+    
+    .hero-section {
+        min-height: auto;
+        padding: 2rem 1rem;
+    }
+}

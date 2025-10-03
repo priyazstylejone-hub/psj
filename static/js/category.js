@@ -111,14 +111,14 @@ function displayProducts() {
                 <div class="card-body product-info d-flex flex-column">
                     <span class="badge bg-secondary mb-2 align-self-start">${product.category}</span>
                     <h5 class="product-title">${product.name}</h5>
-                    <p class="product-price">₹${product.price.toFixed(2)}</p>
+                    <p class="product-price">${renderProductPrice(product)}</p>
                     
                     <!-- Color indicators -->
                     ${product.colors && product.colors.length > 0 ? `
                         <div class="color-indicators mb-2">
                             ${product.colors.slice(0, 3).map(color => `
                                 <span class="color-dot" 
-                                      style="background-color: ${color.hex}" 
+                                      style="background-color: ${color.hex && String(color.hex).trim().startsWith('#') ? color.hex.trim() : ('#'+String(color.hex).trim())}" 
                                       title="${color.name}"></span>
                             `).join('')}
                             ${product.colors.length > 3 ? `<span class="text-muted">+${product.colors.length - 3} more</span>` : ''}
@@ -128,7 +128,7 @@ function displayProducts() {
                     <!-- Size indicators -->
                     ${product.sizes && product.sizes.length > 0 ? `
                         <div class="size-indicators mb-3">
-                            <small class="text-muted">Sizes: ${product.sizes.join(', ')}</small>
+                            <small class="text-muted">Sizes: ${product.sizes.map(s => (typeof s === 'string' ? s : s.size)).join(', ')}</small>
                         </div>
                     ` : ''}
                     
@@ -206,4 +206,15 @@ function showError(message) {
     if (container) {
         container.insertBefore(errorDiv, container.firstChild);
     }
+}
+
+// Helper to render price HTML for a product using actualPrice/salePrice
+function renderProductPrice(product) {
+    const actual = typeof product.actualPrice === 'number' ? product.actualPrice : (product.price || 0);
+    const sale = typeof product.salePrice === 'number' ? product.salePrice : actual;
+    const onSale = !!product.onSale || (sale < actual);
+    if (onSale && sale < actual) {
+        return `<span class="text-muted text-decoration-line-through">₹${actual.toFixed(0)}</span> <span class="text-danger fw-bold">₹${sale.toFixed(0)}</span>`;
+    }
+    return `₹${actual.toFixed(0)}`;
 }
