@@ -42,12 +42,12 @@ function renderCategories() {
     
     // Define fixed categories and images
     const fixedCategories = [
-        { name: 'Tshirts (Unisex)', key: 'Tshirts', img: 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=600&h=400&fit=crop', icon: 'bi-tshirt' },
-        { name: 'SweatShirts (Unisex)', key: 'SweatShirts', img: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=600&h=400&fit=crop', icon: 'bi-cloud-drizzle' },
-        { name: 'Hoodies (Unisex)', key: 'Hoodies', img: 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=600&h=400&fit=crop', icon: 'bi-emoji-sunglasses' },
-        { name: 'Polos', key: 'Polos', img: 'https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=600&h=400&fit=crop', icon: 'bi-clipboard2-pulse' },
-        { name: 'Female Dresses', key: 'Female Dresses', img: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600&h=400&fit=crop', icon: 'bi-person-lines-fill' },
-        { name: 'Ladies Blouses', key: 'Ladies Blouses', img: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=600&h=400&fit=crop', icon: 'bi-person-bounding-box' }
+        { name: 'Tshirts (Unisex)', key: 'Tshirts', img: 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=600&h=400&fit=crop' },
+        { name: 'SweatShirts (Unisex)', key: 'SweatShirts', img: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=600&h=400&fit=crop' },
+        { name: 'Hoodies (Unisex)', key: 'Hoodies', img: 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=600&h=400&fit=crop' },
+        { name: 'Polos', key: 'Polos', img: 'https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=600&h=400&fit=crop' },
+        { name: 'Female Dresses', key: 'Female Dresses', img: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600&h=400&fit=crop' },
+        { name: 'Ladies Blouses', key: 'Ladies Blouses', img: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=600&h=400&fit=crop' }
     ];
 
     // Helper: improved match for Polos and others
@@ -109,7 +109,6 @@ function renderCategories() {
         const imgSrc = cat.img;
         const catParam = encodeURIComponent(cat.name);
         // Icon for category
-        const icon = `<i class="bi ${cat.icon} me-1"></i>`;
         // Badge color logic
         let badgeClass = 'bg-secondary';
         if (count > 1) badgeClass = 'bg-success';
@@ -120,7 +119,7 @@ function renderCategories() {
                 <div class="card h-100 shadow-sm category-card-hover">
                     <img src="${imgSrc}" alt="${cat.name}" class="card-img-top" style="height:180px;object-fit:cover;">
                     <div class="card-body text-center">
-                        <h5 class="card-title mb-2">${icon}${cat.name}</h5>
+                        <h5 class="card-title mb-2">${cat.name}</h5>
                         <span class="badge ${badgeClass} mb-2">${count} products</span>
                         <p class="card-text text-muted small">Browse ${cat.name.toLowerCase()}</p>
                     </div>
@@ -149,15 +148,7 @@ function renderProducts(filteredProducts = null) {
         return;
     }
     
-    // Category icon map
-    const catIconMap = {
-        'Tshirts (Unisex)': 'bi-tshirt',
-        'SweatShirts (Unisex)': 'bi-cloud-drizzle',
-        'Hoodies (Unisex)': 'bi-emoji-sunglasses',
-        'Polos': 'bi-clipboard2-pulse',
-        'Female Dresses': 'bi-person-lines-fill',
-        'Ladies Blouses': 'bi-person-bounding-box'
-    };
+
     const productsHTML = productsToRender.map(product => {
         // Determine the best image source
         let imgSrc = '';
@@ -182,15 +173,14 @@ function renderProducts(filteredProducts = null) {
             categoryLabel = product.category;
         }
         // Add icon to category tag
-        let catIcon = catIconMap[categoryLabel] ? `<i class='bi ${catIconMap[categoryLabel]} me-1'></i>` : '';
         return `
         <div class="col-lg-3 col-md-6 mb-4">
             <div class="card product-card h-100">
                 <img src="${imgSrc}" alt="${product.name}" class="product-image">
                 <div class="card-body product-info d-flex flex-column">
-                    ${categoryLabel ? `<span class=\"badge bg-secondary mb-2 align-self-start\">${catIcon}${categoryLabel}</span>` : ''}
+                    ${categoryLabel ? `<span class=\"badge bg-secondary mb-2 align-self-start\">${categoryLabel}</span>` : ''}
                     <h5 class="product-title">${product.name}</h5>
-                    <p class="product-price">$${product.price ? product.price.toFixed(2) : (product.pricing?.salePrice/100).toFixed(2)}</p>
+                    <p class="product-price">₹${product.price ? product.price.toFixed(2) : (product.pricing?.salePrice/100).toFixed(2)}</p>
                     <div class="mt-auto">
                         <button class="btn btn-primary btn-order w-100" onclick="viewProduct(${product.id})">
                             View Details

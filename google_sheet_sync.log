@@ -1,0 +1,308 @@
+2025-10-03 08:35:45,448 - INFO - Starting Google Sheets sync process...
+2025-10-03 08:35:45,451 - INFO - Backup created: backups/products_20251003_083545.json
+2025-10-03 08:35:45,454 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-10-03 08:35:45,659 - INFO - Fetching data from sheet ID: 169un6lQfsUfJCo6K394BAOjYawKX9V6p2Md4xQDmJ0A
+2025-10-03 08:35:46,345 - ERROR - Unexpected error: 91 columns passed, passed data had 95 columns
+2025-10-03 08:35:46,346 - ERROR - Sync failed!
+2025-10-03 08:36:51,838 - INFO - Starting Google Sheets sync process...
+2025-10-03 08:36:51,840 - INFO - Backup created: backups/products_20251003_083651.json
+2025-10-03 08:36:51,843 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-10-03 08:36:52,030 - INFO - Fetching data from sheet ID: 169un6lQfsUfJCo6K394BAOjYawKX9V6p2Md4xQDmJ0A
+2025-10-03 08:36:52,696 - WARNING - Missing required field 'price' in product 
+2025-10-03 08:36:52,697 - WARNING - Missing required field 'price' in product 
+2025-10-03 08:36:52,698 - WARNING - Missing required field 'price' in product 
+2025-10-03 08:36:52,698 - WARNING - Missing required field 'price' in product 1
+2025-10-03 08:36:52,698 - WARNING - Missing required field 'price' in product 
+2025-10-03 08:36:52,699 - WARNING - Missing required field 'price' in product 
+2025-10-03 08:36:52,699 - WARNING - Missing required field 'price' in product 
+2025-10-03 08:36:52,699 - WARNING - Missing required field 'price' in product 
+2025-10-03 08:36:52,700 - WARNING - Missing required field 'price' in product 2
+2025-10-03 08:36:52,701 - WARNING - Missing required field 'price' in product 
+2025-10-03 08:36:52,701 - WARNING - Missing required field 'price' in product 
+2025-10-03 08:36:52,702 - WARNING - Missing required field 'price' in product 
+2025-10-03 08:36:52,702 - WARNING - Missing required field 'price' in product 
+2025-10-03 08:36:52,702 - WARNING - Missing required field 'price' in product 3
+2025-10-03 08:36:52,703 - WARNING - Missing required field 'price' in product 
+2025-10-03 08:36:52,703 - WARNING - Missing required field 'price' in product 
+2025-10-03 08:36:52,704 - WARNING - Missing required field 'price' in product 
+2025-10-03 08:36:52,705 - WARNING - Missing required field 'price' in product 
+2025-10-03 08:36:52,705 - WARNING - Missing required field 'price' in product 
+2025-10-03 08:36:52,705 - WARNING - Missing required field 'price' in product 4
+2025-10-03 08:36:52,706 - WARNING - Missing required field 'price' in product 
+2025-10-03 08:36:52,706 - WARNING - Missing required field 'price' in product 
+2025-10-03 08:36:52,707 - WARNING - Missing required field 'price' in product 
+2025-10-03 08:36:52,707 - WARNING - Missing required field 'price' in product 
+2025-10-03 08:36:52,708 - WARNING - Missing required field 'price' in product 
+2025-10-03 08:36:52,710 - INFO - Successfully updated products.json from Google Sheets!
+2025-10-03 08:36:52,710 - INFO - Total products updated: 25
+2025-10-03 08:36:52,711 - INFO - Fields per product: id, sku, slug, name, brand, description, shortDescription, category, , , , , pricing, , , , , , , , images, , , , variants, , , , , , , , , specifications, , , , , , , , , sizing, , , , , , , , , , , , , , , , , , , , , , inventory, , , , , , shipping, , , , , , , , , seo, , , , marketing, , , , , , , status
+2025-10-03 08:36:52,711 - INFO - Category summary:
+2025-10-03 08:36:52,712 - INFO -   - primary: 1 products
+2025-10-03 08:36:52,712 - INFO -   - : 20 products
+2025-10-03 08:36:52,713 - INFO -   - Clothing: 4 products
+2025-10-03 08:36:52,713 - INFO - Sync completed successfully!
+2025-10-03 08:37:51,588 - INFO - Starting Google Sheets sync process...
+2025-10-03 08:37:51,592 - INFO - Backup created: backups/products_20251003_083751.json
+2025-10-03 08:37:51,597 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-10-03 08:37:51,792 - INFO - Fetching data from sheet ID: 169un6lQfsUfJCo6K394BAOjYawKX9V6p2Md4xQDmJ0A
+2025-10-03 08:37:52,526 - WARNING - Missing required field 'id' in product None
+2025-10-03 08:37:52,526 - WARNING - Missing required field 'name' in product None
+2025-10-03 08:37:52,527 - WARNING - Missing required field 'description' in product None
+2025-10-03 08:37:52,527 - WARNING - Missing required field 'id' in product None
+2025-10-03 08:37:52,527 - WARNING - Missing required field 'name' in product None
+2025-10-03 08:37:52,527 - WARNING - Missing required field 'price' in product None
+2025-10-03 08:37:52,527 - WARNING - Missing required field 'description' in product None
+2025-10-03 08:37:52,527 - WARNING - Missing required field 'category' in product None
+2025-10-03 08:37:52,528 - WARNING - Missing required field 'id' in product None
+2025-10-03 08:37:52,528 - WARNING - Missing required field 'name' in product None
+2025-10-03 08:37:52,528 - WARNING - Missing required field 'price' in product None
+2025-10-03 08:37:52,528 - WARNING - Missing required field 'description' in product None
+2025-10-03 08:37:52,528 - WARNING - Missing required field 'category' in product None
+2025-10-03 08:37:52,528 - WARNING - Missing required field 'price' in product 1
+2025-10-03 08:37:52,529 - WARNING - Missing required field 'id' in product None
+2025-10-03 08:37:52,529 - WARNING - Missing required field 'name' in product None
+2025-10-03 08:37:52,529 - WARNING - Missing required field 'price' in product None
+2025-10-03 08:37:52,529 - WARNING - Missing required field 'description' in product None
+2025-10-03 08:37:52,529 - WARNING - Missing required field 'category' in product None
+2025-10-03 08:37:52,529 - WARNING - Missing required field 'id' in product None
+2025-10-03 08:37:52,530 - WARNING - Missing required field 'name' in product None
+2025-10-03 08:37:52,530 - WARNING - Missing required field 'price' in product None
+2025-10-03 08:37:52,530 - WARNING - Missing required field 'description' in product None
+2025-10-03 08:37:52,530 - WARNING - Missing required field 'category' in product None
+2025-10-03 08:37:52,530 - WARNING - Missing required field 'id' in product None
+2025-10-03 08:37:52,530 - WARNING - Missing required field 'name' in product None
+2025-10-03 08:37:52,531 - WARNING - Missing required field 'price' in product None
+2025-10-03 08:37:52,531 - WARNING - Missing required field 'description' in product None
+2025-10-03 08:37:52,531 - WARNING - Missing required field 'category' in product None
+2025-10-03 08:37:52,531 - WARNING - Missing required field 'id' in product None
+2025-10-03 08:37:52,531 - WARNING - Missing required field 'name' in product None
+2025-10-03 08:37:52,531 - WARNING - Missing required field 'price' in product None
+2025-10-03 08:37:52,531 - WARNING - Missing required field 'description' in product None
+2025-10-03 08:37:52,532 - WARNING - Missing required field 'category' in product None
+2025-10-03 08:37:52,532 - WARNING - Missing required field 'price' in product 2
+2025-10-03 08:37:52,532 - WARNING - Missing required field 'id' in product None
+2025-10-03 08:37:52,532 - WARNING - Missing required field 'name' in product None
+2025-10-03 08:37:52,532 - WARNING - Missing required field 'price' in product None
+2025-10-03 08:37:52,533 - WARNING - Missing required field 'description' in product None
+2025-10-03 08:37:52,533 - WARNING - Missing required field 'category' in product None
+2025-10-03 08:37:52,533 - WARNING - Missing required field 'id' in product None
+2025-10-03 08:37:52,533 - WARNING - Missing required field 'name' in product None
+2025-10-03 08:37:52,533 - WARNING - Missing required field 'price' in product None
+2025-10-03 08:37:52,533 - WARNING - Missing required field 'description' in product None
+2025-10-03 08:37:52,533 - WARNING - Missing required field 'category' in product None
+2025-10-03 08:37:52,534 - WARNING - Missing required field 'id' in product None
+2025-10-03 08:37:52,534 - WARNING - Missing required field 'name' in product None
+2025-10-03 08:37:52,534 - WARNING - Missing required field 'price' in product None
+2025-10-03 08:37:52,534 - WARNING - Missing required field 'description' in product None
+2025-10-03 08:37:52,534 - WARNING - Missing required field 'category' in product None
+2025-10-03 08:37:52,535 - WARNING - Missing required field 'id' in product None
+2025-10-03 08:37:52,535 - WARNING - Missing required field 'name' in product None
+2025-10-03 08:37:52,535 - WARNING - Missing required field 'price' in product None
+2025-10-03 08:37:52,535 - WARNING - Missing required field 'description' in product None
+2025-10-03 08:37:52,535 - WARNING - Missing required field 'category' in product None
+2025-10-03 08:37:52,536 - WARNING - Missing required field 'price' in product 3
+2025-10-03 08:37:52,536 - WARNING - Missing required field 'id' in product None
+2025-10-03 08:37:52,536 - WARNING - Missing required field 'name' in product None
+2025-10-03 08:37:52,536 - WARNING - Missing required field 'price' in product None
+2025-10-03 08:37:52,537 - WARNING - Missing required field 'description' in product None
+2025-10-03 08:37:52,537 - WARNING - Missing required field 'category' in product None
+2025-10-03 08:37:52,537 - WARNING - Missing required field 'id' in product None
+2025-10-03 08:37:52,537 - WARNING - Missing required field 'name' in product None
+2025-10-03 08:37:52,537 - WARNING - Missing required field 'price' in product None
+2025-10-03 08:37:52,538 - WARNING - Missing required field 'description' in product None
+2025-10-03 08:37:52,538 - WARNING - Missing required field 'category' in product None
+2025-10-03 08:37:52,538 - WARNING - Missing required field 'id' in product None
+2025-10-03 08:37:52,538 - WARNING - Missing required field 'name' in product None
+2025-10-03 08:37:52,539 - WARNING - Missing required field 'price' in product None
+2025-10-03 08:37:52,539 - WARNING - Missing required field 'description' in product None
+2025-10-03 08:37:52,539 - WARNING - Missing required field 'category' in product None
+2025-10-03 08:37:52,539 - WARNING - Missing required field 'id' in product None
+2025-10-03 08:37:52,540 - WARNING - Missing required field 'name' in product None
+2025-10-03 08:37:52,540 - WARNING - Missing required field 'price' in product None
+2025-10-03 08:37:52,540 - WARNING - Missing required field 'description' in product None
+2025-10-03 08:37:52,540 - WARNING - Missing required field 'category' in product None
+2025-10-03 08:37:52,540 - WARNING - Missing required field 'id' in product None
+2025-10-03 08:37:52,541 - WARNING - Missing required field 'name' in product None
+2025-10-03 08:37:52,541 - WARNING - Missing required field 'price' in product None
+2025-10-03 08:37:52,541 - WARNING - Missing required field 'description' in product None
+2025-10-03 08:37:52,541 - WARNING - Missing required field 'category' in product None
+2025-10-03 08:37:52,541 - WARNING - Missing required field 'price' in product 4
+2025-10-03 08:37:52,542 - WARNING - Missing required field 'id' in product None
+2025-10-03 08:37:52,542 - WARNING - Missing required field 'name' in product None
+2025-10-03 08:37:52,542 - WARNING - Missing required field 'price' in product None
+2025-10-03 08:37:52,542 - WARNING - Missing required field 'description' in product None
+2025-10-03 08:37:52,544 - WARNING - Missing required field 'category' in product None
+2025-10-03 08:37:52,544 - WARNING - Missing required field 'id' in product None
+2025-10-03 08:37:52,545 - WARNING - Missing required field 'name' in product None
+2025-10-03 08:37:52,545 - WARNING - Missing required field 'price' in product None
+2025-10-03 08:37:52,545 - WARNING - Missing required field 'description' in product None
+2025-10-03 08:37:52,545 - WARNING - Missing required field 'category' in product None
+2025-10-03 08:37:52,545 - WARNING - Missing required field 'id' in product None
+2025-10-03 08:37:52,546 - WARNING - Missing required field 'name' in product None
+2025-10-03 08:37:52,546 - WARNING - Missing required field 'price' in product None
+2025-10-03 08:37:52,546 - WARNING - Missing required field 'description' in product None
+2025-10-03 08:37:52,546 - WARNING - Missing required field 'category' in product None
+2025-10-03 08:37:52,547 - WARNING - Missing required field 'id' in product None
+2025-10-03 08:37:52,547 - WARNING - Missing required field 'name' in product None
+2025-10-03 08:37:52,548 - WARNING - Missing required field 'price' in product None
+2025-10-03 08:37:52,548 - WARNING - Missing required field 'description' in product None
+2025-10-03 08:37:52,548 - WARNING - Missing required field 'category' in product None
+2025-10-03 08:37:52,549 - WARNING - Missing required field 'id' in product None
+2025-10-03 08:37:52,549 - WARNING - Missing required field 'name' in product None
+2025-10-03 08:37:52,549 - WARNING - Missing required field 'price' in product None
+2025-10-03 08:37:52,550 - WARNING - Missing required field 'description' in product None
+2025-10-03 08:37:52,551 - WARNING - Missing required field 'category' in product None
+2025-10-03 08:37:52,554 - INFO - Successfully updated products.json from Google Sheets!
+2025-10-03 08:37:52,554 - INFO - Total products updated: 25
+2025-10-03 08:37:52,554 - INFO - Fields per product: id, sku, slug, name, brand, description, shortDescription, category, , , , , pricing, , , , , , , , images, , , , variants, , , , , , , , , specifications, , , , , , , , , sizing, , , , , , , , , , , , , , , , , , , , , , inventory, , , , , , shipping, , , , , , , , , seo, , , , marketing, , , , , , , status
+2025-10-03 08:37:52,554 - INFO - Category summary:
+2025-10-03 08:37:52,555 - INFO -   - primary: 1 products
+2025-10-03 08:37:52,555 - INFO -   - None: 20 products
+2025-10-03 08:37:52,555 - INFO -   - Clothing: 4 products
+2025-10-03 08:37:52,555 - INFO - Sync completed successfully!
+2025-10-03 08:43:01,780 - INFO - Starting Google Sheets sync process...
+2025-10-03 08:43:01,783 - INFO - Backup created: backups/products_20251003_084301.json
+2025-10-03 08:43:01,786 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-10-03 08:43:01,989 - INFO - Fetching data from sheet ID: 169un6lQfsUfJCo6K394BAOjYawKX9V6p2Md4xQDmJ0A
+2025-10-03 08:43:02,771 - ERROR - Error processing row 1: invalid literal for int() with base 10: ''
+2025-10-03 08:43:02,771 - ERROR - Error processing row 2: invalid literal for int() with base 10: ''
+2025-10-03 08:43:02,772 - ERROR - Error processing row 3: invalid literal for int() with base 10: ''
+2025-10-03 08:43:02,772 - ERROR - Error processing row 5: invalid literal for int() with base 10: ''
+2025-10-03 08:43:02,773 - ERROR - Error processing row 6: invalid literal for int() with base 10: ''
+2025-10-03 08:43:02,773 - ERROR - Error processing row 7: invalid literal for int() with base 10: ''
+2025-10-03 08:43:02,773 - ERROR - Error processing row 8: invalid literal for int() with base 10: ''
+2025-10-03 08:43:02,774 - ERROR - Error processing row 10: invalid literal for int() with base 10: ''
+2025-10-03 08:43:02,774 - ERROR - Error processing row 11: invalid literal for int() with base 10: ''
+2025-10-03 08:43:02,774 - ERROR - Error processing row 12: invalid literal for int() with base 10: ''
+2025-10-03 08:43:02,775 - ERROR - Error processing row 13: invalid literal for int() with base 10: ''
+2025-10-03 08:43:02,775 - ERROR - Error processing row 15: invalid literal for int() with base 10: ''
+2025-10-03 08:43:02,775 - ERROR - Error processing row 16: invalid literal for int() with base 10: ''
+2025-10-03 08:43:02,776 - ERROR - Error processing row 17: invalid literal for int() with base 10: ''
+2025-10-03 08:43:02,776 - ERROR - Error processing row 18: invalid literal for int() with base 10: ''
+2025-10-03 08:43:02,776 - ERROR - Error processing row 19: invalid literal for int() with base 10: ''
+2025-10-03 08:43:02,777 - ERROR - Error processing row 21: invalid literal for int() with base 10: ''
+2025-10-03 08:43:02,777 - ERROR - Error processing row 22: invalid literal for int() with base 10: ''
+2025-10-03 08:43:02,777 - ERROR - Error processing row 23: invalid literal for int() with base 10: ''
+2025-10-03 08:43:02,778 - ERROR - Error processing row 24: invalid literal for int() with base 10: ''
+2025-10-03 08:43:02,778 - ERROR - Error processing row 25: invalid literal for int() with base 10: ''
+2025-10-03 08:43:02,779 - INFO - Successfully updated products.json from Google Sheets!
+2025-10-03 08:43:02,779 - INFO - Total products updated: 4
+2025-10-03 08:43:02,779 - INFO - Fields per product: id, sku, slug, name, brand, description, shortDescription, category, , , , , pricing, , , , , , , , images, , , , variants, , , , , , , , , specifications, , , , , , , , , sizing, , , , , , , , , , , , , , , , , , , , , , inventory, , , , , , shipping, , , , , , , , , seo, , , , marketing, , , , , , , status
+2025-10-03 08:43:02,780 - INFO - Category summary:
+2025-10-03 08:43:02,780 - INFO -   - Clothing: 4 products
+2025-10-03 08:43:02,780 - INFO - Sync completed successfully!
+2025-10-03 08:44:44,644 - INFO - Starting Google Sheets sync process...
+2025-10-03 08:44:44,646 - INFO - Backup created: backups/products_20251003_084444.json
+2025-10-03 08:44:44,651 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-10-03 08:44:44,839 - INFO - Fetching data from sheet ID: 169un6lQfsUfJCo6K394BAOjYawKX9V6p2Md4xQDmJ0A
+2025-10-03 08:44:45,538 - INFO - Created sample products.json with 4 products
+2025-10-03 08:44:45,538 - INFO - Sync completed successfully!
+2025-10-03 08:46:14,547 - INFO - Starting Google Sheets sync process...
+2025-10-03 08:46:14,550 - INFO - Backup created: backups/products_20251003_084614.json
+2025-10-03 08:46:14,553 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-10-03 08:46:14,743 - INFO - Fetching data from sheet ID: 169un6lQfsUfJCo6K394BAOjYawKX9V6p2Md4xQDmJ0A
+2025-10-03 08:46:15,518 - INFO - Created sample products.json with 4 products
+2025-10-03 08:46:15,518 - INFO - Sync completed successfully!
+2025-10-03 08:53:20,837 - INFO - Starting Google Sheets sync process...
+2025-10-03 08:53:20,840 - INFO - Backup created: backups/products_20251003_085320.json
+2025-10-03 08:53:20,843 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-10-03 08:53:21,036 - INFO - Fetching data from sheet ID: 169un6lQfsUfJCo6K394BAOjYawKX9V6p2Md4xQDmJ0A
+2025-10-03 08:53:21,678 - INFO - Created sample products.json with 4 products
+2025-10-03 08:53:21,679 - INFO - Sync completed successfully!
+2025-10-03 08:54:17,834 - INFO - Starting Google Sheets sync process...
+2025-10-03 08:54:17,837 - INFO - Backup created: backups/products_20251003_085417.json
+2025-10-03 08:54:17,841 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-10-03 08:54:18,042 - INFO - Fetching data from sheet ID: 169un6lQfsUfJCo6K394BAOjYawKX9V6p2Md4xQDmJ0A
+2025-10-03 08:54:18,696 - WARNING - Error processing row 1: invalid literal for int() with base 10: ''
+2025-10-03 08:54:18,697 - WARNING - Error processing row 2: invalid literal for int() with base 10: ''
+2025-10-03 08:54:18,697 - WARNING - Error processing row 3: invalid literal for int() with base 10: ''
+2025-10-03 08:54:18,698 - WARNING - Error processing row 5: invalid literal for int() with base 10: ''
+2025-10-03 08:54:18,698 - WARNING - Error processing row 6: invalid literal for int() with base 10: ''
+2025-10-03 08:54:18,698 - WARNING - Error processing row 7: invalid literal for int() with base 10: ''
+2025-10-03 08:54:18,699 - WARNING - Error processing row 8: invalid literal for int() with base 10: ''
+2025-10-03 08:54:18,699 - WARNING - Error processing row 10: invalid literal for int() with base 10: ''
+2025-10-03 08:54:18,699 - WARNING - Error processing row 11: invalid literal for int() with base 10: ''
+2025-10-03 08:54:18,700 - WARNING - Error processing row 12: invalid literal for int() with base 10: ''
+2025-10-03 08:54:18,700 - WARNING - Error processing row 13: invalid literal for int() with base 10: ''
+2025-10-03 08:54:18,700 - WARNING - Error processing row 15: invalid literal for int() with base 10: ''
+2025-10-03 08:54:18,701 - WARNING - Error processing row 16: invalid literal for int() with base 10: ''
+2025-10-03 08:54:18,701 - WARNING - Error processing row 17: invalid literal for int() with base 10: ''
+2025-10-03 08:54:18,701 - WARNING - Error processing row 18: invalid literal for int() with base 10: ''
+2025-10-03 08:54:18,701 - WARNING - Error processing row 19: invalid literal for int() with base 10: ''
+2025-10-03 08:54:18,702 - WARNING - Error processing row 21: invalid literal for int() with base 10: ''
+2025-10-03 08:54:18,702 - WARNING - Error processing row 22: invalid literal for int() with base 10: ''
+2025-10-03 08:54:18,702 - WARNING - Error processing row 23: invalid literal for int() with base 10: ''
+2025-10-03 08:54:18,703 - WARNING - Error processing row 24: invalid literal for int() with base 10: ''
+2025-10-03 08:54:18,703 - WARNING - Error processing row 25: invalid literal for int() with base 10: ''
+2025-10-03 08:54:18,703 - INFO - Synced products.json with 4 products from Google Sheet
+2025-10-03 08:54:18,703 - INFO - Sync completed successfully!
+2025-10-03 08:54:48,541 - INFO - Starting Google Sheets sync process...
+2025-10-03 08:54:48,544 - INFO - Backup created: backups/products_20251003_085448.json
+2025-10-03 08:54:48,548 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-10-03 08:54:48,735 - INFO - Fetching data from sheet ID: 169un6lQfsUfJCo6K394BAOjYawKX9V6p2Md4xQDmJ0A
+2025-10-03 08:54:49,390 - INFO - Synced products.json with 4 products from Google Sheet
+2025-10-03 08:54:49,390 - INFO - Sync completed successfully!
+2025-10-03 08:59:31,278 - INFO - Starting Google Sheets sync process...
+2025-10-03 08:59:31,280 - INFO - Backup created: backups/products_20251003_085931.json
+2025-10-03 08:59:31,283 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-10-03 08:59:31,476 - INFO - Fetching data from sheet ID: 169un6lQfsUfJCo6K394BAOjYawKX9V6p2Md4xQDmJ0A
+2025-10-03 08:59:32,296 - INFO - Successfully updated products.json with 4 products
+2025-10-03 08:59:32,296 - INFO - Category summary:
+2025-10-03 08:59:32,297 - INFO -   - Clothing: 4 products
+2025-10-03 08:59:32,297 - INFO - Sync completed successfully!
+2025-10-03 09:01:08,552 - INFO - Starting Google Sheets sync process...
+2025-10-03 09:01:08,554 - INFO - Backup created: backups/products_20251003_090108.json
+2025-10-03 09:01:08,557 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-10-03 09:01:08,743 - INFO - Fetching data from sheet ID: 169un6lQfsUfJCo6K394BAOjYawKX9V6p2Md4xQDmJ0A
+2025-10-03 09:01:09,476 - INFO - No changes detected in the data
+2025-10-03 09:01:09,476 - INFO - Sync completed successfully!
+2025-10-03 09:01:59,366 - INFO - Starting Google Sheets sync process...
+2025-10-03 09:01:59,368 - INFO - Backup created: backups/products_20251003_090159.json
+2025-10-03 09:01:59,371 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-10-03 09:01:59,560 - INFO - Fetching data from sheet ID: 169un6lQfsUfJCo6K394BAOjYawKX9V6p2Md4xQDmJ0A
+2025-10-03 09:02:00,259 - INFO - Sheet structure:
+2025-10-03 09:02:00,259 - INFO - Headers (91 columns): ['id', 'sku', 'slug', 'name', 'brand', 'description', 'shortDescription', 'category', '', '', '', '', 'pricing', '', '', '', '', '', '', '', 'images', '', '', '', 'variants', '', '', '', '', '', '', '', '', 'specifications', '', '', '', '', '', '', '', '', 'sizing', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'inventory', '', '', '', '', '', 'shipping', '', '', '', '', '', '', '', '', 'seo', '', '', '', 'marketing', '', '', '', '', '', '', 'status']
+2025-10-03 09:02:00,259 - INFO - Data rows: 25
+2025-10-03 09:02:00,259 - INFO - Row 1 (95 columns): ['', '', '', '', '', '', '', 'primary', 'secondary', 'tertiary', 'slug', 'tags', 'originalPrice', 'salePrice', 'currency', 'discount', 'bulkPricing', '', '', 'taxRate', 'primary', 'gallery', 'thumbnails', 'altText', 'colors', '', '', '', '', 'sizes', '', '', '', 'material', 'weight', 'fit', 'neckline', 'sleeves', 'care', 'madeIn', 'sustainability', 'features', 'chart', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'unit', 'fitGuide', 'totalStock', 'reserved', 'available', 'lowStockThreshold', 'stockStatus', 'expectedRestock', 'weight', 'dimensions', '', '', 'shippingExtra', 'estimatedDelivery', 'freeShippingEligible', 'shippingCharges', '', 'metaTitle', 'metaDescription', 'keywords', 'canonical', 'featured', 'bestseller', 'newArrival', 'onSale', 'rating', 'reviewCount', 'badges', 'active', 'publishStatus', 'createdAt', 'updatedAt', 'publishedAt']
+2025-10-03 09:02:00,260 - INFO - Row 2 (79 columns): ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'minQuantity', 'priceEach', 'savingsPerItem', '', '', '', '', '', 'name', 'code', 'hex', 'image', 'available', 'code', 'name', 'available', 'stock', '', '', '', '', '', '', '', '', '', 'S', '', '', '', 'M', '', '', '', 'L', '', '', '', 'XL', '', '', '', 'XXL', '', '', '', '', '', '', '', '', '', '', '', '', 'length', 'width', 'height', '', '', '', 'standard', 'express']
+2025-10-03 09:02:00,260 - INFO - Row 3 (62 columns): ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'chest', 'length', 'shoulder', 'bust', 'chest', 'length', 'shoulder', 'bust', 'chest', 'length', 'shoulder', 'bust', 'chest', 'length', 'shoulder', 'bust', 'chest', 'length', 'shoulder', 'bust']
+2025-10-03 09:02:00,260 - INFO - Cleaned headers: ['id', 'sku', 'slug', 'name', 'brand', 'description', 'shortDescription', 'category', 'pricing', 'images', 'variants', 'specifications', 'sizing', 'inventory', 'shipping', 'seo', 'marketing', 'status']
+2025-10-03 09:02:00,261 - INFO - DataFrame shape: (25, 18)
+2025-10-03 09:02:00,261 - INFO - Available columns: ['id', 'sku', 'slug', 'name', 'brand', 'description', 'shortDescription', 'category', 'pricing', 'images', 'variants', 'specifications', 'sizing', 'inventory', 'shipping', 'seo', 'marketing', 'status']
+2025-10-03 09:02:00,262 - WARNING - Skipping row 4: Missing name or invalid price
+2025-10-03 09:02:00,263 - WARNING - Skipping row 9: Missing name or invalid price
+2025-10-03 09:02:00,264 - WARNING - Skipping row 14: Missing name or invalid price
+2025-10-03 09:02:00,264 - WARNING - Skipping row 20: Missing name or invalid price
+2025-10-03 09:02:00,265 - INFO - Successfully updated products.json with 0 products
+2025-10-03 09:02:00,265 - INFO - Category summary:
+2025-10-03 09:02:00,266 - INFO - Sync completed successfully!
+2025-10-03 09:03:08,670 - INFO - Starting Google Sheets sync process...
+2025-10-03 09:03:08,672 - INFO - Backup created: backups/products_20251003_090308.json
+2025-10-03 09:03:08,679 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-10-03 09:03:08,884 - INFO - Fetching data from sheet ID: 169un6lQfsUfJCo6K394BAOjYawKX9V6p2Md4xQDmJ0A
+2025-10-03 09:03:09,551 - INFO - Found important columns: {'id': 0, 'name': 3, 'description': 5, 'category': 7, 'price_col': 12, 'price_type': 'original'}
+2025-10-03 09:03:09,551 - WARNING - Skipping row 4: Missing name or invalid price
+2025-10-03 09:03:09,552 - WARNING - Skipping row 6: Missing name or invalid price
+2025-10-03 09:03:09,552 - WARNING - Skipping row 7: Missing name or invalid price
+2025-10-03 09:03:09,552 - WARNING - Skipping row 8: Missing name or invalid price
+2025-10-03 09:03:09,552 - WARNING - Skipping row 9: Missing name or invalid price
+2025-10-03 09:03:09,552 - WARNING - Skipping row 11: Missing name or invalid price
+2025-10-03 09:03:09,552 - WARNING - Skipping row 12: Missing name or invalid price
+2025-10-03 09:03:09,553 - WARNING - Skipping row 13: Missing name or invalid price
+2025-10-03 09:03:09,553 - WARNING - Skipping row 14: Missing name or invalid price
+2025-10-03 09:03:09,553 - WARNING - Skipping row 16: Missing name or invalid price
+2025-10-03 09:03:09,553 - WARNING - Skipping row 17: Missing name or invalid price
+2025-10-03 09:03:09,555 - WARNING - Skipping row 18: Missing name or invalid price
+2025-10-03 09:03:09,556 - WARNING - Skipping row 19: Missing name or invalid price
+2025-10-03 09:03:09,556 - WARNING - Skipping row 20: Missing name or invalid price
+2025-10-03 09:03:09,556 - WARNING - Skipping row 22: Missing name or invalid price
+2025-10-03 09:03:09,556 - WARNING - Skipping row 23: Missing name or invalid price
+2025-10-03 09:03:09,556 - WARNING - Skipping row 24: Missing name or invalid price
+2025-10-03 09:03:09,556 - WARNING - Skipping row 25: Missing name or invalid price
+2025-10-03 09:03:09,556 - WARNING - Skipping row 26: Missing name or invalid price
+2025-10-03 09:03:09,562 - INFO - DataFrame shape: (4, 5)
+2025-10-03 09:03:09,562 - INFO - Available columns: ['id', 'name', 'description', 'category', 'price']
+2025-10-03 09:03:09,565 - INFO - Successfully updated products.json with 4 products
+2025-10-03 09:03:09,566 - INFO - Category summary:
+2025-10-03 09:03:09,566 - INFO -   - Clothing: 4 products
+2025-10-03 09:03:09,567 - INFO - Sync completed successfully!

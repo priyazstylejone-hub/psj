@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                     <img src="${imgSrc}" alt="${product.name}" class="product-image">
                     <div class="card-body product-info d-flex flex-column">
                         <h5 class="product-title">${product.name}</h5>
-                        <p class="product-price">$${product.price ? product.price.toFixed(2) : (product.pricing?.salePrice/100).toFixed(2)}</p>
+                        <p class="product-price">₹${product.price ? product.price.toFixed(2) : (product.pricing?.salePrice/100).toFixed(2)}</p>
                         <div class="mt-auto">
                             <button class="btn btn-primary btn-order w-100" onclick="window.location.href='product-detail.html?id=${product.id}'">
                                 View Details

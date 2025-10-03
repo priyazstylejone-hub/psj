@@ -64,7 +64,7 @@ function displayProductDetails(product) {
     // Populate product information
     document.getElementById('product-category-badge').textContent = product.category;
     document.getElementById('product-name-detail').textContent = product.name;
-    document.getElementById('product-price-detail').textContent = `$${product.price.toFixed(2)}`;
+    document.getElementById('product-price-detail').textContent = `₹${product.price.toFixed(2)}`;
     document.getElementById('product-description-detail').textContent = product.description;
     
     // Setup image gallery

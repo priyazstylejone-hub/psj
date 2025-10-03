@@ -77,7 +77,7 @@ function displayCurrentProducts() {
                             </td>
                             <td>${product.name}</td>
                             <td><span class="badge bg-secondary">${product.category}</span></td>
-                            <td>$${product.price.toFixed(2)}</td>
+                            <td>₹${product.price.toFixed(2)}</td>
                             <td>
                                 ${product.colors ? product.colors.map(color => `
                                     <span class="color-dot me-1" 

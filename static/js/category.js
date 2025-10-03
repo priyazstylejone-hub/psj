@@ -111,7 +111,7 @@ function displayProducts() {
                 <div class="card-body product-info d-flex flex-column">
                     <span class="badge bg-secondary mb-2 align-self-start">${product.category}</span>
                     <h5 class="product-title">${product.name}</h5>
-                    <p class="product-price">$${product.price.toFixed(2)}</p>
+                    <p class="product-price">₹${product.price.toFixed(2)}</p>
                     
                     <!-- Color indicators -->
                     ${product.colors && product.colors.length > 0 ? `

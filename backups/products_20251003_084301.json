@@ -1,0 +1,253 @@
+[
+  {
+    "category": "primary",
+    "pricing": "originalPrice",
+    "images": "primary",
+    "variants": "colors",
+    "specifications": "material",
+    "sizing": "chart",
+    "inventory": "totalStock",
+    "shipping": "weight",
+    "seo": "metaTitle",
+    "marketing": "featured",
+    "status": "active",
+    "price": 0,
+    "id": null,
+    "name": null,
+    "description": null
+  },
+  {
+    "variants": "name",
+    "sizing": "S",
+    "id": null,
+    "name": null,
+    "price": null,
+    "description": null,
+    "category": null
+  },
+  {
+    "sizing": "chest",
+    "id": null,
+    "name": null,
+    "price": null,
+    "description": null,
+    "category": null
+  },
+  {
+    "id": "1",
+    "sku": "CT001",
+    "slug": "classic-cotton-t-shirt",
+    "name": "Classic Cotton T-Shirt",
+    "brand": "StyleCraft",
+    "description": "A premium quality cotton t-shirt with a comfortable fit. Made from 100% organic cotton, this versatile piece is perfect for everyday wear. Unisex design suitable for all.",
+    "shortDescription": "Premium organic cotton t-shirt with comfortable unisex fit",
+    "category": "Clothing",
+    "pricing": "1999",
+    "images": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&h=800&fit=crop&crop=center",
+    "variants": "Jet Black",
+    "specifications": "100% Organic Cotton",
+    "sizing": "86-91",
+    "inventory": "145",
+    "shipping": "0.25",
+    "seo": "Classic Cotton T-Shirt - Premium Organic Cotton | StyleCraft",
+    "marketing": "TRUE",
+    "status": "TRUE",
+    "price": null
+  },
+  {
+    "variants": "Pure White",
+    "id": null,
+    "name": null,
+    "price": null,
+    "description": null,
+    "category": null
+  },
+  {
+    "variants": "Navy Blue",
+    "id": null,
+    "name": null,
+    "price": null,
+    "description": null,
+    "category": null
+  },
+  {
+    "id": null,
+    "name": null,
+    "price": null,
+    "description": null,
+    "category": null
+  },
+  {
+    "id": null,
+    "name": null,
+    "price": null,
+    "description": null,
+    "category": null
+  },
+  {
+    "id": "2",
+    "sku": "PPS002",
+    "slug": "premium-polo-shirt",
+    "name": "Premium Polo Shirt",
+    "brand": "StyleCraft",
+    "description": "Sophisticated polo shirt with classic collar design. Perfect for corporate wear and casual outings. Premium cotton blend fabric with moisture-wicking properties.",
+    "shortDescription": "Sophisticated polo with classic collar, perfect for corporate and casual wear",
+    "category": "Clothing",
+    "pricing": "2499",
+    "images": "https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=800&h=800&fit=crop&crop=center",
+    "variants": "Navy Blue",
+    "specifications": "65% Cotton, 35% Polyester Blend",
+    "sizing": "88-92",
+    "inventory": "117",
+    "shipping": "0.28",
+    "seo": "Premium Polo Shirt - Corporate & Casual Wear | StyleCraft",
+    "marketing": "TRUE",
+    "status": "TRUE",
+    "price": null
+  },
+  {
+    "variants": "Classic White",
+    "id": null,
+    "name": null,
+    "price": null,
+    "description": null,
+    "category": null
+  },
+  {
+    "variants": "Steel Grey",
+    "id": null,
+    "name": null,
+    "price": null,
+    "description": null,
+    "category": null
+  },
+  {
+    "id": null,
+    "name": null,
+    "price": null,
+    "description": null,
+    "category": null
+  },
+  {
+    "id": null,
+    "name": null,
+    "price": null,
+    "description": null,
+    "category": null
+  },
+  {
+    "id": "3",
+    "sku": "EB003",
+    "slug": "elegant-blouse",
+    "name": "Elegant Silk Blouse",
+    "brand": "StyleCraft",
+    "description": "Beautiful women's blouse with flowing fabric and elegant design. Perfect for office wear and special occasions. Made from premium silk blend for comfort and sophistication.",
+    "shortDescription": "Elegant silk blouse perfect for office wear and special occasions",
+    "category": "Clothing",
+    "pricing": "3499",
+    "images": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=800&h=800&fit=crop&crop=center",
+    "variants": "Ivory Cream",
+    "specifications": "70% Silk, 30% Viscose Blend",
+    "inventory": "86",
+    "shipping": "0.2",
+    "seo": "Elegant Silk Blouse - Premium Women's Formal Wear | StyleCraft",
+    "marketing": "FALSE",
+    "status": "TRUE",
+    "price": null
+  },
+  {
+    "variants": "Dusty Rose",
+    "id": null,
+    "name": null,
+    "price": null,
+    "description": null,
+    "category": null
+  },
+  {
+    "variants": "Sage Green",
+    "id": null,
+    "name": null,
+    "price": null,
+    "description": null,
+    "category": null
+  },
+  {
+    "id": null,
+    "name": null,
+    "price": null,
+    "description": null,
+    "category": null
+  },
+  {
+    "id": null,
+    "name": null,
+    "price": null,
+    "description": null,
+    "category": null
+  },
+  {
+    "id": null,
+    "name": null,
+    "price": null,
+    "description": null,
+    "category": null
+  },
+  {
+    "id": "4",
+    "sku": "CS004",
+    "slug": "cozy-sweatshirt",
+    "name": "Cozy Winter Sweatshirt",
+    "brand": "StyleCraft",
+    "description": "Comfortable unisex sweatshirt perfect for casual wear and layering. Soft fleece interior and durable construction. Ideal for Indian winters and air-conditioned spaces.",
+    "shortDescription": "Cozy unisex sweatshirt with soft fleece interior, perfect for layering",
+    "category": "Clothing",
+    "pricing": "2499",
+    "images": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800&h=800&fit=crop&crop=center",
+    "variants": "Charcoal Grey",
+    "specifications": "80% Cotton, 20% Polyester Fleece",
+    "sizing": "92-96",
+    "inventory": "138",
+    "shipping": "0.45",
+    "seo": "Cozy Winter Sweatshirt - Fleece Interior Unisex Wear | StyleCraft",
+    "marketing": "TRUE",
+    "status": "TRUE",
+    "price": null
+  },
+  {
+    "variants": "Maroon Red",
+    "id": null,
+    "name": null,
+    "price": null,
+    "description": null,
+    "category": null
+  },
+  {
+    "variants": "Forest Green",
+    "id": null,
+    "name": null,
+    "price": null,
+    "description": null,
+    "category": null
+  },
+  {
+    "id": null,
+    "name": null,
+    "price": null,
+    "description": null,
+    "category": null
+  },
+  {
+    "id": null,
+    "name": null,
+    "price": null,
+    "description": null,
+    "category": null
+  },
+  {
+    "id": null,
+    "name": null,
+    "price": null,
+    "description": null,
+    "category": null
+  }
+]
